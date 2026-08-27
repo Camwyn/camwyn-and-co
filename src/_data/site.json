@@ -23,7 +23,7 @@
     {
       "num": "04",
       "label": "Say Hello",
-      "url": "/#say-hello"
+      "url": "#say-hello"
     }
   ]
 }

@@ -1,7 +1,7 @@
 # Product Requirements Document (PRD): Camwyn & Co
 
 ## 1. Executive Summary
-**Camwyn & Co** is an independent house of projects, ventures, experiments, and worthwhile adventures (including Mema's, creative brand collaborations, and emerging initiatives).
+**Camwyn & Co** is an independent house of projects, ventures, experiments, and worthwhile adventures (including Mema's Inclination, creative brand collaborations via poetic Entanglement, and emerging initiatives).
 
 The digital presence is an editorial, tactile, and highly interactive Jamstack static website built with **Eleventy (11ty)**, **Alpine.js**, and **Pure OCSS**.
 

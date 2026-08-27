@@ -1,32 +1,49 @@
 {
   "archetypes": {
+    "gatherer": {
+      "id": "gatherer",
+      "name": "The Gatherer",
+      "gift": "You bring warmth to good company.",
+      "tagline": "Rooted in hospitality, generous tables, and shared stories.",
+      "description": "You understand that good things are made to be shared. You bring people together and turn solitary efforts into vibrant communities.",
+      "lifePrompt": "Invite two people who should know each other to share a meal.",
+      "fieldPrompt": "Pull up a chair to our table notes and family recipes."
+    },
     "explorer": {
       "id": "explorer",
       "name": "The Explorer",
+      "gift": "You bring possibility to good company.",
       "tagline": "Drawn to the untraveled road and open possibilities.",
       "description": "You thrive where plans give way to curiosity. In every project, you provide the momentum and the instinct to see what lies beyond the next turn.",
+      "lifePrompt": "Take the unfamiliar route and document one thing you nearly missed.",
       "fieldPrompt": "Seek out uncharted notes and open-ended experiments."
     },
     "craftsman": {
       "id": "craftsman",
       "name": "The Craftsman",
+      "gift": "You bring shape to good ideas.",
       "tagline": "Driven by care, fine lines, and the patience of the workshop.",
       "description": "You know that beauty lives in the details. You take raw ideas and shape them into lasting, purposeful work.",
+      "lifePrompt": "Make the smallest real version of an idea you keep postponing.",
       "fieldPrompt": "Inspect our workbench dispatches and making-of notes."
-    },
-    "gatherer": {
-      "id": "gatherer",
-      "name": "The Gatherer",
-      "tagline": "Rooted in hospitality, generous tables, and shared stories.",
-      "description": "You understand that good things are made to be shared. You bring people together and turn solitary efforts into vibrant communities.",
-      "fieldPrompt": "Pull up a chair to our table notes and family recipes."
     },
     "catalyst": {
       "id": "catalyst",
       "name": "The Catalyst",
+      "gift": "`You bring momentum to good ideas.",
       "tagline": "Sparking action, cross-pollinating ideas, and defying inertia.",
       "description": "You connect disparate dots and ignite momentum. You refuse to let worthwhile adventures gather dust on a shelf.",
+      "lifePrompt": "Send the message that could start something worthwhile.",
       "fieldPrompt": "Explore active collaborations and in-progress ventures."
+    },
+    "storykeeper": {
+      "id": "stroykeeper",
+      "name": "The Storykeeper",
+      "gift": "You bring meaning to good company.",
+      "tagline": "Recording, remembering, and passing on good ideas.",
+      "description": "You find the meaning hiding in ordinary moments. You help people remember what matters and why it mattered.",
+      "lifePrompt": "Ask someone you love for a story you have never heard.",
+      "fieldPrompt": "Catch up on the latests news."
     }
   },
   "questions": [
