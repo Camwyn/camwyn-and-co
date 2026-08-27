@@ -1,0 +1,41 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "index": "01",
+      "tag": "Table note",
+      "title": "The case for staying a little longer",
+      "excerpt": "On full glasses, unhurried meals, and why the best part of gathering usually begins after dinner.",
+      "link": "#",
+      "archetype": "gatherer"
+    },
+    {
+      "id": 2,
+      "index": "02",
+      "tag": "Workbench",
+      "title": "Currently making: room",
+      "excerpt": "Not every good idea arrives with a plan. Here's what we're learning about protecting space for the unfinished.",
+      "link": "#",
+      "archetype": "craftsman"
+    },
+    {
+      "id": 3,
+      "index": "03",
+      "tag": "Dispatch",
+      "title": "Notes on taking the long road",
+      "excerpt": "Efficiency is fine for errands, but terrible for discovery. Why our best ventures started as happy detours.",
+      "link": "#",
+      "archetype": "explorer"
+    },
+    {
+      "id": 4,
+      "index": "04",
+      "tag": "Collaboration",
+      "title": "The physics of good partnerships",
+      "excerpt": "How complementary instincts turn fragile sparks into durable, exciting ventures.",
+      "link": "#",
+      "archetype": "catalyst"
+    }
+  ]
+}
+

@@ -1,0 +1,30 @@
+{
+  "name": "Camwyn & Co",
+  "tagline": "An Independent House of Projects",
+  "subtagline": "Big ideas. Good company.",
+  "contactEmail": "hello@camwynandco.com",
+  "year": 2026,
+  "nav": [
+    {
+      "num": "01",
+      "label": "Our Story",
+      "url": "/our-story/"
+    },
+    {
+      "num": "02",
+      "label": "Your Compass",
+      "url": "/#your-compass"
+    },
+    {
+      "num": "03",
+      "label": "What We Do",
+      "url": "/what-we-do/"
+    },
+    {
+      "num": "04",
+      "label": "Say Hello",
+      "url": "/#say-hello"
+    }
+  ]
+}
+
