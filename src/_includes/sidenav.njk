@@ -1,7 +1,9 @@
 <!-- Desktop Sidenav -->
 <aside class="c-sidenav" aria-label="Main Navigation">
   <div class="c-sidenav__header">
-    <a href="/" class="c-sidenav__brand">{{ site.name }}</a>
+    <a href="/" class="c-sidenav__brand-link" aria-label="{{ site.name }} homepage">
+      <img src="/assets/logo.svg" alt="{{ site.name }}" class="c-sidenav__logo" width="150" height="108">
+    </a>
     <p class="c-sidenav__tagline">{{ site.subtagline }}</p>
   </div>
 
@@ -23,10 +25,11 @@
 
 <!-- Mobile Navigation Header -->
 <header class="c-mobile-nav" aria-label="Mobile Navigation">
-  <a href="/" class="c-sidenav__brand" style="font-size: 1.25rem;">{{ site.name }}</a>
+  <a href="/" class="c-sidenav__brand-link" aria-label="{{ site.name }} homepage">
+    <img src="/assets/logo.svg" alt="{{ site.name }}" class="c-mobile-nav__logo" width="100" height="72">
+  </a>
   <div class="o-cluster" style="gap: 0.75rem;">
     <a href="/our-story/" class="c-nav-link__label" style="text-decoration: none; color: var(--color-primary);">Story</a>
     <a href="/what-we-do/" class="c-nav-link__label" style="text-decoration: none; color: var(--color-primary);">Ventures</a>
   </div>
 </header>
-

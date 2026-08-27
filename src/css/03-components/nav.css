@@ -41,6 +41,23 @@
   margin-bottom: var(--space-lg);
 }
 
+.c-sidenav__brand-link {
+  display: block;
+  text-decoration: none;
+}
+
+.c-sidenav__brand-link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+.c-sidenav__logo {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
 .c-sidenav__brand {
   font-family: var(--font-serif);
   font-size: 1.75rem;
@@ -58,7 +75,7 @@
   letter-spacing: 0.05em;
   color: var(--color-outline-dark);
   text-transform: uppercase;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 /* Navigation List & Links */
@@ -126,15 +143,20 @@
   line-height: 1.4;
 }
 
-/* Mobile Header Navigation */
 .c-mobile-nav {
   display: none;
-  padding: 1.25rem var(--grid-margin);
+  padding: 1rem var(--grid-margin);
   background-color: var(--color-paper-white);
   border-bottom: 1px solid var(--color-outline-variant);
   position: sticky;
   top: 0;
   z-index: 90;
+}
+
+.c-mobile-nav__logo {
+  display: block;
+  width: 100px;
+  height: auto;
 }
 
 @media (max-width: 768px) {
