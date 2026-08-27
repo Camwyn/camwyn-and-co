@@ -1,5 +1,4 @@
 *.code-workspace
 node_modules/
 _site/
-console.errors.txt
 digital_identity_mocks/**/code.html
