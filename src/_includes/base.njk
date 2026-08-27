@@ -3,21 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title | default("Camwyn & Co") }}</title>
+  <title>{{ title | default(site.name ~ " — " ~ site.tagline) }}</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
-  <!-- OCSS Tokens -->
+  <!-- OCSS Architecture -->
   <link rel="stylesheet" href="/css/01-settings/tokens.css">
+  <link rel="stylesheet" href="/css/02-objects/layout.css">
+  <link rel="stylesheet" href="/css/02-objects/stack.css">
+  <link rel="stylesheet" href="/css/03-components/nav.css">
+  <link rel="stylesheet" href="/css/03-components/hero.css">
+  <link rel="stylesheet" href="/css/03-components/compass.css">
+  <link rel="stylesheet" href="/css/03-components/note-card.css">
+  <link rel="stylesheet" href="/css/03-components/project-row.css">
+  <link rel="stylesheet" href="/css/03-components/footer.css">
+  <link rel="stylesheet" href="/css/04-utilities/typography.css">
+  <link rel="stylesheet" href="/css/04-utilities/spacing.css">
 
-  <!-- Alpine.js + Persist Plugin -->
+  <!-- Alpine Store Init -->
+  <script>
+    document.addEventListener('alpine:init', () => {
+      let initialResult = null;
+      try {
+        initialResult = localStorage.getItem('compassResult') || null;
+      } catch (e) {}
+
+      Alpine.store('compass', {
+        step: 1,
+        totalSteps: 5,
+        answers: {},
+        result: initialResult,
+        
+        // Questions and Archetypes matrices injected from JSON
+        archetypes: {{ compass.archetypes | dump | safe }},
+        questions: {{ compass.questions | dump | safe }},
+
+        selectOption(questionId, archetype) {
+          this.answers[questionId] = archetype;
+          if (this.step < this.totalSteps) {
+            this.step++;
+          } else {
+            this.calculateResult();
+          }
+        },
+
+        calculateResult() {
+          const counts = {};
+          Object.values(this.answers).forEach(arch => {
+            counts[arch] = (counts[arch] || 0) + 1;
+          });
+          const topArchetype = Object.keys(counts).reduce((a, b) => (counts[a] >= counts[b] ? a : b), 'explorer');
+          this.result = topArchetype;
+          try {
+            localStorage.setItem('compassResult', topArchetype);
+          } catch (e) {}
+          this.step = 6;
+        },
+
+        reset() {
+          this.step = 1;
+          this.answers = {};
+          this.result = null;
+          try {
+            localStorage.removeItem('compassResult');
+          } catch (e) {}
+        }
+      });
+    });
+  </script>
   <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body style="background-color: var(--color-paper-white); color: var(--color-coffee-black); font-family: var(--font-sans); margin: 0; padding: 2rem;">
-  {{ content | safe }}
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="c-skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  {% include "sidenav.njk" %}
+
+  <!-- Main Canvas -->
+  <div class="o-canvas">
+    <main id="main-content">
+      {{ content | safe }}
+    </main>
+
+    {% include "footer.njk" %}
+  </div>
 </body>
 </html>

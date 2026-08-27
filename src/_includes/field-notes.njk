@@ -1,0 +1,41 @@
+<section class="u-py-section" id="notes-from-the-field" aria-labelledby="notes-heading">
+  <div class="o-container o-container--wide">
+    <div class="o-grid" style="align-items: end; margin-bottom: var(--space-xl);">
+      <div style="grid-column: span 8;">
+        <p class="c-hero__eyebrow">Around here lately</p>
+        <h2 id="notes-heading" class="c-hero__title" style="font-size: clamp(2.25rem, 5vw, 4rem); margin-bottom: 0;">
+          Notes<br>from<br>the field.
+        </h2>
+      </div>
+      <div style="grid-column: span 4;">
+        <p class="c-hero__lead" style="font-size: 1rem; border-top: 1px solid var(--color-outline-variant); padding-top: var(--space-md);">
+          A living collection of things we're making, learning, tasting, and following. Small dispatches from a company that refuses to sit still.
+        </p>
+      </div>
+    </div>
+
+    <!-- Notes Grid with Pre-rendered HTML and Alpine dynamic filtering -->
+    <div class="c-notes-grid" x-data>
+      {% for note in fieldNotes.notes %}
+        <article 
+          class="c-note-card"
+          {% if note.archetype %}
+            :style="$store.compass.result && $store.compass.result === '{{ note.archetype }}' ? 'border-color: var(--color-muted-clay); background-color: var(--color-surface-container-low);' : ''"
+          {% endif %}
+        >
+          <div class="c-note-card__header">
+            <span>{{ note.tag }}</span>
+            <span class="u-font-mono">{{ note.index }}</span>
+          </div>
+          <h3 class="c-note-card__title">{{ note.title }}</h3>
+          <p class="c-note-card__excerpt">{{ note.excerpt }}</p>
+          <a href="{{ note.link }}" class="c-note-card__link" aria-label="Read note: {{ note.title }}">
+            <span>Read the note</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+

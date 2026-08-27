@@ -1,0 +1,69 @@
+<section class="c-compass-section" id="your-compass" aria-labelledby="compass-heading">
+  <div class="o-container o-container--wide">
+    <div class="c-compass-layout">
+      <!-- Left Intro -->
+      <div>
+        <p class="c-compass__intro-eyebrow">A small detour</p>
+        <h2 id="compass-heading" class="c-compass__intro-title">
+          Find your<br>
+          <span class="u-text-clay">adventure<br>compass.</span>
+        </h2>
+        <p class="c-compass__intro-desc">
+          Five questions. No wrong turns. Discover what you naturally bring to the next worthwhile adventure.
+        </p>
+      </div>
+
+      <!-- Right Interactive Quiz Card -->
+      <div class="c-compass-card" x-data aria-live="polite">
+        <div class="c-compass-card__top-bar"></div>
+
+        <!-- Questions View (Pre-rendered via Nunjucks with Alpine x-show toggles) -->
+        {% for q in compass.questions %}
+          <div 
+            x-show="!$store.compass.result && $store.compass.step === {{ q.id }}"
+            {% if q.id != 1 %}style="display: none;"{% endif %}
+          >
+            <div class="c-compass-card__meta">
+              <span>Question {{ q.id }} of {{ compass.questions | length }}</span>
+              <span class="u-font-mono">{{ q.number }}</span>
+            </div>
+
+            <h3 class="c-compass-card__prompt">{{ q.prompt }}</h3>
+
+            <div class="c-compass-options" role="group" aria-label="Options for question {{ q.id }}">
+              {% for opt in q.options %}
+                <button 
+                  type="button"
+                  class="c-compass-option"
+                  @click="$store.compass.selectOption({{ q.id }}, '{{ opt.archetype }}')"
+                >
+                  <span>{{ opt.text }}</span>
+                  <span class="c-compass-option__icon" aria-hidden="true">↗</span>
+                </button>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+
+        <!-- Result View (Step 6 / Persisted Result) -->
+        <div x-show="$store.compass.result || $store.compass.step === 6" style="display: none;" x-cloak>
+          <div class="c-compass-result">
+            <span class="c-compass-result__badge">Your Archetype · Discovery</span>
+            <h3 class="c-compass-result__name" x-text="$store.compass.archetypes[$store.compass.result] ? $store.compass.archetypes[$store.compass.result].name : ''"></h3>
+            <p class="c-compass-result__tagline" x-text="$store.compass.archetypes[$store.compass.result] ? $store.compass.archetypes[$store.compass.result].tagline : ''"></p>
+            <p class="c-compass-result__desc" x-text="$store.compass.archetypes[$store.compass.result] ? $store.compass.archetypes[$store.compass.result].description : ''"></p>
+            
+            <div class="u-border-top u-pt-sm u-mt-md">
+              <p class="u-font-mono u-text-muted" style="font-size: 0.8125rem;" x-text="$store.compass.archetypes[$store.compass.result] ? 'Field Recommendation: ' + $store.compass.archetypes[$store.compass.result].fieldPrompt : ''"></p>
+            </div>
+
+            <div class="c-compass-result__action">
+              <a href="#notes-from-the-field" class="c-btn c-btn--primary">Explore Recommended Notes ↗</a>
+              <button type="button" class="c-btn c-btn--secondary" @click="$store.compass.reset()">Retake Compass</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
