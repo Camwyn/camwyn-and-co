@@ -1,0 +1,34 @@
+name: camwyn-and-co
+
+proxy:
+  appserver:
+    - camwyn-and-co.lndo.site:8080
+
+services:
+  appserver:
+    type: node:20
+    port: 8080
+    ssl: true
+    sslExpose: false
+    command: npx @11ty/eleventy --serve
+    build:
+      - npm install
+
+tooling:
+  npm:
+    service: appserver
+  npx:
+    service: appserver
+  node:
+    service: appserver
+  11ty:
+    service: appserver
+    cmd: npx @11ty/eleventy
+  build:
+    service: appserver
+    cmd: npx @11ty/eleventy
+    description: "Build static output to _site"
+  dev:
+    service: appserver
+    cmd: npx @11ty/eleventy --serve
+    description: "Start Eleventy dev server"

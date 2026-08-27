@@ -1,0 +1,274 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>What We Do - Camwyn &amp; Co</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "paper-white": "#F9F8F6",
+                        "tertiary-container": "#1d1b1c",
+                        "muted-clay": "#8C7361",
+                        "outline": "#777771",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#5f5e5c",
+                        "on-tertiary-fixed-variant": "#494647",
+                        "secondary-container": "#ffd5b6",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe8e4",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c9c6c3",
+                        "on-tertiary-container": "#878384",
+                        "surface-container-low": "#f6f3ef",
+                        "surface-container": "#f0ede9",
+                        "primary-container": "#1c1c1a",
+                        "inverse-on-surface": "#f3f0ec",
+                        "on-secondary-container": "#795a42",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf9f5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "secondary": "#775840",
+                        "primary-fixed": "#e5e2de",
+                        "secondary-fixed-dim": "#e7bfa1",
+                        "on-tertiary-fixed": "#1d1b1c",
+                        "surface-bright": "#fcf9f5",
+                        "on-primary-fixed": "#1c1c1a",
+                        "on-surface-variant": "#474741",
+                        "on-primary-fixed-variant": "#474744",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e5e2de",
+                        "primary-fixed-dim": "#c9c6c3",
+                        "outline-variant": "#c8c7bf",
+                        "inverse-surface": "#31302e",
+                        "on-primary-container": "#858481",
+                        "surface-container-highest": "#e5e2de",
+                        "primary": "#000000",
+                        "on-secondary-fixed": "#2c1604",
+                        "tertiary": "#000000",
+                        "on-secondary-fixed-variant": "#5d412a",
+                        "surface": "#fcf9f5",
+                        "tertiary-fixed": "#e7e1e2",
+                        "surface-dim": "#dcdad6",
+                        "secondary-fixed": "#ffdcc3",
+                        "on-secondary": "#ffffff",
+                        "warm-sand": "#E8E2DA",
+                        "coffee-black": "#121211",
+                        "tertiary-fixed-dim": "#cbc5c6",
+                        "on-background": "#1c1c19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "section-gap": "8rem",
+                        "grid-margin": "4rem",
+                        "stack-lg": "3rem",
+                        "gutter": "1.5rem",
+                        "stack-md": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["DM Serif Display"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-hero": ["DM Serif Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "numeral-index": ["JetBrains Mono"],
+                        "headline-lg": ["DM Serif Display"],
+                        "display-hero-mobile": ["DM Serif Display"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "display-hero": ["84px", { "lineHeight": "1.0", "letterSpacing": "-0.03em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "numeral-index": ["14px", { "lineHeight": "1.0", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "fontWeight": "400" }],
+                        "display-hero-mobile": ["48px", { "lineHeight": "1.1", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-paper-white text-on-surface font-body-md antialiased flex">
+<!-- Side Nav -->
+<nav class="hidden md:flex flex-col p-8 gap-stack-lg fixed left-0 top-0 h-screen w-64 border-r border-outline-variant bg-paper-white z-50">
+<div class="mb-section-gap">
+<h1 class="font-headline-md text-headline-md uppercase tracking-tighter text-primary">Camwyn &amp; Co</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Big ideas. Good company.</p>
+</div>
+<ul class="flex flex-col gap-4 flex-grow">
+<li class="">
+<a class="group flex items-center justify-between text-on-surface-variant hover:text-primary transition-colors py-2 border-b border-transparent hover:border-outline-variant" href="#">
+<span class="font-numeral-index text-numeral-index opacity-50 mr-2">01</span>
+<span class="font-label-caps text-label-caps uppercase flex-grow">Our Story</span>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+</a>
+</li>
+<li class="">
+<a class="group flex items-center justify-between text-on-surface-variant hover:text-primary transition-colors py-2 border-b border-transparent hover:border-outline-variant" href="#">
+<span class="font-numeral-index text-numeral-index opacity-50 mr-2">02</span>
+<span class="font-label-caps text-label-caps uppercase flex-grow">Your Compass</span>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">explore</span>
+</a>
+</li>
+<li class="">
+<a class="group flex items-center justify-between text-primary border-b border-primary pb-1" href="#">
+<span class="font-numeral-index text-numeral-index opacity-50 mr-2">03</span>
+<span class="font-label-caps text-label-caps uppercase flex-grow">What We Do</span>
+<span class="material-symbols-outlined translate-x-1">work</span>
+</a>
+</li>
+<li class="">
+<a class="group flex items-center justify-between text-on-surface-variant hover:text-primary transition-colors py-2 border-b border-transparent hover:border-outline-variant" href="#">
+<span class="font-numeral-index text-numeral-index opacity-50 mr-2">04</span>
+<span class="font-label-caps text-label-caps uppercase flex-grow">Say Hello</span>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">mail</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto">
+<a class="font-label-caps text-label-caps uppercase text-primary hover:text-secondary transition-colors inline-flex items-center gap-2" href="#">Start Here ↓</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="w-full md:pl-64">
+<!-- Header Section -->
+<header class="w-full bg-coffee-black text-paper-white px-gutter md:px-grid-margin py-section-gap">
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-grid-margin justify-between items-start">
+<div class="flex-1">
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-outline-variant mb-6">Around here lately</p>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero uppercase tracking-tighter leading-none mb-8">
+                        What<br>we’re<br>building.
+                    </h1>
+</div>
+<div class="flex-1 md:pt-24 max-w-md">
+<p class="font-body-lg text-body-lg text-surface-variant">
+                        Different expressions, shared instincts. A look at the work taking shape under the Camwyn &amp; Co roof.
+                    </p>
+</div>
+</div>
+</header>
+<!-- Projects List (Bento-ish/Editorial Rows) -->
+<section class="w-full bg-coffee-black text-paper-white pb-section-gap px-gutter md:px-grid-margin">
+<div class="max-w-7xl mx-auto flex flex-col">
+<!-- Project 01: Mema's -->
+<article class="group w-full py-12 border-t border-outline-variant flex flex-col md:flex-row gap-8 items-start relative">
+<div class="w-full md:w-1/4 flex flex-col gap-4">
+<span class="font-numeral-index text-numeral-index text-outline-variant">01</span>
+<p class="font-label-caps text-label-caps uppercase text-outline-variant">Food / Gathering / Good stories</p>
+</div>
+<div class="w-full md:w-2/4">
+<h2 class="font-headline-lg text-headline-lg mb-6 group-hover:text-secondary-container transition-colors duration-300">Mema's</h2>
+<p class="font-body-md text-body-md text-surface-variant mb-8 max-w-lg">
+                            The heart of the family: familiar flavors, generous tables, and the kind of welcome that makes people stay awhile.
+                        </p>
+<a class="font-label-caps text-label-caps uppercase inline-flex items-center gap-2 hover:text-secondary-container transition-colors border-b border-transparent hover:border-secondary-container pb-1" href="#">
+                            Made to be shared ↗
+                        </a>
+</div>
+<div class="w-full md:w-1/4 overflow-hidden aspect-[4/3] relative">
+<img alt="Mema's organic farm" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105" data-alt="A warm, sunny organic farm at sunrise, focused on sustainable small-scale agriculture. Soft morning light, rows of vegetables, a traditional barn in the distance. Professional but rustic photography. Warm tones." src="https://lh3.googleusercontent.com/aida/AEtjO1VYRF1RTSJKee7GlUCXpjngY_gf9p796TuJkUNbz-9grjj2cAMo5oyu48vMVej7IJodzjhBnnZjXJGsFnKHflEyQ8B7k9YJQjmnInGN191MneXfBr5SCrtws3_qLbZF_8HiAvAKbvrEFMQ9BpeLgr8tYNwGmdYFP0uV5j1fTVimlgHzohTCFzWu0xl_coUzpFzqyNJS_A6HuX3K-iAptdRQ_P1qEfMbqU3mVkUWIvp4IL46cmu-460W59k">
+</div>
+</article>
+<!-- Project 02: Creative Work -->
+<article class="group w-full py-12 border-t border-outline-variant flex flex-col md:flex-row gap-8 items-start relative">
+<div class="w-full md:w-1/4 flex flex-col gap-4">
+<span class="font-numeral-index text-numeral-index text-outline-variant">02</span>
+<p class="font-label-caps text-label-caps uppercase text-outline-variant">Story / Brand / Collaboration</p>
+</div>
+<div class="w-full md:w-2/4">
+<h2 class="font-headline-lg text-headline-lg mb-6 group-hover:text-secondary-container transition-colors duration-300">Creative work</h2>
+<p class="font-body-md text-body-md text-surface-variant mb-8 max-w-lg">
+                            Ideas made useful through brand building, thoughtful storytelling, and collaborations shaped with instinct and intention.
+                        </p>
+<a class="font-label-caps text-label-caps uppercase inline-flex items-center gap-2 hover:text-secondary-container transition-colors border-b border-transparent hover:border-secondary-container pb-1" href="#">
+                            Curiosity at work ↗
+                        </a>
+</div>
+<div class="w-full md:w-1/4 flex gap-4">
+<div class="w-1/2 overflow-hidden aspect-[3/4] relative">
+<img alt="Web developer workspace" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105" data-alt="A clean, artisanal workshop or studio space where a web developer is working on a minimalist desk. Focus on the craft and the person, with warm wood textures and modern tech. Entrepreneurial spirit." src="https://lh3.googleusercontent.com/aida/AEtjO1U9fVNF6sqZpn41Tp24PpxigNMLW5ZYll-rDjHbDmjdN5RMKE2aQOG_3pA3Tugo43aG5Bpi2xosCl9qwMab5Nqv6HhRh2TKLjlpUVFE1tUH889oRPogSOlJRUc8WuUisfShS5PINZgiMZN_A0qLSEkx6UQuvEDGRDjOMIfjczgzJtchNW8JNworC7CFNtwRFUJRpMl4Bg_ikCFxgveOuXtP96MqGdOzXKH9EsN9ZDqKDOy2DjOT7QNlUw">
+</div>
+<div class="w-1/2 overflow-hidden aspect-[3/4] relative mt-8">
+<img alt="Creative marketing workspace" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105" data-alt="A creative marketing professional's workspace with sketches, color swatches, and a digital tablet. Vibrant but grounded, showing the 'craft' of marketing. Warm, inviting atmosphere." src="https://lh3.googleusercontent.com/aida/AEtjO1VtHm5kZwQB9YgcHIZ-LtmpDydjybPaGpJhL5kpnM8NWQA6iZABOqPqzv3mh3f_R8G3GhZto8iPIqe2o8rzfd2RkHQeASU5JUJr9UTDPZ7hbP8IBL4Jt5ejQrEU479xNKgiAZ10LahMy4FIi7uI_6pMabBwg-tslvQkeAh0ai6x8noi4eDaI8Kga5kSbKiyyeN7u5TnlOKK0fNHrf9zXm1T5CF0EflsCf_fp9bcRwqDi2c8UbI8_I9Su8c">
+</div>
+</div>
+</article>
+<!-- Project 03: The next thing -->
+<article class="group w-full py-12 border-t border-b border-outline-variant flex flex-col md:flex-row gap-8 items-start relative">
+<div class="w-full md:w-1/4 flex flex-col gap-4">
+<span class="font-numeral-index text-numeral-index text-outline-variant">03</span>
+<p class="font-label-caps text-label-caps uppercase text-outline-variant">Experiments / Possibility / Play</p>
+</div>
+<div class="w-full md:w-2/4">
+<h2 class="font-headline-lg text-headline-lg mb-6 group-hover:text-secondary-container transition-colors duration-300">The next thing</h2>
+<p class="font-body-md text-body-md text-surface-variant mb-8 max-w-lg">
+                            A permanent open door for the worthwhile adventures we haven’t met yet. The point is to keep making room.
+                        </p>
+<a class="font-label-caps text-label-caps uppercase inline-flex items-center gap-2 hover:text-secondary-container transition-colors border-b border-transparent hover:border-secondary-container pb-1" href="#">
+                            Always in progress ↗
+                        </a>
+</div>
+<div class="w-full md:w-1/4 flex items-center justify-center">
+<div class="w-24 h-24 border border-outline-variant rounded-full flex items-center justify-center group-hover:border-secondary-container group-hover:scale-110 transition-all duration-500">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary-container text-4xl">add</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- CTA / Let's see where it leads -->
+<section class="w-full bg-warm-sand py-section-gap px-gutter md:px-grid-margin">
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-grid-margin justify-between items-start">
+<div class="flex-1">
+<p class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-widest mb-6">Pull up a chair</p>
+<h2 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero uppercase tracking-tighter leading-none text-tertiary-container mb-8">
+                        Let’s see<br>where<br>this leads.
+                    </h2>
+</div>
+<div class="flex-1 md:pt-24 flex flex-col items-start gap-8">
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        For new projects, unexpected collaborations, or simply a good conversation.
+                    </p>
+<a class="inline-block bg-outline-variant hover:bg-on-surface text-paper-white px-8 py-4 font-label-caps text-label-caps uppercase tracking-wider transition-colors duration-300" href="mailto:hello@camwynandco.com">
+                        hello@camwynandco.com ↗
+                    </a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-12 px-grid-margin border-t border-outline-variant bg-paper-white">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full max-w-7xl mx-auto gap-8">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 Camwyn &amp; Co</p>
+<div class="flex flex-wrap gap-8 font-label-caps text-label-caps text-on-surface-variant">
+<p class="">Made with care, wherever we are.</p>
+</div>
+<div class="flex gap-6 font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-1" href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                        Back to Top ↑
+                    </a>
+</div>
+</div>
+</footer>
+</main>
+
+
+</body></html>

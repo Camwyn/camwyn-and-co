@@ -1,0 +1,4 @@
+*.code-workspace
+node_modules/
+
+digital_identity_mocks/**/code.html
