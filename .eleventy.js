@@ -4,8 +4,9 @@ module.exports = function(eleventyConfig) {
     showAllHosts: true,
   });
 
-  // Passthrough copy for CSS assets
+  // Passthrough copy for CSS and asset files
   eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/assets");
 
   return {
     dir: {

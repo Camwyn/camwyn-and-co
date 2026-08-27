@@ -32,3 +32,11 @@ tooling:
     service: appserver
     cmd: npx @11ty/eleventy --serve
     description: "Start Eleventy dev server"
+  test:
+    service: appserver
+    cmd: npm test
+    description: "Run 11ty build and a11y test"
+  test:a11y:
+    service: appserver
+    cmd: npm run test:a11y
+    description: "Run automated Axe/Pa11y accessibility audit"

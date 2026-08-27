@@ -1,0 +1,11 @@
+# Eleventy Ignore
+# Prevents non-site documentation, mocks, and scripts from being compiled into _site
+
+AI_CONTEXT.md
+digital_identity_mocks/
+.ai/
+.agentskills/
+scripts/
+console.errors.txt
+*.md
+
