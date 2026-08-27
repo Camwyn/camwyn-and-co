@@ -1,0 +1,71 @@
+/* ==========================================================================
+   03-COMPONENTS: Footer & Contact Blocks
+   ========================================================================== */
+
+.c-cta-section {
+  background-color: var(--color-warm-sand);
+  padding: var(--section-gap) 0;
+  border-top: 1px solid var(--color-outline-variant);
+}
+
+.c-cta-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--grid-margin);
+  align-items: center;
+}
+
+.c-cta__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.c-footer {
+  padding: var(--space-xl) var(--grid-margin);
+  border-top: 1px solid var(--color-outline-variant);
+  background-color: var(--color-paper-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-outline-dark);
+}
+
+.c-footer__links {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.c-footer__link {
+  color: var(--color-outline-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.c-footer__link:hover {
+  color: var(--color-primary);
+}
+
+.c-footer__link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .c-cta-layout {
+    grid-template-columns: 1fr;
+  }
+  .c-footer {
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: flex-start;
+  }
+}
+

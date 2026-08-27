@@ -1,0 +1,222 @@
+/* ==========================================================================
+   03-COMPONENTS: Adventure Compass Quiz
+   ========================================================================== */
+
+.c-compass-section {
+  background-color: var(--color-warm-sand);
+  border-top: 1px solid var(--color-outline-variant);
+  border-bottom: 1px solid var(--color-outline-variant);
+  padding: var(--section-gap) 0;
+}
+
+.c-compass-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: var(--grid-margin);
+  align-items: center;
+}
+
+.c-compass__intro-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-clay-text);
+  margin-bottom: var(--space-sm);
+}
+
+.c-compass__intro-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.c-compass__intro-desc {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+  max-width: 24rem;
+}
+
+/* Card Container */
+.c-compass-card {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-outline-variant);
+  padding: var(--space-lg);
+  position: relative;
+}
+
+.c-compass-card__top-bar {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background-color: var(--color-outline-variant);
+}
+
+.c-compass-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-outline-dark);
+  margin-bottom: var(--space-md);
+}
+
+.c-compass-card__prompt {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+}
+
+/* Options List & Buttons */
+.c-compass-options {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-outline-variant);
+}
+
+.c-compass-option {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-outline-variant);
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-on-surface-variant);
+  transition: background-color 0.2s ease, color 0.2s ease, padding 0.2s ease;
+  min-height: 48px;
+}
+
+.c-compass-option:hover {
+  background-color: var(--color-surface-container-low);
+  color: var(--color-primary);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.c-compass-option:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -2px;
+  background-color: var(--color-surface-container);
+}
+
+.c-compass-option__icon {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  color: var(--color-outline-dark);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.c-compass-option:hover .c-compass-option__icon {
+  color: var(--color-primary);
+  transform: translate(2px, -2px);
+}
+
+/* Result Reveal Card */
+.c-compass-result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.c-compass-result__badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-clay-text);
+}
+
+.c-compass-result__name {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-primary);
+}
+
+.c-compass-result__tagline {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-on-surface);
+  line-height: 1.4;
+}
+
+.c-compass-result__desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+}
+
+.c-compass-result__action {
+  margin-top: var(--space-md);
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.c-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-none);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  min-height: 44px;
+}
+
+.c-btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.c-btn--primary:hover {
+  background-color: var(--color-on-surface-variant);
+}
+
+.c-btn--secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-outline-variant);
+}
+
+.c-btn--secondary:hover {
+  border-color: var(--color-primary);
+}
+
+.c-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .c-compass-layout {
+    grid-template-columns: 1fr;
+  }
+}
+

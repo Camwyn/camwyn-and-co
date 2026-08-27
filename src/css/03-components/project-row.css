@@ -1,0 +1,130 @@
+/* ==========================================================================
+   03-COMPONENTS: Project Rows (What We're Building)
+   ========================================================================== */
+
+.c-dark-section {
+  background-color: var(--color-dark-surface);
+  color: var(--color-on-primary);
+  padding: var(--section-gap) 0;
+}
+
+.c-project-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-outline-on-dark);
+  margin-top: var(--space-lg);
+}
+
+.c-project-row {
+  display: grid;
+  grid-template-columns: 80px 1.25fr 1.25fr 2fr;
+  gap: var(--gutter);
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--color-outline-on-dark);
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease;
+  align-items: start;
+}
+
+.c-project-row:hover {
+  background-color: var(--color-tertiary-container);
+}
+
+.c-project-row:focus-visible {
+  outline: 2px solid var(--color-on-primary);
+  outline-offset: 2px;
+}
+
+.c-project-row__num {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-inverse-primary);
+}
+
+.c-project-row__category {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-inverse-primary);
+}
+
+.c-project-row__title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--color-on-primary);
+}
+
+.c-project-row__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.c-project-row__desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-inverse-primary);
+}
+
+.c-project-row__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-on-primary);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.25rem;
+  width: max-content;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.c-project-row:hover .c-project-row__cta {
+  color: var(--color-secondary-container);
+  border-bottom-color: var(--color-secondary-container);
+}
+
+/* Detailed Article Rows (Used on What We Do page) */
+.c-project-article {
+  display: grid;
+  grid-template-columns: 80px 1.5fr 2fr 1.5fr;
+  gap: var(--gutter);
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--color-outline-on-dark);
+  align-items: start;
+}
+
+.c-project-article:last-child {
+  border-bottom: 1px solid var(--color-outline-on-dark);
+}
+
+.c-project-article__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--color-outline-on-dark);
+  filter: grayscale(100%);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.c-project-article:hover .c-project-article__img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+@media (max-width: 900px) {
+  .c-project-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  .c-project-article {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+

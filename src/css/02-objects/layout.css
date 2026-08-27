@@ -1,0 +1,76 @@
+/* ==========================================================================
+   02-OBJECTS: Layout
+   ========================================================================== */
+
+/* Base HTML reset and sensible box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper-white);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Global Canvas / Wrapper for Desktop Sidenav */
+.o-canvas {
+  width: 100%;
+  min-height: 100vh;
+}
+
+@media (min-width: 769px) {
+  .o-canvas {
+    padding-left: var(--sidebar-width);
+  }
+}
+
+/* Maximum width content containers */
+.o-container {
+  width: 100%;
+  max-width: 72rem; /* 1152px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
+}
+
+.o-container--wide {
+  max-width: 80rem; /* 1280px */
+}
+
+.o-container--narrow {
+  max-width: 56rem; /* 896px */
+}
+
+/* Fluid 12-column Grid Primitive */
+.o-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+}
+
+/* Responsive Object Helpers */
+@media (max-width: 768px) {
+  .o-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* Alpine Cloak Utility */
+[x-cloak] {
+  display: none !important;
+}
+

@@ -1,18 +1,78 @@
 :root {
-  /* Colors */
+  /* ==========================================================================
+     Colors (Atelier Narrative Palette)
+     ========================================================================== */
+  
+  /* Primary Surfaces */
   --color-paper-white: #F9F8F6;
   --color-warm-sand: #E8E2DA;
+  --color-surface: #FCF9F5;
+  --color-surface-dim: #DCDAD6;
+  --color-surface-container-low: #F6F3EF;
+  --color-surface-container: #F0EDE9;
+  --color-surface-container-high: #EBE8E4;
+  --color-surface-container-highest: #E5E2DE;
+  
+  /* High-Contrast Texts & Foreground */
   --color-coffee-black: #121211;
-  --color-muted-clay: #8C7361;
+  --color-on-surface: #1C1C19;
+  --color-on-surface-variant: #474741;
+  --color-primary: #121211;
+  --color-on-primary: #FFFFFF;
+  
+  /* Brand Earth Tones & Accents */
+  --color-muted-clay: #8C7361;               /* Compliant for large text (>=24px) & accents */
+  --color-muted-clay-text: #735D4E;          /* Hardened for 5.8:1 contrast on paper-white */
+  --color-secondary-container: #FFD5B6;
+  --color-on-secondary-container: #795A42;
+  
+  /* Dark Mode / Dark Block Surfaces */
+  --color-dark-surface: #121211;
+  --color-tertiary-container: #1D1B1C;
+  --color-inverse-primary: #C9C6C3;
+  
+  /* Hairline Borders & Metadata */
+  --color-outline: #777771;
+  --color-outline-dark: #595954;             /* 6.6:1 contrast for small labels on light */
+  --color-outline-variant: #C8C7BF;          /* Subtle divider lines */
+  --color-outline-on-dark: #494647;
 
-  /* Typography */
+  /* Focus Indicator Token */
+  --color-focus: #121211;
+
+  /* ==========================================================================
+     Typography
+     ========================================================================== */
   --font-serif: 'DM Serif Display', Georgia, serif;
-  --font-sans: 'Hanken Grotesk', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
 
-  /* Spacing */
+  /* ==========================================================================
+     Spacing & Layout
+     ========================================================================== */
+  --section-gap: 8rem;
+  --grid-margin: 4rem;
+  --gutter: 1.5rem;
+  
+  --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1.5rem;
   --space-lg: 3rem;
-  --section-gap: 8rem;
+  --space-xl: 4rem;
+
+  --sidebar-width: 16rem; /* 256px */
+
+  /* ==========================================================================
+     Shape Language (Strictly Sharp)
+     ========================================================================== */
+  --radius-none: 0px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-gap: 4rem;
+    --grid-margin: 1.5rem;
+    --gutter: 1rem;
+    --space-lg: 2rem;
+  }
 }

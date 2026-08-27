@@ -1,0 +1,102 @@
+/* ==========================================================================
+   03-COMPONENTS: Hero & Section Headers
+   ========================================================================== */
+
+.c-hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--section-gap);
+  padding-bottom: calc(var(--section-gap) / 2);
+}
+
+.c-hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-outline-dark);
+  margin-bottom: var(--space-md);
+}
+
+.c-hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 7vw, 5.25rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.c-hero__title-accent {
+  color: var(--color-muted-clay);
+}
+
+.c-hero__footer {
+  border-top: 1px solid var(--color-outline-variant);
+  padding-top: var(--space-md);
+  margin-top: var(--space-lg);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gutter);
+  align-items: end;
+}
+
+.c-hero__lead {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+  max-width: 38rem;
+}
+
+.c-hero__callout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.c-hero__tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-outline-dark);
+}
+
+.c-hero__anchor {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.c-hero__anchor:hover {
+  color: var(--color-muted-clay);
+}
+
+.c-hero__anchor:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .c-hero {
+    min-height: auto;
+    padding-top: var(--space-lg);
+  }
+  .c-hero__footer {
+    grid-template-columns: 1fr;
+  }
+}
+
