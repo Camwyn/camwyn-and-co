@@ -35,7 +35,15 @@
       "excerpt": "How complementary instincts turn fragile sparks into durable, exciting ventures.",
       "link": "#",
       "archetype": "catalyst"
+    },
+    {
+      "id": 5,
+      "index": "05",
+      "tag": "Chronicle",
+      "title": "On remembering what mattered",
+      "excerpt": "Why ordinary moments carry the deepest meaning, and how passing stories down keeps good ideas alive.",
+      "link": "#",
+      "archetype": "storykeeper"
     }
   ]
 }
-
