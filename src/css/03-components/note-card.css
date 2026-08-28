@@ -43,6 +43,12 @@
   margin-bottom: var(--space-lg);
 }
 
+.c-note-card__icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
 .c-note-card__title {
   font-family: var(--font-serif);
   font-size: 1.5rem;

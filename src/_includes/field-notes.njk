@@ -24,8 +24,19 @@
           {% endif %}
         >
           <div class="c-note-card__header">
+            {% if compass.archetypes[note.archetype] %}
+              <img 
+                src="/assets/{{ compass.archetypes[note.archetype].icon }}.svg" 
+                alt="" 
+                aria-hidden="true" 
+                class="c-note-card__icon" 
+                width="30" 
+                height="30" 
+              />
+            {% else %}
+              <span></span>
+            {% endif %}
             <span>{{ note.tag }}</span>
-            <span class="u-font-mono">{{ note.index }}</span>
           </div>
           <h3 class="c-note-card__title">{{ note.title }}</h3>
           <p class="c-note-card__excerpt">{{ note.excerpt }}</p>
