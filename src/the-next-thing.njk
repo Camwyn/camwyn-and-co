@@ -1,0 +1,256 @@
+---
+layout: base.njk
+title: "The Next Thing — Start a Project with Camwyn & Co"
+description: "A permanent open door for worthwhile adventures. Tell us about your project, your natural archetype, and the complementary energy you need."
+permalink: "/the-next-thing/index.html"
+---
+
+<section class="c-form-section" aria-labelledby="form-heading">
+  <div class="o-container c-form-container" x-data="{
+    myArchetype: $store.compass.result || 'explorer',
+    neededArchetype: 'gatherer',
+    stage: 'sketch',
+    name: '',
+    email: '',
+    projectTitle: '',
+    spark: '',
+    support: '',
+    submitted: false,
+    submitForm() {
+      if (!this.name || !this.email || !this.spark) return;
+      this.submitted = true;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }">
+    <!-- Breadcrumb -->
+    <div style="margin-bottom: var(--space-lg);">
+      <a href="/" class="c-hero__anchor" style="font-size: 0.8125rem;">
+        ← Back to Camwyn &amp; Co
+      </a>
+    </div>
+
+    <!-- Header -->
+    <header class="c-form-header">
+      <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; letter-spacing: 0.1em; color: var(--color-muted-clay-text); margin-bottom: var(--space-sm);">
+        Experiments · Possibility · The Next Thing
+      </p>
+      <h1 id="form-heading" class="c-form-title">
+        Tell us about<br>
+        <span class="u-text-clay">the spark.</span>
+      </h1>
+      <p class="c-form-intro">
+        A permanent open door for the worthwhile adventures we haven't met yet. Whether it's a sketch in a notebook or a venture ready for its next chapter, tell us about what you're making.
+      </p>
+    </header>
+
+    <!-- Success Screen (Shown after submission) -->
+    <div class="c-form-success" x-show="submitted" style="display: none;" x-cloak>
+      <p class="c-form-success__badge">Dispatch Received</p>
+      <h2 class="c-form-success__title">Pull up a chair. We've got your note.</h2>
+      <p class="c-form-success__message">
+        Thank you, <strong x-text="name"></strong>. We read every project dispatch with care and unhurried attention.
+      </p>
+
+      <div class="c-form-success__summary o-stack" style="gap: var(--space-sm);">
+        <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text);">Project Summary</p>
+        <p><strong class="u-font-serif" style="font-size: 1.25rem;" x-text="projectTitle || 'Untitled Adventure'"></strong></p>
+        <div class="u-font-mono" style="font-size: 0.8125rem; color: var(--color-outline-dark);">
+          <span x-text="'Brought by: ' + ($store.compass.archetypes[myArchetype]?.name || myArchetype)"></span>
+          <span> · </span>
+          <span x-text="'Looking for: ' + ($store.compass.archetypes[neededArchetype]?.name || neededArchetype)"></span>
+        </div>
+      </div>
+
+      <div class="o-cluster" style="gap: var(--space-md);">
+        <a href="/" class="c-btn c-btn--primary">Return Home ↗</a>
+        <a href="/notes/" class="c-btn c-btn--secondary">Read Notes from the Field ↗</a>
+      </div>
+    </div>
+
+    <!-- The Guided Form -->
+    <form @submit.prevent="submitForm()" x-show="!submitted">
+      <!-- Section 1: Your Perspective / Archetype -->
+      <fieldset class="c-form-fieldset">
+        <legend class="c-form-legend">01 · Your Perspective</legend>
+        <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant); margin-bottom: var(--space-md); line-height: 1.5;">
+          What energy or instinct do you naturally bring to this idea? 
+          <span x-show="!$store.compass.result">
+            (Haven't taken our quiz yet? <a href="/#your-compass" target="_blank" style="color: var(--color-primary); text-decoration: underline;">Find your compass in 2 minutes ↗</a>)
+          </span>
+        </p>
+
+        <div class="c-archetype-grid" role="radiogroup" aria-label="Select your archetype">
+          {% for key, arch in compass.archetypes %}
+            <label class="c-archetype-choice" :class="{ 'is-selected': myArchetype === '{{ key }}' }">
+              <input 
+                type="radio" 
+                name="my_archetype" 
+                value="{{ key }}" 
+                x-model="myArchetype" 
+                class="u-visually-hidden"
+              />
+              <img 
+                src="/assets/{{ arch.icon }}.svg" 
+                alt="" 
+                aria-hidden="true" 
+                class="c-archetype-choice__icon" 
+                width="24" 
+                height="24" 
+              />
+              <div>
+                <span class="c-archetype-choice__name">{{ arch.name }}</span>
+                <p class="c-archetype-choice__desc">{{ arch.gift }}</p>
+              </div>
+            </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+
+      <!-- Section 2: Complementary Energy Needed -->
+      <fieldset class="c-form-fieldset">
+        <legend class="c-form-legend">02 · What This Project Needs Most</legend>
+        <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant); margin-bottom: var(--space-md); line-height: 1.5;">
+          Great ventures thrive on complementary strengths. What kind of energy is missing or needed to help this project take shape?
+        </p>
+
+        <div class="c-archetype-grid" role="radiogroup" aria-label="Select needed archetype">
+          {% for key, arch in compass.archetypes %}
+            <label class="c-archetype-choice" :class="{ 'is-selected': neededArchetype === '{{ key }}' }">
+              <input 
+                type="radio" 
+                name="needed_archetype" 
+                value="{{ key }}" 
+                x-model="neededArchetype" 
+                class="u-visually-hidden"
+              />
+              <img 
+                src="/assets/{{ arch.icon }}.svg" 
+                alt="" 
+                aria-hidden="true" 
+                class="c-archetype-choice__icon" 
+                width="24" 
+                height="24" 
+              />
+              <div>
+                <span class="c-archetype-choice__name">{{ arch.name }}</span>
+                <p class="c-archetype-choice__desc">{{ arch.tagline }}</p>
+              </div>
+            </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+
+      <!-- Section 3: The Spark & Project Details -->
+      <fieldset class="c-form-fieldset">
+        <legend class="c-form-legend">03 · The Project &amp; Contact</legend>
+
+        <div class="c-form-group">
+          <label class="c-label" for="inquiry-name">
+            <span>Your Name</span>
+            <span class="c-label__hint">Required</span>
+          </label>
+          <input 
+            type="text" 
+            id="inquiry-name" 
+            x-model="name" 
+            required 
+            class="c-input" 
+            placeholder="Jane Doe" 
+          />
+        </div>
+
+        <div class="c-form-group">
+          <label class="c-label" for="inquiry-email">
+            <span>Email Address</span>
+            <span class="c-label__hint">Required</span>
+          </label>
+          <input 
+            type="email" 
+            id="inquiry-email" 
+            x-model="email" 
+            required 
+            class="c-input" 
+            placeholder="jane@example.com" 
+          />
+        </div>
+
+        <div class="c-form-group">
+          <label class="c-label" for="inquiry-title">
+            <span>Working Title or Idea Name</span>
+            <span class="c-label__hint">Optional</span>
+          </label>
+          <input 
+            type="text" 
+            id="inquiry-title" 
+            x-model="projectTitle" 
+            class="c-input" 
+            placeholder="e.g. The Sunday Supper Guild / A Small Workshop Series" 
+          />
+        </div>
+
+        <!-- Project Stage -->
+        <div class="c-form-group">
+          <span class="c-label">Where does it live right now?</span>
+          <div class="c-stage-grid" role="radiogroup" aria-label="Project stage">
+            <label class="c-stage-choice" :class="{ 'is-selected': stage === 'sketch' }">
+              <input type="radio" name="project_stage" value="sketch" x-model="stage" />
+              <span>A rough sketch in a notebook</span>
+            </label>
+            <label class="c-stage-choice" :class="{ 'is-selected': stage === 'prototype' }">
+              <input type="radio" name="project_stage" value="prototype" x-model="stage" />
+              <span>A recipe or prototype in progress</span>
+            </label>
+            <label class="c-stage-choice" :class="{ 'is-selected': stage === 'active' }">
+              <input type="radio" name="project_stage" value="active" x-model="stage" />
+              <span>An active project ready to expand</span>
+            </label>
+            <label class="c-stage-choice" :class="{ 'is-selected': stage === 'open' }">
+              <input type="radio" name="project_stage" value="open" x-model="stage" />
+              <span>Looking for good company to start</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="c-form-group">
+          <label class="c-label" for="inquiry-spark">
+            <span>Tell us about the spark</span>
+            <span class="c-label__hint">Required</span>
+          </label>
+          <textarea 
+            id="inquiry-spark" 
+            x-model="spark" 
+            required 
+            class="c-textarea" 
+            rows="4" 
+            placeholder="What is the idea? What question or itch made you want to start it?"
+          ></textarea>
+        </div>
+
+        <div class="c-form-group">
+          <label class="c-label" for="inquiry-support">
+            <span>What kind of collaboration or help are you looking for?</span>
+            <span class="c-label__hint">Optional</span>
+          </label>
+          <textarea 
+            id="inquiry-support" 
+            x-model="support" 
+            class="c-textarea" 
+            rows="3" 
+            placeholder="Design, storytelling, recipe development, workshop space, sounding board..."
+          ></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Submit Action -->
+      <div style="margin-top: var(--space-xl); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md);">
+        <button type="submit" class="c-btn c-btn--primary" style="font-size: 0.875rem; padding: 1rem 2rem;">
+          Send Project Spark ↗
+        </button>
+
+        <p class="u-font-mono u-text-muted" style="font-size: 0.75rem;">
+          Direct inquiries always welcome at <a href="mailto:hello@camwyn.com" style="color: inherit; text-decoration: underline;">hello@camwyn.com</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</section>

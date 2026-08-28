@@ -1,0 +1,247 @@
+/* ==========================================================================
+   03-COMPONENTS: Form & Project Inquiry Controls
+   ========================================================================== */
+
+.c-form-section {
+  padding: var(--section-gap) 0;
+  background-color: var(--color-paper-white);
+}
+
+.c-form-container {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.c-form-header {
+  border-bottom: 1px solid var(--color-outline-variant);
+  padding-bottom: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.c-form-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.c-form-intro {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+  max-width: 38rem;
+}
+
+/* Fieldset & Form Groups */
+.c-form-fieldset {
+  border: 1px solid var(--color-outline-variant);
+  background-color: var(--color-surface);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.c-form-legend {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-clay-text);
+  padding: 0 var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.c-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: var(--space-lg);
+}
+
+.c-form-group:last-child {
+  margin-bottom: 0;
+}
+
+.c-label {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.c-label__hint {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: var(--color-outline-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.c-input,
+.c-textarea,
+.c-select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-primary);
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-none);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height: 48px;
+}
+
+.c-textarea {
+  min-height: 120px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.c-input:focus,
+.c-textarea:focus,
+.c-select:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -1px;
+  border-color: var(--color-primary);
+}
+
+/* Archetype Selector Radio Grid */
+.c-archetype-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-sm);
+  margin-top: 0.5rem;
+}
+
+.c-archetype-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: var(--space-md);
+  border: 1px solid var(--color-outline-variant);
+  background-color: var(--color-paper-white);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  user-select: none;
+}
+
+.c-archetype-choice:hover {
+  background-color: var(--color-surface-container-low);
+  border-color: var(--color-muted-clay);
+}
+
+.c-archetype-choice.is-selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-container);
+  box-shadow: inset 0 0 0 1px var(--color-primary);
+}
+
+.c-archetype-choice input[type="radio"] {
+  margin-top: 0.25rem;
+  accent-color: var(--color-primary);
+}
+
+.c-archetype-choice__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.c-archetype-choice__name {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.c-archetype-choice__desc {
+  font-size: 0.75rem;
+  color: var(--color-on-surface-variant);
+  line-height: 1.4;
+}
+
+/* Project Stage Options */
+.c-stage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-sm);
+  margin-top: 0.5rem;
+}
+
+.c-stage-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-outline-variant);
+  background-color: var(--color-paper-white);
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.c-stage-choice:hover {
+  background-color: var(--color-surface-container-low);
+}
+
+.c-stage-choice.is-selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-container);
+  font-weight: 500;
+}
+
+.c-stage-choice input[type="radio"] {
+  accent-color: var(--color-primary);
+}
+
+/* Success Confirmation Screen */
+.c-form-success {
+  border: 1px solid var(--color-outline-variant);
+  background-color: var(--color-surface-container-low);
+  padding: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+.c-form-success__badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-clay-text);
+  margin-bottom: var(--space-sm);
+}
+
+.c-form-success__title {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.c-form-success__message {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+  margin-bottom: var(--space-lg);
+}
+
+.c-form-success__summary {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-outline-variant);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 600px) {
+  .c-archetype-grid,
+  .c-stage-grid {
+    grid-template-columns: 1fr;
+  }
+}
