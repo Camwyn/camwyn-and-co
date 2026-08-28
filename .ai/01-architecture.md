@@ -3,6 +3,9 @@
 ## 1. System Topology & Paradigm
 Camwyn & Co is architected as a **Pure Static Site (Jamstack / SSG)** with zero backend server dependencies at runtime.
 
+> [!NOTE]
+> **Domain Note:** The live production deployment domain is **`https://camwyn.com`** (*not* `camwynandco.com`). All production canonical URLs, Open Graph endpoints, and metadata reflect `camwyn.com`. Local development uses `camwyn-and-co.lndo.site`.
+
 ```mermaid
 graph TD
     A[Source Templates Nunjucks + Markdown] -->|Eleventy Build| B[Static HTML Output _site/]

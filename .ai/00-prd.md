@@ -5,6 +5,12 @@
 
 The digital presence is an editorial, tactile, and highly interactive Jamstack static website built with **Eleventy (11ty)**, **Alpine.js**, and **Pure OCSS**.
 
+> [!IMPORTANT]
+> **Production Domain & URL Configuration:**
+> - **Canonical Production URL:** `https://camwyn.com` (Note: the live site domain is **`camwyn.com`**, *not* `camwynandco.com`).
+> - **Contact Email:** `hello@camwyn.com`
+> - **Local Development URL:** `https://camwyn-and-co.lndo.site`
+
 ## 2. Core User Personas & Intent
 - **The Curious Explorer:** Arrives looking for high-quality food, gatherings, brand stories, or collaborations; engages with the "Adventure Compass" quiz to discover their personal archetype.
 - **The Prospective Partner / Collaborator:** Evaluates Camwyn & Co's point of view, philosophy ("Smart can be warm. Ambitious can have soul. Serious work can still be fun."), and working ventures.
