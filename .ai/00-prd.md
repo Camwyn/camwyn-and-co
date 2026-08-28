@@ -31,7 +31,7 @@ The digital presence is an editorial, tactile, and highly interactive Jamstack s
 1. **Editorial Manifesto:** Detailed narrative on founding principles, curiosity, and family roots.
 2. **Visual Studio & Craft Photography:** Grayscale-to-color hover interactions with responsive imagery.
 3. **Four Core Values:** "Care over polish", "Useful over impressive", "People over process", "Curiosity, always".
-4. **Pull Up a Chair Contact Block:** Prominent call-to-action to `hello@camwynandco.com`.
+4. **Pull Up a Chair Contact Block:** Prominent call-to-action to `hello@camwyn.com`.
 
 ### Page 3: What We Do (`what-we-do.njk`)
 1. **Portfolio Header:** Dark-theme high-contrast header (`coffee-black` background).

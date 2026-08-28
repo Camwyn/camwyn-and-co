@@ -11,7 +11,7 @@
     {% for item in site.nav %}
       <div class="c-sidenav__item">
         <a href="{{ item.url }}" class="c-nav-link{% if page.url == item.url %} is-active{% endif %}">
-          <span class="c-nav-link__num">{{ item.num }}</span>
+          <img class="c-nav-link__icon" src="/assets/{{ item.icon }}.svg" alt="" aria-hidden="true" width="16" height="16" />
           <span class="c-nav-link__label">{{ item.label }}</span>
         </a>
       </div>

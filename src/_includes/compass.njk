@@ -48,10 +48,22 @@
         <!-- Result View (Step 6 / Persisted Result) -->
         <div x-show="$store.compass.result || $store.compass.step === 6" style="display: none;" x-cloak>
           <div class="c-compass-result">
-            <span class="c-compass-result__badge">Your Archetype · Discovery</span>
+            <span class="c-compass-result__badge">Your adventure compass points to</span>
+            <img 
+              class="c-compass-result__icon" 
+              :src="$store.compass.archetypes[$store.compass.result] ? '/assets/' + $store.compass.archetypes[$store.compass.result].icon + '.svg' : '/assets/compass.svg'" 
+              :alt="$store.compass.archetypes[$store.compass.result] ? $store.compass.archetypes[$store.compass.result].name + ' icon' : 'Compass icon'"
+              width="100"
+              height="100"
+            />
             <h3 class="c-compass-result__name" x-text="$store.compass.archetypes[$store.compass.result] ? $store.compass.archetypes[$store.compass.result].name : ''"></h3>
             <p class="c-compass-result__tagline" x-text="$store.compass.archetypes[$store.compass.result] ? $store.compass.archetypes[$store.compass.result].tagline : ''"></p>
             <p class="c-compass-result__desc" x-text="$store.compass.archetypes[$store.compass.result] ? $store.compass.archetypes[$store.compass.result].description : ''"></p>
+
+            <div class="c-compass-result__prompt" x-show="$store.compass.archetypes[$store.compass.result] && $store.compass.archetypes[$store.compass.result].lifePrompt">
+              <span class="c-compass-result__prompt-title">Your next small adventure</span>
+              <p class="c-compass-result__prompt-text" x-text="$store.compass.archetypes[$store.compass.result] ? $store.compass.archetypes[$store.compass.result].lifePrompt : ''"></p>
+            </div>
             
             <div class="u-border-top u-pt-sm u-mt-md">
               <p class="u-font-mono u-text-muted" style="font-size: 0.8125rem;" x-text="$store.compass.archetypes[$store.compass.result] ? 'Field Recommendation: ' + $store.compass.archetypes[$store.compass.result].fieldPrompt : ''"></p>

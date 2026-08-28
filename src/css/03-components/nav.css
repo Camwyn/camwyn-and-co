@@ -54,6 +54,7 @@
 .c-sidenav__logo {
   display: block;
   width: 100%;
+  margin: 0 auto;
   max-width: 150px;
   height: auto;
 }
@@ -74,6 +75,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   color: var(--color-outline-dark);
+  text-align: center;
   text-transform: uppercase;
   margin-top: 0.75rem;
 }
@@ -124,6 +126,10 @@
   font-family: var(--font-mono);
   font-size: 0.875rem;
   color: var(--color-outline-dark);
+}
+
+.c-nav-link__icon {
+  width: 1.5em;
 }
 
 .c-nav-link__label {
