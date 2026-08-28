@@ -1,0 +1,90 @@
+---
+layout: base.njk
+pagination:
+  data: compassArchetypes
+  size: 1
+  alias: arch
+permalink: "/compass/{{ arch.id }}/index.html"
+eleventyComputed:
+  title: "My Adventure Compass: {{ arch.name }} — Camwyn & Co"
+  description: "{{ arch.tagline }} Discover what you bring to the next worthwhile adventure."
+  ogImage: "{{ site.url }}/assets/og/{{ arch.id }}.svg"
+---
+
+<section class="u-py-section u-bg-warm-sand" style="min-height: 80vh; display: flex; align-items: center;" aria-labelledby="share-result-title">
+  <div class="o-container o-container--narrow">
+    <!-- Back / Context -->
+    <div style="margin-bottom: var(--space-lg);">
+      <a href="/" class="c-hero__anchor" style="font-size: 0.8125rem;">
+        ← Back to Camwyn &amp; Co
+      </a>
+    </div>
+
+    <!-- The Result Card (Server-rendered, 100% static & instant) -->
+    <div class="c-compass-card" style="box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+      <div class="c-compass-card__top-bar"></div>
+      
+      <div class="c-compass-result">
+        <span class="c-compass-result__badge">Adventure Compass · Result</span>
+        <img 
+          class="c-compass-result__icon" 
+          src="/assets/{{ arch.icon }}.svg" 
+          alt="{{ arch.name }} icon"
+          width="100"
+          height="100"
+        />
+        <h1 id="share-result-title" class="c-compass-result__name" style="font-size: 2.5rem;">{{ arch.name }}</h1>
+        <p class="c-compass-result__tagline">{{ arch.tagline }}</p>
+        <p class="c-compass-result__desc">{{ arch.description }}</p>
+
+        {% if arch.lifePrompt %}
+          <div class="c-compass-result__prompt">
+            <span class="c-compass-result__prompt-title">Your next small adventure</span>
+            <p class="c-compass-result__prompt-text">{{ arch.lifePrompt }}</p>
+          </div>
+        {% endif %}
+
+        {% if arch.fieldPrompt %}
+          <div class="u-border-top u-pt-sm u-mt-md">
+            <p class="u-font-mono u-text-muted" style="font-size: 0.8125rem;">Field Recommendation: {{ arch.fieldPrompt }}</p>
+          </div>
+        {% endif %}
+
+        <!-- Social Share Bar & Quiz Callout -->
+        <div class="u-border-top u-pt-md u-mt-lg o-stack" style="gap: var(--space-md);">
+          <div style="display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap;" x-data="{ copied: false }">
+            <a 
+              href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/compass/{{ arch.id }}/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="c-btn c-btn--secondary"
+              aria-label="Share this result on Facebook"
+            >
+              Share on Facebook ↗
+            </a>
+            
+            <button 
+              type="button" 
+              class="c-btn c-btn--secondary"
+              @click="navigator.clipboard.writeText('{{ site.url }}/compass/{{ arch.id }}/'); copied = true; setTimeout(() => copied = false, 2500)"
+            >
+              <span x-text="copied ? '✓ Copied Link!' : 'Copy Link'">Copy Link</span>
+            </button>
+          </div>
+
+          <div style="background: var(--color-surface); border: 1px solid var(--color-outline-variant); padding: var(--space-md); margin-top: var(--space-sm);">
+            <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text); margin-bottom: 0.25rem;">
+              Take the Quiz
+            </p>
+            <p style="font-size: 1rem; margin-bottom: var(--space-sm); color: var(--color-primary);">
+              Curious what archetype you naturally bring to the next adventure?
+            </p>
+            <a href="/#your-compass" class="c-btn c-btn--primary">
+              Find Your Adventure Compass ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

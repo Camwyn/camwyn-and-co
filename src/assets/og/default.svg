@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#F9F8F6" />
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#C8C7BF" stroke-width="2" />
+
+  <!-- Atelier Accent Line -->
+  <line x1="80" y1="80" x2="280" y2="80" stroke="#8C7361" stroke-width="4" />
+
+  <!-- Eyebrow -->
+  <text x="80" y="140" font-family="'JetBrains Mono', monospace" font-size="20" letter-spacing="4" fill="#735D4E" text-transform="uppercase">
+    AN INDEPENDENT HOUSE OF PROJECTS
+  </text>
+
+  <!-- Title -->
+  <text x="80" y="240" font-family="'DM Serif Display', Georgia, serif" font-size="76" fill="#121211">
+    A place for <tspan fill="#8C7361">good things</tspan>
+  </text>
+  <text x="80" y="320" font-family="'DM Serif Display', Georgia, serif" font-size="76" fill="#121211">
+    to take shape.
+  </text>
+
+  <!-- Subtitle -->
+  <text x="80" y="420" font-family="'Hanken Grotesk', sans-serif" font-size="28" fill="#474741">
+    The home of Mema's and a growing collection of ventures,
+  </text>
+  <text x="80" y="460" font-family="'Hanken Grotesk', sans-serif" font-size="28" fill="#474741">
+    experiments, and worthwhile adventures.
+  </text>
+
+  <!-- Footer Brand Mark -->
+  <g transform="translate(1000, 470)">
+    <circle cx="45" cy="45" r="40" fill="#121211" />
+    <text x="45" y="58" font-family="'DM Serif Display', Georgia, serif" font-size="40" fill="#F9F8F6" text-anchor="middle">C</text>
+  </g>
+  <text x="80" y="530" font-family="'JetBrains Mono', monospace" font-size="18" letter-spacing="2" fill="#595954" text-transform="uppercase">
+    CAMWYN &amp; CO · CAMWYNANDCO.COM
+  </text>
+</svg>

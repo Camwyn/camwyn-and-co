@@ -69,6 +69,55 @@
               <p class="u-font-mono u-text-muted" style="font-size: 0.8125rem;" x-text="$store.compass.archetypes[$store.compass.result] ? 'Field Recommendation: ' + $store.compass.archetypes[$store.compass.result].fieldPrompt : ''"></p>
             </div>
 
+            <!-- Social Share Bar -->
+            <div class="c-compass-share-group u-border-top u-pt-sm u-mt-sm" x-data="{ copied: false }">
+              <span class="u-font-mono u-text-uppercase" style="font-size: 0.6875rem; letter-spacing: 0.1em; color: var(--color-muted-clay-text);">Share your result</span>
+              <div class="o-cluster" style="gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
+                <!-- Native Web Share API -->
+                <button 
+                  type="button" 
+                  class="c-btn c-btn--secondary"
+                  style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
+                  x-show="'share' in navigator"
+                  @click="
+                    navigator.share({
+                      title: 'My Adventure Compass: ' + ($store.compass.archetypes[$store.compass.result]?.name || ''),
+                      text: $store.compass.archetypes[$store.compass.result]?.tagline || '',
+                      url: '{{ site.url }}/compass/' + $store.compass.result + '/'
+                    }).catch(() => {})
+                  "
+                >
+                  Share ↗
+                </button>
+
+                <!-- Facebook Direct Share -->
+                <a 
+                  :href="'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('{{ site.url }}/compass/' + $store.compass.result + '/')" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="c-btn c-btn--secondary"
+                  style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
+                  aria-label="Share result on Facebook"
+                >
+                  Facebook ↗
+                </a>
+
+                <!-- Copy Link Button -->
+                <button 
+                  type="button" 
+                  class="c-btn c-btn--secondary"
+                  style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
+                  @click="
+                    navigator.clipboard.writeText('{{ site.url }}/compass/' + $store.compass.result + '/');
+                    copied = true;
+                    setTimeout(() => copied = false, 2500);
+                  "
+                >
+                  <span x-text="copied ? '✓ Copied!' : 'Copy Link'">Copy Link</span>
+                </button>
+              </div>
+            </div>
+
             <div class="c-compass-result__action">
               <a href="#notes-from-the-field" class="c-btn c-btn--primary">Explore Recommended Notes ↗</a>
               <button type="button" class="c-btn c-btn--secondary" @click="$store.compass.reset()">Retake Compass</button>

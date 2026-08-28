@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#F9F8F6" />
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#C8C7BF" stroke-width="2" />
+  <line x1="80" y1="80" x2="280" y2="80" stroke="#8C7361" stroke-width="4" />
+
+  <text x="80" y="130" font-family="'JetBrains Mono', monospace" font-size="18" letter-spacing="4" fill="#735D4E" text-transform="uppercase">
+    ADVENTURE COMPASS · DISCOVERY
+  </text>
+
+  <text x="80" y="210" font-family="'DM Serif Display', Georgia, serif" font-size="70" fill="#121211">
+    The Storykeeper
+  </text>
+
+  <text x="80" y="270" font-family="'Hanken Grotesk', sans-serif" font-size="28" font-weight="500" fill="#8C7361">
+    Recording, remembering, and passing on good ideas.
+  </text>
+
+  <text x="80" y="340" font-family="'Hanken Grotesk', sans-serif" font-size="22" fill="#474741">
+    You find the meaning hiding in ordinary moments. You help people
+  </text>
+  <text x="80" y="375" font-family="'Hanken Grotesk', sans-serif" font-size="22" fill="#474741">
+    remember what matters and why it mattered.
+  </text>
+
+  <!-- Prompt Box -->
+  <rect x="80" y="420" width="1040" height="90" fill="#E8E2DA" stroke="#C8C7BF" stroke-width="1" />
+  <text x="110" y="455" font-family="'JetBrains Mono', monospace" font-size="14" letter-spacing="2" fill="#735D4E" text-transform="uppercase">
+    NEXT SMALL ADVENTURE
+  </text>
+  <text x="110" y="485" font-family="'Hanken Grotesk', sans-serif" font-size="20" font-weight="500" fill="#121211">
+    Ask someone you love for a story you have never heard.
+  </text>
+
+  <text x="80" y="550" font-family="'JetBrains Mono', monospace" font-size="16" letter-spacing="2" fill="#595954" text-transform="uppercase">
+    CAMWYN &amp; CO · FIND YOUR COMPASS AT CAMWYNANDCO.COM
+  </text>
+</svg>

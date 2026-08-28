@@ -4,7 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title | default(site.name ~ " — " ~ site.tagline) }}</title>
+  <meta name="description" content="{{ description | default('Camwyn & Co is an independent house of projects, ventures, experiments, and worthwhile adventures.') }}">
+  
+  <!-- Open Graph & Social Cards -->
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:type" content="{{ ogType | default('website') }}">
+  <meta property="og:title" content="{{ title | default(site.name ~ " — " ~ site.tagline) }}">
+  <meta property="og:description" content="{{ description | default('An independent house of projects, ventures, experiments, and worthwhile adventures.') }}">
+  <meta property="og:url" content="{{ site.url ~ page.url }}">
+  <meta property="og:image" content="{{ ogImage | default(site.url ~ '/assets/og/default.svg') }}">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title | default(site.name ~ " — " ~ site.tagline) }}">
+  <meta name="twitter:description" content="{{ description | default('An independent house of projects, ventures, experiments, and worthwhile adventures.') }}">
+  <meta name="twitter:image" content="{{ ogImage | default(site.url ~ '/assets/og/default.svg') }}">
+
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="canonical" href="{{ site.url ~ page.url }}">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
