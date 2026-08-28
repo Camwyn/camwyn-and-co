@@ -108,7 +108,7 @@
                   class="c-btn c-btn--secondary"
                   style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
                   @click="
-                    navigator.clipboard.writeText('{{ site.url }}/compass/' + $store.compass.result + '/');
+                    copyToClipboard(window.location.origin + '/compass/' + $store.compass.result + '/');
                     copied = true;
                     setTimeout(() => copied = false, 2500);
                   "

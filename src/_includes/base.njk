@@ -40,8 +40,30 @@
   <link rel="stylesheet" href="/css/04-utilities/typography.css">
   <link rel="stylesheet" href="/css/04-utilities/spacing.css">
 
-  <!-- Alpine Store Init -->
+  <!-- Utilities & Alpine Store Init -->
   <script>
+    window.copyToClipboard = function(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      } else {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand('copy');
+        } catch (err) {
+          console.error('Fallback copy failed', err);
+        }
+        document.body.removeChild(textArea);
+        return Promise.resolve();
+      }
+    };
+
     document.addEventListener('alpine:init', () => {
       let initialResult = null;
       try {

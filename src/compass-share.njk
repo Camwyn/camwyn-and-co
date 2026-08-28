@@ -66,7 +66,7 @@ eleventyComputed:
             <button 
               type="button" 
               class="c-btn c-btn--secondary"
-              @click="navigator.clipboard.writeText('{{ site.url }}/compass/{{ arch.id }}/'); copied = true; setTimeout(() => copied = false, 2500)"
+              @click="copyToClipboard(window.location.origin + '/compass/{{ arch.id }}/'); copied = true; setTimeout(() => copied = false, 2500)"
             >
               <span x-text="copied ? '✓ Copied Link!' : 'Copy Link'">Copy Link</span>
             </button>
@@ -88,3 +88,4 @@ eleventyComputed:
     </div>
   </div>
 </section>
+
