@@ -93,7 +93,9 @@ const pages = [
   { name: 'Our Story', file: path.join(__dirname, '../_site/our-story/index.html') },
   { name: 'What We Do', file: path.join(__dirname, '../_site/what-we-do/index.html') },
   { name: 'Compass Result (Explorer)', file: path.join(__dirname, '../_site/compass/explorer/index.html') },
-  { name: 'Compass Result (Gatherer)', file: path.join(__dirname, '../_site/compass/gatherer/index.html') }
+  { name: 'Compass Result (Gatherer)', file: path.join(__dirname, '../_site/compass/gatherer/index.html') },
+  { name: 'Notes Index', file: path.join(__dirname, '../_site/notes/index.html') },
+  { name: 'Field Note Article', file: path.join(__dirname, '../_site/notes/the-case-for-staying-a-little-longer/index.html') }
 ];
 
 async function runAxeAudit() {

@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title | default(site.name ~ " — " ~ site.tagline) }}</title>
+  <title>{{ pageTitle | default(title | default(site.name ~ " — " ~ site.tagline)) }}</title>
   <meta name="description" content="{{ description | default('Camwyn & Co is an independent house of projects, ventures, experiments, and worthwhile adventures.') }}">
   
   <!-- Open Graph & Social Cards -->
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:type" content="{{ ogType | default('website') }}">
-  <meta property="og:title" content="{{ title | default(site.name ~ " — " ~ site.tagline) }}">
+  <meta property="og:title" content="{{ pageTitle | default(title | default(site.name ~ " — " ~ site.tagline)) }}">
   <meta property="og:description" content="{{ description | default('An independent house of projects, ventures, experiments, and worthwhile adventures.') }}">
   <meta property="og:url" content="{{ site.url ~ page.url }}">
   <meta property="og:image" content="{{ ogImage | default(site.url ~ '/assets/og/default.svg') }}">
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ title | default(site.name ~ " — " ~ site.tagline) }}">
+  <meta name="twitter:title" content="{{ pageTitle | default(title | default(site.name ~ " — " ~ site.tagline)) }}">
   <meta name="twitter:description" content="{{ description | default('An independent house of projects, ventures, experiments, and worthwhile adventures.') }}">
   <meta name="twitter:image" content="{{ ogImage | default(site.url ~ '/assets/og/default.svg') }}">
 
@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="/css/03-components/compass.css">
   <link rel="stylesheet" href="/css/03-components/note-card.css">
   <link rel="stylesheet" href="/css/03-components/project-row.css">
+  <link rel="stylesheet" href="/css/03-components/article.css">
   <link rel="stylesheet" href="/css/03-components/footer.css">
   <link rel="stylesheet" href="/css/04-utilities/typography.css">
   <link rel="stylesheet" href="/css/04-utilities/spacing.css">

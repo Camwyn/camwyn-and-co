@@ -1,0 +1,106 @@
+---
+layout: base.njk
+ogType: article
+eleventyComputed:
+  pageTitle: "{{ title }} — Notes from the Field | {{ site.name }}"
+  description: "{{ excerpt }}"
+  ogImage: "{{ site.url }}/assets/og/{{ archetype | default('default') }}.svg"
+---
+
+<article class="c-article" aria-labelledby="article-title">
+  <!-- Breadcrumb Navigation -->
+  <a href="/notes/" class="c-article__back">
+    <span aria-hidden="true">←</span> Back to Notes from the Field
+  </a>
+
+  <!-- Article Header -->
+  <header class="c-article__header">
+    <div class="c-article__category">
+      <img 
+        src="/assets/{{ archetype | archetypeIcon }}.svg" 
+        alt="" 
+        aria-hidden="true" 
+        class="c-article__category-icon"
+        width="18"
+        height="18"
+      />
+      <span>{{ archetype | archetypeTag }}</span>
+    </div>
+
+    <h1 id="article-title" class="c-article__title">{{ title }}</h1>
+
+    {% if excerpt %}
+      <p class="c-article__excerpt">{{ excerpt }}</p>
+    {% endif %}
+
+    <div class="c-article__meta">
+      <span>{{ author | default(site.name) }}</span>
+      <span class="c-article__meta-sep" aria-hidden="true">/</span>
+      <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+      <span class="c-article__meta-sep" aria-hidden="true">/</span>
+      <span>{{ content | readingTime }}</span>
+    </div>
+  </header>
+
+  <!-- Editorial Markdown Body -->
+  <div class="c-article__body">
+    {{ content | safe }}
+  </div>
+
+  <!-- Article Footer -->
+  <footer class="c-article__footer">
+    <!-- Archetype Callout Box -->
+    <div class="c-article-archetype-badge">
+      <img 
+        src="/assets/{{ archetype | archetypeIcon }}.svg" 
+        alt="" 
+        aria-hidden="true" 
+        class="c-article-archetype-badge__icon"
+        width="40"
+        height="40"
+      />
+      <div>
+        <h3 class="c-article-archetype-badge__title">Dispatches from {{ archetype | archetypeName }}</h3>
+        <p class="c-article-archetype-badge__tagline">
+          Curious what natural energy you bring to the next worthwhile venture? 
+          <a href="/#your-compass" style="font-weight: 500;">Find your Adventure Compass ↗</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Social Share & Return Actions -->
+    <div class="o-stack" style="gap: var(--space-md);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md);" x-data="{ copied: false }">
+        <div class="o-cluster" style="gap: 0.5rem;">
+          <a 
+            href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="c-btn c-btn--secondary"
+            style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
+            aria-label="Share article on Facebook"
+          >
+            Share on Facebook ↗
+          </a>
+
+          <button 
+            type="button" 
+            class="c-btn c-btn--secondary"
+            style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
+            @click="
+              copyToClipboard(window.location.origin + '{{ page.url }}');
+              copied = true;
+              setTimeout(() => copied = false, 2500);
+            "
+          >
+            <span x-text="copied ? '✓ Copied Link!' : 'Copy Link'">Copy Link</span>
+          </button>
+        </div>
+
+        <a href="/notes/" class="c-btn c-btn--primary" style="padding: 0.5rem 1rem; font-size: 0.6875rem; min-height: 38px;">
+          All Field Notes ↗
+        </a>
+      </div>
+    </div>
+  </footer>
+</article>

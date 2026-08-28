@@ -7,5 +7,6 @@ digital_identity_mocks/
 .agentskills/
 scripts/
 console.errors.txt
-*.md
-
+/README.md
+/*.md
+!src/**/*.md
