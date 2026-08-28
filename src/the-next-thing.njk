@@ -7,8 +7,8 @@ permalink: "/the-next-thing/index.html"
 
 <section class="c-form-section" aria-labelledby="form-heading">
   <div class="o-container c-form-container" x-data="{
-    myArchetype: $store.compass.result || 'explorer',
-    neededArchetype: 'gatherer',
+    myArchetype: $store.compass.result || '',
+    neededArchetype: 'open',
     stage: 'sketch',
     name: '',
     email: '',
@@ -55,9 +55,9 @@ permalink: "/the-next-thing/index.html"
         <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text);">Project Summary</p>
         <p><strong class="u-font-serif" style="font-size: 1.25rem;" x-text="projectTitle || 'Untitled Adventure'"></strong></p>
         <div class="u-font-mono" style="font-size: 0.8125rem; color: var(--color-outline-dark);">
-          <span x-text="'Brought by: ' + ($store.compass.archetypes[myArchetype]?.name || myArchetype)"></span>
+          <span x-text="'Brought by: ' + (myArchetype ? ($store.compass.archetypes[myArchetype]?.name || myArchetype) : 'Still Exploring')"></span>
           <span> · </span>
-          <span x-text="'Looking for: ' + ($store.compass.archetypes[neededArchetype]?.name || neededArchetype)"></span>
+          <span x-text="'Looking for: ' + (neededArchetype === 'open' ? 'A Mix / Open Exploration' : ($store.compass.archetypes[neededArchetype]?.name || 'Open Collaboration'))"></span>
         </div>
       </div>
 
@@ -69,9 +69,9 @@ permalink: "/the-next-thing/index.html"
 
     <!-- The Guided Form -->
     <form @submit.prevent="submitForm()" x-show="!submitted">
-      <!-- Section 1: Your Perspective / Archetype -->
+      <!-- Section 1: Your Perspective / Archetype (Optional) -->
       <fieldset class="c-form-fieldset">
-        <legend class="c-form-legend">01 · Your Perspective</legend>
+        <legend class="c-form-legend">01 · Your Perspective (Optional)</legend>
         <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant); margin-bottom: var(--space-md); line-height: 1.5;">
           What energy or instinct do you naturally bring to this idea? 
           <span x-show="!$store.compass.result">
@@ -79,7 +79,7 @@ permalink: "/the-next-thing/index.html"
           </span>
         </p>
 
-        <div class="c-archetype-grid" role="radiogroup" aria-label="Select your archetype">
+        <div class="c-archetype-grid" role="radiogroup" aria-label="Select your archetype (optional)">
           {% for key, arch in compass.archetypes %}
             <label class="c-archetype-choice" :class="{ 'is-selected': myArchetype === '{{ key }}' }">
               <input 
@@ -103,6 +103,29 @@ permalink: "/the-next-thing/index.html"
               </div>
             </label>
           {% endfor %}
+
+          <!-- Option 6: Still Exploring / Unsure -->
+          <label class="c-archetype-choice" :class="{ 'is-selected': myArchetype === '' || myArchetype === 'unsure' }">
+            <input 
+              type="radio" 
+              name="my_archetype" 
+              value="" 
+              x-model="myArchetype" 
+              class="u-visually-hidden"
+            />
+            <img 
+              src="/assets/question.svg" 
+              alt="" 
+              aria-hidden="true" 
+              class="c-archetype-choice__icon" 
+              width="24" 
+              height="24" 
+            />
+            <div>
+              <span class="c-archetype-choice__name">Still Exploring</span>
+              <p class="c-archetype-choice__desc">Not sure yet or haven't taken the compass.</p>
+            </div>
+          </label>
         </div>
       </fieldset>
 
@@ -137,6 +160,29 @@ permalink: "/the-next-thing/index.html"
               </div>
             </label>
           {% endfor %}
+
+          <!-- Option 6: A Mix / Unsure / Open -->
+          <label class="c-archetype-choice" :class="{ 'is-selected': neededArchetype === 'open' }">
+            <input 
+              type="radio" 
+              name="needed_archetype" 
+              value="open" 
+              x-model="neededArchetype" 
+              class="u-visually-hidden"
+            />
+            <img 
+              src="/assets/question.svg" 
+              alt="" 
+              aria-hidden="true" 
+              class="c-archetype-choice__icon" 
+              width="24" 
+              height="24" 
+            />
+            <div>
+              <span class="c-archetype-choice__name">A Mix / Not Sure Yet</span>
+              <p class="c-archetype-choice__desc">Looking for more than one strength, or open to discovery.</p>
+            </div>
+          </label>
         </div>
       </fieldset>
 
@@ -236,7 +282,7 @@ permalink: "/the-next-thing/index.html"
             x-model="support" 
             class="c-textarea" 
             rows="3" 
-            placeholder="Design, storytelling, recipe development, workshop space, sounding board..."
+            placeholder="Design, storytelling, recipe development, workshop space, sounding board, a mix of skills..."
           ></textarea>
         </div>
       </fieldset>
