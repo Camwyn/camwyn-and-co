@@ -27,8 +27,8 @@
     {
       "num": "04",
       "icon": "chat",
-      "label": "Say Hello",
-      "url": "#say-hello"
+      "label": "Field Notes",
+      "url": "/notes/"
     }
   ]
 }

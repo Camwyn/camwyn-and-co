@@ -25,3 +25,4 @@ When we look back at our strongest ventures and partnerships, none of them came 
 3. **Say yes to the unfamiliar route:** If you've taken the same path three times in a row, deliberately choose another one today.
 
 There are no wrong turns when curiosity is leading the way.
+

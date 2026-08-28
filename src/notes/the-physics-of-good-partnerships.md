@@ -29,3 +29,4 @@ When that alignment exists, a project moves from hesitation to inevitability.
 3. **Protect generosity:** Great ventures are built on shared credit, open doors, and mutual enthusiasm.
 
 Small spark, steady fire, worthwhile adventure.
+

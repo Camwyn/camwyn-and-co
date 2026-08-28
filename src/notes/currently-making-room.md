@@ -25,3 +25,4 @@ If you force an idea to look finished before it has found its true structure, yo
 - **Leave room for tomorrow's revision:** Never close the box until you've tested how it feels in everyday use.
 
 Make room for the unfinished. The best work takes time to find its shape.
+

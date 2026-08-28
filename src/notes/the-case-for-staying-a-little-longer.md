@@ -25,3 +25,4 @@ When you remove the rush to wrap things up, the conversation shifts from surface
 3. **Protect the quiet moments:** You don't need continuous background noise. In good company, silence is comfortable, not awkward.
 
 Whenever you find yourself hosting, resist the urge to rush to the dishes. Pull up another chair, pour another cup, and stay a little longer.
+
