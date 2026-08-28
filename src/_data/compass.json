@@ -3,6 +3,7 @@
     "gatherer": {
       "id": "gatherer",
       "name": "The Gatherer",
+      "icon": "contract",
       "gift": "You bring warmth to good company.",
       "tagline": "Rooted in hospitality, generous tables, and shared stories.",
       "description": "You understand that good things are made to be shared. You bring people together and turn solitary efforts into vibrant communities.",
@@ -12,6 +13,7 @@
     "explorer": {
       "id": "explorer",
       "name": "The Explorer",
+      "icon": "landscape",
       "gift": "You bring possibility to good company.",
       "tagline": "Drawn to the untraveled road and open possibilities.",
       "description": "You thrive where plans give way to curiosity. In every project, you provide the momentum and the instinct to see what lies beyond the next turn.",
@@ -21,6 +23,7 @@
     "craftsman": {
       "id": "craftsman",
       "name": "The Craftsman",
+      "icon": "brush",
       "gift": "You bring shape to good ideas.",
       "tagline": "Driven by care, fine lines, and the patience of the workshop.",
       "description": "You know that beauty lives in the details. You take raw ideas and shape them into lasting, purposeful work.",
@@ -30,20 +33,22 @@
     "catalyst": {
       "id": "catalyst",
       "name": "The Catalyst",
-      "gift": "`You bring momentum to good ideas.",
+      "icon": "bolt",
+      "gift": "You bring momentum to good ideas.",
       "tagline": "Sparking action, cross-pollinating ideas, and defying inertia.",
       "description": "You connect disparate dots and ignite momentum. You refuse to let worthwhile adventures gather dust on a shelf.",
       "lifePrompt": "Send the message that could start something worthwhile.",
       "fieldPrompt": "Explore active collaborations and in-progress ventures."
     },
     "storykeeper": {
-      "id": "stroykeeper",
+      "id": "storykeeper",
       "name": "The Storykeeper",
+      "icon": "key",
       "gift": "You bring meaning to good company.",
       "tagline": "Recording, remembering, and passing on good ideas.",
       "description": "You find the meaning hiding in ordinary moments. You help people remember what matters and why it mattered.",
       "lifePrompt": "Ask someone you love for a story you have never heard.",
-      "fieldPrompt": "Catch up on the latests news."
+      "fieldPrompt": "Catch up on the latest news."
     }
   },
   "questions": [
@@ -53,16 +58,20 @@
       "prompt": "A free Saturday appears. Where do you go?",
       "options": [
         {
+          "text": "Down a road I have never taken",
+          "archetype": "explorer"
+        },
+        {
           "text": "Toward a long table and a full kitchen",
           "archetype": "gatherer"
         },
         {
-          "text": "Into the workshop with an unfinished idea",
-          "archetype": "craftsman"
+          "text": "The market to catch up on the latest news",
+          "archetype": "storykeeper"
         },
         {
-          "text": "Down a road I have never taken",
-          "archetype": "explorer"
+          "text": "Into the workshop with an unfinished idea",
+          "archetype": "craftsman"
         },
         {
           "text": "Into the city to meet friends and start a project",
@@ -76,20 +85,24 @@
       "prompt": "The mark of a truly great project is:",
       "options": [
         {
-          "text": "The feeling of welcome and warmth it creates for others",
-          "archetype": "gatherer"
-        },
-        {
           "text": "The quiet precision and durability of its craft",
           "archetype": "craftsman"
         },
         {
-          "text": "The unexpected territory it opened up along the way",
-          "archetype": "explorer"
-        },
-        {
           "text": "The new collaborations and energy it sparked",
           "archetype": "catalyst"
+        },
+        {
+          "text": "The feeling of welcome and warmth it creates for others",
+          "archetype": "gatherer"
+        },
+        {
+          "text": "The tales we will find through the process",
+          "archetype": "storykeeper"
+        },
+        {
+          "text": "The unexpected territory it opened up along the way",
+          "archetype": "explorer"
         }
       ]
     },
@@ -99,8 +112,12 @@
       "prompt": "When staring at a blank notebook, your instinct is to:",
       "options": [
         {
-          "text": "Sketch a recipe or an outline for a gathering",
-          "archetype": "gatherer"
+          "text": "Draft a manifesto and send a note to a partner",
+          "archetype": "catalyst"
+        },
+        {
+          "text": "Write the opening scene and what follows",
+          "archetype": "storykeeper"
         },
         {
           "text": "Draw precise diagrams and working mechanisms",
@@ -111,8 +128,8 @@
           "archetype": "explorer"
         },
         {
-          "text": "Draft a manifesto and send a note to a partner",
-          "archetype": "catalyst"
+          "text": "Sketch a recipe or an outline for a gathering",
+          "archetype": "gatherer"
         }
       ]
     },
@@ -122,20 +139,24 @@
       "prompt": "In good company, you are most often the one who:",
       "options": [
         {
-          "text": "Refills glasses and makes sure everyone has a seat",
-          "archetype": "gatherer"
-        },
-        {
-          "text": "Listens intently and ponders how the problem was solved",
-          "archetype": "craftsman"
+          "text": "Regales the company with a good yarn",
+          "archetype": "storykeeper"
         },
         {
           "text": "Asks 'what if we went somewhere else right now?'",
           "archetype": "explorer"
         },
         {
+          "text": "Refills glasses and makes sure everyone has a seat",
+          "archetype": "gatherer"
+        },
+        {
           "text": "Connects two people who need to know each other",
           "archetype": "catalyst"
+        },
+        {
+          "text": "Listens intently and ponders how the problem was solved",
+          "archetype": "craftsman"
         }
       ]
     },
@@ -145,16 +166,20 @@
       "prompt": "Choose a motto to hang above your workbench:",
       "options": [
         {
-          "text": "Pull up a chair; there is always room for one more.",
-          "archetype": "gatherer"
+          "text": "Never leave a good question unexplored.",
+          "archetype": "explorer"
+        },
+        {
+          "text": "Every tale is worth remembering, and retelling",
+          "archetype": "storykeeper"
         },
         {
           "text": "Care over polish. Build things that last.",
           "archetype": "craftsman"
         },
         {
-          "text": "Never leave a good question unexplored.",
-          "archetype": "explorer"
+          "text": "Pull up a chair; there is always room for one more.",
+          "archetype": "gatherer"
         },
         {
           "text": "Small spark, steady fire, worthwhile adventure.",
@@ -164,4 +189,3 @@
     }
   ]
 }
-
