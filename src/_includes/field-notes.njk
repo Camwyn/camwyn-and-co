@@ -16,7 +16,7 @@
 
     <!-- Notes Grid with Pre-rendered HTML and Alpine dynamic filtering -->
     <div class="c-notes-grid" x-data>
-      {% for note in collections.notes %}
+      {% for note in collections.latestNotesByArchetype %}
         <article 
           class="c-note-card"
           {% if note.data.archetype %}
@@ -42,6 +42,13 @@
           </a>
         </article>
       {% endfor %}
+    </div>
+
+    <div style="margin-top: var(--space-xl); display: flex; justify-content: flex-end;">
+      <a href="/notes/" class="c-btn c-btn--secondary" style="padding: 0.75rem 1.25rem; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em;">
+        <span>View all notes ({{ collections.notes.length }})</span>
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
 </section>
