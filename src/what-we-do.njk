@@ -26,24 +26,26 @@ title: "What We Do — Camwyn & Co."
     
     <div class="o-grid" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-lg);">
       {% for v in ventures %}
-        <div style="border-top: 2px solid var(--color-primary); padding-top: var(--space-md);" x-data="{ resonance: {{ v.resonance | dump | safe }} }">
+        <div style="border-top: 2px solid var(--color-primary); padding-top: var(--space-md);">
           <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text);">{{ v.num }} · {{ v.category }}</p>
           <h3 class="u-font-serif" style="font-size: 1.75rem; margin: 0.5rem 0;">{{ v.title }}</h3>
           <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant); line-height: 1.6; margin-bottom: 1rem;">
             {{ v.description }}
           </p>
 
-          <!-- Dynamic Archetype Resonance Box -->
-          <div 
-            x-show="$store.compass.result && resonance[$store.compass.result]" 
-            x-cloak
-            style="margin-bottom: 1.25rem; padding: 0.625rem 0.75rem; background: var(--color-surface-container-low); border-left: 2px solid var(--color-muted-clay); font-size: 0.8125rem; color: var(--color-on-surface); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;"
-          >
-            <span class="u-font-mono u-text-uppercase" style="font-size: 0.6875rem; color: var(--color-muted-clay-text); display: block; margin-bottom: 0.25rem; letter-spacing: 0.05em;">
-              ★ Where <span x-text="$store.compass.archetypes[$store.compass.result]?.name || 'You'"></span> Shines
-            </span>
-            <p style="margin: 0; line-height: 1.45;" x-text="resonance[$store.compass.result]"></p>
-          </div>
+          <!-- Dynamic Archetype Resonance Boxes (Pre-rendered & Toggled via Alpine) -->
+          {% for archKey, text in v.resonance %}
+            <div 
+              x-show="$store.compass.result === '{{ archKey }}'" 
+              x-cloak
+              style="margin-bottom: 1.25rem; padding: 0.625rem 0.75rem; background: var(--color-surface-container-low); border-left: 2px solid var(--color-muted-clay); font-size: 0.8125rem; color: var(--color-on-surface); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;"
+            >
+              <span class="u-font-mono u-text-uppercase" style="font-size: 0.6875rem; color: var(--color-muted-clay-text); display: block; margin-bottom: 0.25rem; letter-spacing: 0.05em;">
+                ★ Where {{ compass.archetypes[archKey].name }} Shines
+              </span>
+              <p style="margin: 0; line-height: 1.45;">{{ text }}</p>
+            </div>
+          {% endfor %}
 
           <a href="{{ v.link }}" class="u-font-mono u-text-uppercase" style="font-size: 0.8125rem; color: var(--color-primary); font-weight: 600; text-decoration: underline;">
             {{ v.linkLabel }}
