@@ -15,10 +15,71 @@ permalink: "/the-next-thing/index.html"
     projectTitle: '',
     spark: '',
     support: '',
+    isSubmitting: false,
+    errorMessage: '',
     submitted: false,
-    submitForm() {
+    async submitForm() {
       if (!this.name || !this.email || !this.spark) return;
-      this.submitted = true;
+      this.isSubmitting = true;
+      this.errorMessage = '';
+
+      const payload = {
+        name: this.name,
+        email: this.email,
+        project_title: this.projectTitle || 'Untitled Adventure',
+        my_archetype: this.myArchetype ? (this.$store?.compass?.archetypes?.[this.myArchetype]?.name || this.myArchetype) : 'Still Exploring',
+        needed_archetype: this.neededArchetype === 'open' ? 'A Mix / Open Exploration' : (this.$store?.compass?.archetypes?.[this.neededArchetype]?.name || this.neededArchetype),
+        project_stage: this.stage,
+        spark: this.spark,
+        support_needed: this.support || 'N/A'
+      };
+
+      const endpoint = '{{ site.formspreeEndpoint | default('https://formspree.io/f/placeholder') }}';
+
+      // Fallback for placeholder endpoint: allow instant preview success
+      if (!endpoint || endpoint.includes('placeholder')) {
+        this.submitted = true;
+        this.isSubmitting = false;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          this.submitted = true;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const data = await response.json().catch(() => ({}));
+          if (data.errors && data.errors.length) {
+            this.errorMessage = data.errors.map(e => e.message).join(', ');
+          } else {
+            this.errorMessage = 'There was a problem submitting your dispatch. Please try again or email hello@camwyn.com directly.';
+          }
+        }
+      } catch (err) {
+        this.errorMessage = 'Network error sending your dispatch. Please check your connection or email hello@camwyn.com directly.';
+      } finally {
+        this.isSubmitting = false;
+      }
+    },
+    resetForm() {
+      this.name = '';
+      this.email = '';
+      this.projectTitle = '';
+      this.spark = '';
+      this.support = '';
+      this.stage = 'sketch';
+      this.submitted = false;
+      this.errorMessage = '';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }">
@@ -62,20 +123,35 @@ permalink: "/the-next-thing/index.html"
       </div>
 
       <div class="o-cluster" style="gap: var(--space-md);">
+        <button type="button" @click="resetForm()" class="c-btn c-btn--secondary">Submit Another Spark ↗</button>
         <a href="/" class="c-btn c-btn--primary">Return Home ↗</a>
         <a href="/notes/" class="c-btn c-btn--secondary">Read Notes from the Field ↗</a>
       </div>
     </div>
 
     <!-- The Guided Form -->
-    <form @submit.prevent="submitForm()" x-show="!submitted">
+    <form action="{{ site.formspreeEndpoint | default('https://formspree.io/f/placeholder') }}" method="POST" @submit.prevent="submitForm()" x-show="!submitted">
+      <!-- Formspree Spam Mitigation Honeypot -->
+      <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off" />
+      
+      <!-- Error Notification Banner -->
+      <div 
+        class="c-form-error" 
+        x-show="errorMessage" 
+        x-cloak
+        role="alert"
+        style="padding: var(--space-md); margin-bottom: var(--space-lg); border-left: 3px solid var(--color-muted-clay); background: var(--color-surface-container-low); color: var(--color-primary);"
+      >
+        <p class="u-font-mono" style="font-size: 0.8125rem; margin: 0;" x-text="errorMessage"></p>
+      </div>
+
       <!-- Section 1: Your Perspective / Archetype (Optional) -->
       <fieldset class="c-form-fieldset">
         <legend class="c-form-legend">01 · Your Perspective (Optional)</legend>
         <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant); margin-bottom: var(--space-md); line-height: 1.5;">
           What energy or instinct do you naturally bring to this idea? 
           <span x-show="!$store.compass.result">
-            (Haven't taken our quiz yet? <a href="/#your-compass" target="_blank" style="color: var(--color-primary); text-decoration: underline;">Find your compass in 2 minutes ↗</a>)
+            (Haven't taken our quiz yet? <a href="/#your-compass" style="color: var(--color-primary); text-decoration: underline;">Find your compass in 2 minutes ↗</a>)
           </span>
         </p>
 
@@ -198,6 +274,7 @@ permalink: "/the-next-thing/index.html"
           <input 
             type="text" 
             id="inquiry-name" 
+            name="name"
             x-model="name" 
             required 
             class="c-input" 
@@ -213,6 +290,7 @@ permalink: "/the-next-thing/index.html"
           <input 
             type="email" 
             id="inquiry-email" 
+            name="email"
             x-model="email" 
             required 
             class="c-input" 
@@ -228,6 +306,7 @@ permalink: "/the-next-thing/index.html"
           <input 
             type="text" 
             id="inquiry-title" 
+            name="project_title"
             x-model="projectTitle" 
             class="c-input" 
             placeholder="e.g. The Sunday Supper Guild / A Small Workshop Series" 
@@ -264,6 +343,7 @@ permalink: "/the-next-thing/index.html"
           </label>
           <textarea 
             id="inquiry-spark" 
+            name="spark"
             x-model="spark" 
             required 
             class="c-textarea" 
@@ -279,6 +359,7 @@ permalink: "/the-next-thing/index.html"
           </label>
           <textarea 
             id="inquiry-support" 
+            name="support_needed"
             x-model="support" 
             class="c-textarea" 
             rows="3" 
@@ -289,8 +370,14 @@ permalink: "/the-next-thing/index.html"
 
       <!-- Submit Action -->
       <div style="margin-top: var(--space-xl); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md);">
-        <button type="submit" class="c-btn c-btn--primary" style="font-size: 0.875rem; padding: 1rem 2rem;">
-          Send Project Spark ↗
+        <button 
+          type="submit" 
+          class="c-btn c-btn--primary" 
+          :disabled="isSubmitting"
+          style="font-size: 0.875rem; padding: 1rem 2rem;"
+        >
+          <span x-show="!isSubmitting">Send Project Spark ↗</span>
+          <span x-show="isSubmitting" x-cloak>Sending Dispatch...</span>
         </button>
 
         <p class="u-font-mono u-text-muted" style="font-size: 0.75rem;">

@@ -123,5 +123,9 @@
 
 ---
 
-## Milestone 16: Future Horizons (Planned)
-- [ ] **Form Submission Backend**: Connect "The Next Thing" intake form to an active email or webhook endpoint (e.g., Netlify Forms, Formspree, or custom server endpoint).
+## Milestone 16: Intake Form Backend & Formspree Integration (Completed)
+- [x] **Form Submission Backend**: Connect "The Next Thing" intake form to Formspree (`src/_data/site.json` -> `formspreeEndpoint`).
+- [x] **Spam Mitigation**: Add a hidden honeypot field (`<input type="text" name="_gotcha" style="display:none !important">`) to trap bots without annoying visitors with CAPTCHAs.
+- [x] **Fallback Progressive Enhancement**: Form gracefully degrades and submits natively via standard HTTP POST if JavaScript is disabled or blocked.
+- [x] **Accessibility (a11y)**: All inputs maintain explicit `<label for="...">` associations, high-contrast focus rings, and accessible live error alerts (`role="alert"`).
+- [x] **Client-Side Async State**: Alpine handles asynchronous JSON submission with loading indicators, inline error handling, and branded confirmation view with reset flow.   
