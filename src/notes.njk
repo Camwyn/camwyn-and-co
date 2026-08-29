@@ -33,11 +33,11 @@ permalink: "/notes/index.html"
           }
         } catch (e) {}
       },
-      matches(archetype, searchCorpus) {
+      matches(el, archetype) {
         const matchesArchetype = this.activeFilter === 'all' || this.activeFilter === archetype;
         if (!matchesArchetype) return false;
         if (!this.searchQuery || !this.searchQuery.trim()) return true;
-        return searchCorpus.toLowerCase().includes(this.searchQuery.toLowerCase().trim());
+        return el.textContent.toLowerCase().includes(this.searchQuery.toLowerCase().trim());
       }
     }">
       <!-- Controls Toolbar -->
@@ -133,7 +133,7 @@ permalink: "/notes/index.html"
         {% for note in collections.notes %}
           <article 
             class="c-note-card"
-            x-show="matches('{{ note.data.archetype }}', '{{ (note.data.title ~ " " ~ note.data.excerpt ~ " " ~ (note.data.archetype | archetypeTag)) | escape | replace("'", "\\'") }}')"
+            x-show="matches($el, '{{ note.data.archetype }}')"
             {% if note.data.archetype %}
               :style="$store.compass.result && $store.compass.result === '{{ note.data.archetype }}' ? 'border-color: var(--color-muted-clay); background-color: var(--color-surface-container-low);' : ''"
             {% endif %}
