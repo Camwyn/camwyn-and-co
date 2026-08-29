@@ -1,0 +1,27 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.name }} · Field Notes</title>
+  <subtitle>{{ site.tagline }} — {{ site.subtagline }}</subtitle>
+  <link href="{{ site.url }}/feed.xml" rel="self" type="application/atom+xml"/>
+  <link href="{{ site.url }}/notes/" rel="alternate" type="text/html"/>
+  <updated>{% if collections.notes.length > 0 %}{{ collections.notes[0].date | dateToRfc3339 }}{% endif %}</updated>
+  <id>{{ site.url }}/notes/</id>
+  <author>
+    <name>{{ site.name }}</name>
+    <email>{{ site.contactEmail }}</email>
+  </author>
+  {% for note in collections.notes %}
+  <entry>
+    <title>{{ note.data.title }}</title>
+    <link href="{{ site.url }}{{ note.url }}"/>
+    <updated>{{ note.date | dateToRfc3339 }}</updated>
+    <id>{{ site.url }}{{ note.url }}</id>
+    <summary>{{ note.data.excerpt }}</summary>
+    <content type="html"><![CDATA[{{ note.templateContent | safe }}]]></content>
+  </entry>
+  {% endfor %}
+</feed>

@@ -44,6 +44,12 @@ module.exports = function(eleventyConfig) {
     return `${minutes} min read`;
   });
 
+  eleventyConfig.addFilter("dateToRfc3339", function(dateObj) {
+    if (!dateObj) return new Date().toISOString();
+    const d = new Date(dateObj);
+    return d.toISOString();
+  });
+
   eleventyConfig.addFilter("archetypeTag", function(archetypeId) {
     return archetypeTags[archetypeId] || "Dispatch";
   });
