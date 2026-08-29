@@ -4,6 +4,51 @@ title: "Camwyn & Co — Big Ideas. Good Company."
 description: "Camwyn & Co is the home of Mema's Inclination and a growing collection of experiments and worthwhile (ad)ventures."
 ---
 
+<!-- Structured Data (JSON-LD Organization & WebSite) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": {{ site.name | dump | safe }},
+      "url": "{{ site.url }}",
+      "logo": "{{ site.url }}/assets/logo.svg",
+      "description": "An independent house of projects, ventures, experiments, and worthwhile adventures.",
+      "email": "{{ site.contactEmail }}",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Stephen Page",
+          "alternateName": "Camwyn",
+          "url": "{{ site.url }}/our-story/"
+        },
+        {
+          "@type": "Person",
+          "name": "Ivy Page",
+          "alternateName": "Mema",
+          "url": "{{ site.url }}/our-story/"
+        }
+      ],
+      "sameAs": [
+        "https://github.com/Camwyn"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}",
+      "name": {{ site.name | dump | safe }},
+      "description": {{ site.tagline | dump | safe }},
+      "publisher": {
+        "@id": "{{ site.url }}/#organization"
+      }
+    }
+  ]
+}
+</script>
+
 <!-- Hero Section -->
 <section class="c-hero" aria-labelledby="hero-title">
   <div class="o-container o-container--wide">

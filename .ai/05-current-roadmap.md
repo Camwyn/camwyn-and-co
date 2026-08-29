@@ -83,9 +83,11 @@
 
 ---
 
-## Milestone 11: SEO & Syndication (Completed)
+## Milestone 11: SEO, Syndication & Structured Data (Completed)
 - [x] **SEO & Indexing**: Add dynamic `sitemap.xml` and `robots.txt` generation across all site routes.
 - [x] **RSS / Atom Feed**: Generate `src/feed.xml` for blog readers and syndication, auto-discovery in `<head>`, and footer link.
+- [x] **JSON-LD Organization & WebSite Schema**: Embed rich schema on homepage defining Camwyn & Co. as an independent house of projects.
+- [x] **JSON-LD Article / BlogPosting Schema**: Embed rich schema in field note layouts (`note.njk` and `layouts/post.njk`) with headline, dates, author, and publisher data for rich search snippets.
 - [x] Set canonical site URL to `https://camwyn.com`.
 
 ---

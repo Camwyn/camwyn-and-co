@@ -5,6 +5,16 @@
   "url": "https://camwyn.com",
   "contactEmail": "hello@camwyn.com",
   "year": 2026,
+  "founders": [
+    {
+      "name": "Stephen Page",
+      "nickname": "Camwyn"
+    },
+    {
+      "name": "Ivy Page",
+      "nickname": "Mema"
+    }
+  ],
   "nav": [
     {
       "num": "01",

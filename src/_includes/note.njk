@@ -7,6 +7,41 @@ eleventyComputed:
   ogImage: "{{ site.url }}/assets/og/{{ archetype | default('default') }}.svg"
 ---
 
+<!-- Structured Data (JSON-LD Article / BlogPosting) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url ~ page.url }}"
+  },
+  "headline": {{ title | dump | safe }},
+  "description": {{ excerpt | default(title) | dump | safe }},
+  "image": [
+    "{{ site.url }}/assets/og/{{ archetype | default('default') }}.svg"
+  ],
+  "datePublished": "{{ date | dateToRfc3339 }}",
+  "dateModified": "{{ date | dateToRfc3339 }}",
+  "author": {
+    "@type": "Person",
+    "name": {{ (author | default('Stephen Page')) | dump | safe }},
+    "url": "{{ site.url }}/our-story/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.name | dump | safe }},
+    "url": "{{ site.url }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/logo.svg"
+    }
+  },
+  "articleSection": {{ (archetype | archetypeName) | dump | safe }},
+  "keywords": {{ (archetype | archetypeTag) | dump | safe }}
+}
+</script>
+
 <article class="c-article" aria-labelledby="article-title">
   <!-- Breadcrumb Navigation -->
   <a href="/notes/" class="c-article__back">
