@@ -251,8 +251,37 @@
     padding: var(--space-xl) var(--space-md);
   }
 
-  .c-article-archetype-badge {
-    flex-direction: column;
+  .c-article__related-grid {
+    grid-template-columns: 1fr;
   }
 }
 
+/* ==========================================================================
+   Partnering Section (Our Story)
+   ========================================================================== */
+
+.c-partnering-layout {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.c-partnering-layout__content {
+  padding-left: var(--space-lg);
+  border-left: 1px solid var(--color-outline-variant);
+}
+
+@media (max-width: 768px) {
+  .c-partnering-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .c-partnering-layout__content {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--color-outline-variant);
+    padding-top: var(--space-md);
+  }
+}
