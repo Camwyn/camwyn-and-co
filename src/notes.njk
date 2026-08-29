@@ -25,6 +25,14 @@ permalink: "/notes/index.html"
     <div x-data="{ 
       activeFilter: 'all', 
       searchQuery: '',
+      init() {
+        try {
+          const saved = (this.$store?.compass?.result || localStorage.getItem('compassResult') || '').toLowerCase();
+          if (['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'].includes(saved)) {
+            this.activeFilter = saved;
+          }
+        } catch (e) {}
+      },
       matches(archetype, searchCorpus) {
         const matchesArchetype = this.activeFilter === 'all' || this.activeFilter === archetype;
         if (!matchesArchetype) return false;
@@ -41,54 +49,59 @@ permalink: "/notes/index.html"
             class="c-btn"
             :class="activeFilter === 'all' ? 'c-btn--primary' : 'c-btn--secondary'"
             @click="activeFilter = 'all'"
-            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; min-height: 38px;"
           >
-            All Notes ({{ collections.notes.length }})
+            <span>All Notes ({{ collections.notes.length }})</span>
           </button>
           <button 
             type="button" 
             class="c-btn"
             :class="activeFilter === 'gatherer' ? 'c-btn--primary' : 'c-btn--secondary'"
             @click="activeFilter = 'gatherer'"
-            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; min-height: 38px;"
           >
-            The Gatherer
+            <img src="/assets/leaf.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
+            <span>The Gatherer</span>
           </button>
           <button 
             type="button" 
             class="c-btn"
             :class="activeFilter === 'craftsman' ? 'c-btn--primary' : 'c-btn--secondary'"
             @click="activeFilter = 'craftsman'"
-            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; min-height: 38px;"
           >
-            The Craftsman
+            <img src="/assets/brush.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
+            <span>The Craftsman</span>
           </button>
           <button 
             type="button" 
             class="c-btn"
             :class="activeFilter === 'explorer' ? 'c-btn--primary' : 'c-btn--secondary'"
             @click="activeFilter = 'explorer'"
-            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; min-height: 38px;"
           >
-            The Explorer
+            <img src="/assets/compass.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
+            <span>The Explorer</span>
           </button>
           <button 
             type="button" 
             class="c-btn"
             :class="activeFilter === 'catalyst' ? 'c-btn--primary' : 'c-btn--secondary'"
             @click="activeFilter = 'catalyst'"
-            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; min-height: 38px;"
           >
-            The Catalyst
+            <img src="/assets/wand.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
+            <span>The Catalyst</span>
           </button>
           <button 
             type="button" 
             class="c-btn"
             :class="activeFilter === 'storykeeper' ? 'c-btn--primary' : 'c-btn--secondary'"
             @click="activeFilter = 'storykeeper'"
-            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; min-height: 38px;"
           >
-            The Storykeeper
+            <img src="/assets/shield.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
+            <span>The Storykeeper</span>
           </button>
         </div>
 

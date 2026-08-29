@@ -205,14 +205,26 @@
   border-radius: var(--radius-none);
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   min-height: 44px;
+}
+
+.c-btn__icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  flex-shrink: 0;
+  transition: filter 0.2s ease;
 }
 
 .c-btn--primary {
   background-color: var(--color-primary);
   color: var(--color-on-primary);
   border: 1px solid var(--color-primary);
+}
+
+.c-btn--primary .c-btn__icon {
+  filter: brightness(0) invert(1);
 }
 
 .c-btn--primary:hover {
@@ -223,6 +235,10 @@
   background-color: transparent;
   color: var(--color-primary);
   border: 1px solid var(--color-outline-variant);
+}
+
+.c-btn--secondary .c-btn__icon {
+  filter: brightness(0) opacity(0.85);
 }
 
 .c-btn--secondary:hover {
