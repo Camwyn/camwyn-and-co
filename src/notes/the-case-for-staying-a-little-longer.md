@@ -21,7 +21,7 @@ When you remove the rush to wrap things up, the conversation shifts from surface
 ## Three Rules for Unhurried Tables
 
 1. **Keep the candles burning low:** Dim light gives people permission to exhale and linger.
-2. **Never clear everything at once:** Leave a carafe of water, a pot of tea, or a bowl of fruit on the table. An empty table signals the end; a hospitable table signals there is still room.
+2. **Never clear the table completely:** Leave a carafe of water, a pot of tea, or a bowl of fruit on the table. An empty table signals the end; a hospitable table signals there is still room.
 3. **Protect the quiet moments:** You don't need continuous background noise. In good company, silence is comfortable, not awkward.
 
 Whenever you find yourself hosting, resist the urge to rush to the dishes. Pull up another chair, pour another cup, and stay a little longer.

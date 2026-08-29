@@ -13,7 +13,7 @@ The digital presence is an editorial, tactile, and highly interactive Jamstack s
 
 ## 2. Core User Personas & Intent
 - **The Curious Explorer:** Arrives looking for high-quality food, gatherings, brand stories, or collaborations; engages with the "Adventure Compass" quiz to discover their personal archetype.
-- **The Prospective Partner / Collaborator:** Evaluates Camwyn & Co's point of view, philosophy ("Smart can be warm. Ambitioncan have soul. Serious work can still be fun."), and working ventures.
+- **The Prospective Partner / Collaborator:** Evaluates Camwyn & Co's point of view, philosophy ("Smart can be warm. Ambition can have soul. Serious work can still be fun."), and working ventures.
 - **The Community Member:** Reads "Notes from the Field," explores projects, and reaches out via direct contact channels.
 
 ## 3. Key Pages & Feature Requirements

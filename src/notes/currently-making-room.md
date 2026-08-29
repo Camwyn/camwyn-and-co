@@ -2,7 +2,7 @@
 title: "Currently Making: Room"
 date: 2026-08-15
 archetype: "craftsman"
-excerpt: "Not every good idea arrives with a plan. Here is what we are learning about protecting space for the unfinished."
+excerpt: "Not every good idea arrives with a blueprint. Here is what we are learning about protecting space for the unfinished."
 author: "Camwyn & Co"
 ---
 

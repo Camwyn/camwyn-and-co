@@ -6,9 +6,7 @@ excerpt: "Efficiency is fine for errands, but terrible for discovery. Why our be
 author: "Camwyn & Co"
 ---
 
-If your only objective is to reach the destination on schedule, take the highway.
-
-But if you want to find something worth building, take the county line road with the washboard gravel and the broken fence posts.
+If your only objective is to reach the destination on schedule, take the highway. But if you want to find something worth building, take the county line road with the washboard gravel and the broken fence posts.
 
 ## The Cost of the Straight Line
 

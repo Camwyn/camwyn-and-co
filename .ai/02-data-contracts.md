@@ -12,7 +12,7 @@ All structured data for quizzes, editorial dispatches, and global site metadata 
     "explorer": {
       "id": "explorer",
       "name": "The Explorer",
-      "tagline": "Drawn to the untraveled road and open possibilities.",
+      "tagline": "Drawn to untraveled roads and open possibilities.",
       "description": "You thrive where plans give way to curiosity. In every project, you provide the momentum and the instinct to see what lies beyond the next turn.",
       "fieldPrompt": "Seek out uncharted notes and open-ended experiments."
     },

@@ -15,7 +15,7 @@
       "name": "The Explorer",
       "icon": "landscape",
       "gift": "You bring possibility to good company.",
-      "tagline": "Drawn to the untraveled road and open possibilities.",
+      "tagline": "Drawn to untraveled roads and open possibilities.",
       "description": "You thrive where plans give way to curiosity. In every project, you provide the momentum and the instinct to see what lies beyond the next turn.",
       "lifePrompt": "Take the unfamiliar route and document one thing you nearly missed.",
       "fieldPrompt": "Seek out uncharted notes and open-ended experiments."
@@ -48,7 +48,7 @@
       "tagline": "Recording, remembering, and passing on good ideas.",
       "description": "You find the meaning hiding in ordinary moments. You help people remember what matters and why it mattered.",
       "lifePrompt": "Ask someone you love for a story you have never heard.",
-      "fieldPrompt": "Catch up on the latest news."
+      "fieldPrompt": "Explore our chronicles and recorded stories."
     }
   },
   "questions": [
@@ -170,7 +170,7 @@
           "archetype": "explorer"
         },
         {
-          "text": "Every tale is worth remembering, and retelling",
+          "text": "Every tale is worth remembering—and passing down.",
           "archetype": "storykeeper"
         },
         {

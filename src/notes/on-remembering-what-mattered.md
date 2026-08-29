@@ -24,5 +24,5 @@ When you document the origins of things—why a venture was named, where the ing
 - **Keep the physical records:** Keep paper letters, hand-drawn diagrams, and printed menus. Digital archives are convenient, but tangible artifacts carry weight.
 - **Pass it along:** A story kept to yourself is just a memory. A story shared at the table becomes tradition.
 
-Every tale is worth remembering—and retelling.
+Every tale is worth remembering—and passing down.
 
