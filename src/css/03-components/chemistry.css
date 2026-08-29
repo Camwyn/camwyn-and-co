@@ -11,6 +11,7 @@
 
 .c-chemistry-intro {
   margin-bottom: var(--space-xl);
+}
 
 .c-chemistry-interactive {
   display: grid;
@@ -18,6 +19,7 @@
   gap: var(--space-xl);
   align-items: start;
   margin-top: var(--space-lg);
+  margin-bottom: var(--space-xxl);
 }
 
 /* Selector Panel */
@@ -196,6 +198,9 @@
 
 /* 15-Pairing Catalog Grid */
 .c-chemistry-catalog {
+  margin-top: var(--space-xxl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-outline-variant);
   display: flex;
   justify-content: space-between;
   align-items: center;
