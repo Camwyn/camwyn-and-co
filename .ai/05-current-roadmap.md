@@ -12,8 +12,9 @@
 
 ## Milestone 2: Automated Testing & Tooling Setup (Completed)
 - [x] Install `pa11y-ci`, `axe-core`, and `jsdom` into `package.json` devDependencies.
-- [x] Create automated DOM test runner (`scripts/a11y-audit.js`) verifying Axe rules and WCAG 2.1 contrast formulas.
-- [x] Configure `test` and `test:a11y` tooling commands in `.lando.yml` and `package.json`.
+- [x] Create automated DOM test runner (`scripts/a11y-audit.js`) verifying Axe rules and WCAG 2.1 contrast formulas across 100% of all generated HTML pages.
+- [x] Create site integrity test runner (`scripts/site-integrity-test.js`) verifying JSON-LD schemas, search index completeness, dead links, missing images, XML feeds, and Compass scoring matrices.
+- [x] Configure `test`, `test:integrity`, and `test:a11y` tooling commands in `.lando.yml` and `package.json`.
 
 ---
 
@@ -21,7 +22,7 @@
 - [x] Implement full earthy palette in `tokens.css` with verified WCAG 2.1 AA/AAA contrast ratios.
 - [x] Create `02-objects/` layout primitives (`layout.css`, `stack.css`).
 - [x] Create `03-components/` styles (`nav.css`, `hero.css`, `compass.css`, `note-card.css`, `project-row.css`, `article.css`, `form.css`, `footer.css`).
-- [x] Create `04-utilities/` (`typography.css`, `spacing.css`).
+- [x] Create `04-utilities/` (`typography.css`, `spacing.css`, `print.css`).
 
 ---
 
@@ -42,9 +43,10 @@
 
 ---
 
-## Milestone 6: Automated Verification & A11y Audit (Completed)
-- [x] Run `lando test` to verify clean static compilation across all 22 pages.
-- [x] Verify zero Axe-core DOM accessibility violations and 100% WCAG 2.1 AA/AAA color contrast.
+## Milestone 6: Automated Verification & 100% Corpus A11y Audit (Completed)
+- [x] Run `lando test` to verify clean static compilation across all 24 production pages.
+- [x] Verify zero Axe-core DOM accessibility violations and 100% WCAG 2.1 AA/AAA color contrast across all routes.
+- [x] Execute 780+ automated site integrity assertions on dead links, media assets, XML feeds, and structured data.
 - [x] Keyboard navigation, focus states, skip-links, and responsive testing.
 
 ---

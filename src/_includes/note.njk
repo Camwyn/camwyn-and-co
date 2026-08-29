@@ -111,11 +111,13 @@ eleventyComputed:
             type="button" 
             class="c-btn c-btn--secondary"
             style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
+            data-share-title="{{ title }} — Notes from the Field | {{ site.name }}"
+            data-share-text="{{ excerpt }}"
             @click="
               if (navigator.share) {
                 navigator.share({
-                  title: '{{ title }} — Notes from the Field | {{ site.name }}',
-                  text: '{{ excerpt }}',
+                  title: $el.dataset.shareTitle,
+                  text: $el.dataset.shareText,
                   url: window.location.href
                 }).catch(() => {});
               } else {

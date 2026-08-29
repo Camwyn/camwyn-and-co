@@ -88,17 +88,30 @@ if (!contrastPassed) {
 // 2. Axe-Core DOM Accessibility Audit
 // ============================================================================
 
-const pages = [
-  { name: 'Homepage', file: path.join(__dirname, '../_site/index.html') },
-  { name: 'Our Story', file: path.join(__dirname, '../_site/our-story/index.html') },
-  { name: 'What We Do', file: path.join(__dirname, '../_site/what-we-do/index.html') },
-  { name: 'Compass Result (Explorer)', file: path.join(__dirname, '../_site/compass/explorer/index.html') },
-  { name: 'Compass Result (Gatherer)', file: path.join(__dirname, '../_site/compass/gatherer/index.html') },
-  { name: 'Notes Index', file: path.join(__dirname, '../_site/notes/index.html') },
-  { name: 'Field Note Article', file: path.join(__dirname, '../_site/notes/the-case-for-staying-a-little-longer/index.html') },
-  { name: 'The Next Thing (Inquiry Form)', file: path.join(__dirname, '../_site/the-next-thing/index.html') },
-  { name: 'Colophon', file: path.join(__dirname, '../_site/colophon/index.html') }
-];
+function getAllHtmlFiles(dirPath, arrayOfFiles = []) {
+  if (!fs.existsSync(dirPath)) return arrayOfFiles;
+  const files = fs.readdirSync(dirPath);
+
+  files.forEach(file => {
+    const fullPath = path.join(dirPath, file);
+    if (fs.statSync(fullPath).isDirectory()) {
+      arrayOfFiles = getAllHtmlFiles(fullPath, arrayOfFiles);
+    } else if (file.endsWith('.html') && !fullPath.includes('wp-content')) {
+      arrayOfFiles.push(fullPath);
+    }
+  });
+
+  return arrayOfFiles;
+}
+
+const siteDir = path.join(__dirname, '../_site');
+const pages = getAllHtmlFiles(siteDir).map(file => {
+  const rel = path.relative(siteDir, file);
+  return {
+    name: rel === 'index.html' ? 'Homepage' : rel.replace(/\/index\.html$/, '').replace(/\.html$/, ''),
+    file: file
+  };
+});
 
 async function runAxeAudit() {
   console.log('\n========================================');
