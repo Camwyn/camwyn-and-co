@@ -305,6 +305,14 @@
   margin-bottom: var(--space-lg);
 }
 
+.c-legal-layout {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+
 .c-specimen-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -358,6 +366,7 @@
 @media (max-width: 768px) {
   .c-colophon-header,
   .c-colophon-section-header,
+  .c-legal-layout,
   .c-specimen-grid {
     grid-template-columns: 1fr;
     gap: var(--space-md);
