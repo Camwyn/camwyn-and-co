@@ -88,6 +88,10 @@
 
 ---
 
-## Milestone 12: Future Horizons & Enhancements (Planned)
+## Milestone 12: Search & Discovery (Completed)
+- [x] **Search & Tagging**: Add client-side real-time keyword, title, and topic search integrated with archetype filter buttons on `/notes/`.
+
+---
+
+## Milestone 13: Future Horizons (Planned)
 - [ ] **Form Submission Backend**: Connect "The Next Thing" intake form to an active email or webhook endpoint (e.g., Netlify Forms, Formspree, or custom server endpoint).
-- [ ] **Search & Tagging**: Add client-side search or tag filtering across long-form field notes.
