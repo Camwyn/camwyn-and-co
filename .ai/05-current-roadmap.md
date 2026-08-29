@@ -82,8 +82,12 @@
 
 ---
 
-## Milestone 11: Future Horizons & Enhancements (Planned)
+## Milestone 11: SEO & Syndication (Completed)
+- [x] **SEO & Indexing**: Add dynamic `sitemap.xml` and `robots.txt` generation.
+- [x] **RSS / Atom Feed**: Generate `src/feed.xml` for blog readers and syndication, auto-discovery in `<head>`, and footer link.
+
+---
+
+## Milestone 12: Future Horizons & Enhancements (Planned)
 - [ ] **Form Submission Backend**: Connect "The Next Thing" intake form to an active email or webhook endpoint (e.g., Netlify Forms, Formspree, or custom server endpoint).
-- [ ] **RSS / Atom Feed**: Generate `src/feed.xml` for blog readers and syndication.
-- [ ] **SEO & Indexing**: Add `sitemap.xml` and `robots.txt` generation.
 - [ ] **Search & Tagging**: Add client-side search or tag filtering across long-form field notes.
