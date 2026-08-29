@@ -1,0 +1,334 @@
+/* ==========================================================================
+   03-COMPONENTS: Archetype Chemistry & Workshop Table
+   ========================================================================== */
+
+.c-chemistry-section {
+  background-color: var(--color-warm-sand);
+  border-top: 1px solid var(--color-outline-variant);
+  border-bottom: 1px solid var(--color-outline-variant);
+  padding: var(--section-gap) 0;
+}
+
+.c-chemistry-intro {
+  margin-bottom: var(--space-xxl);
+}
+
+.c-chemistry-interactive {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-xl);
+  align-items: start;
+  margin-bottom: var(--space-xxl);
+}
+
+/* Selector Panel */
+.c-chemistry-builder {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-outline-variant);
+  padding: var(--space-lg);
+  box-sizing: border-box;
+}
+
+.c-chemistry-picker-group {
+  margin-bottom: var(--space-lg);
+}
+
+.c-chemistry-picker-group:last-child {
+  margin-bottom: 0;
+}
+
+.c-chemistry-picker-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-clay-text);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.c-chemistry-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.c-chemistry-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-outline-variant);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--color-on-surface-variant);
+  transition: all 0.2s ease;
+  min-height: 38px;
+  box-sizing: border-box;
+}
+
+.c-chemistry-pill:hover {
+  background-color: var(--color-surface-container-low);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.c-chemistry-pill.is-active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.c-chemistry-pill.is-active .c-chemistry-pill__icon {
+  filter: brightness(0) invert(1);
+}
+
+.c-chemistry-pill__icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Featured Chemistry Card */
+.c-chemistry-hero-card {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-outline-variant);
+  padding: var(--space-xl);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.c-chemistry-hero-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-outline-variant);
+  padding-bottom: var(--space-md);
+}
+
+.c-chemistry-hero-card__duo-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.c-chemistry-hero-card__icon-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: var(--color-surface-container-low);
+  padding: 0.375rem 0.625rem;
+  border: 1px solid var(--color-outline-variant);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.c-chemistry-hero-card__plus {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--color-muted-clay-text);
+}
+
+.c-chemistry-hero-card__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.c-chemistry-hero-card__tagline {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--color-on-surface);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+}
+
+.c-chemistry-hero-card__body {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-on-surface-variant);
+  margin-bottom: var(--space-lg);
+}
+
+.c-chemistry-hero-card__insights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-outline-variant);
+}
+
+.c-chemistry-insight-box {
+  background-color: var(--color-surface-container-low);
+  padding: var(--space-md);
+  border: 1px solid var(--color-outline-variant);
+  box-sizing: border-box;
+}
+
+.c-chemistry-insight-box__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-clay-text);
+  margin-bottom: var(--space-xs);
+}
+
+.c-chemistry-insight-box__text {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+}
+
+/* 15-Pairing Catalog Grid */
+.c-chemistry-catalog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.c-chemistry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter);
+}
+
+.c-chemistry-card {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-outline-variant);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.c-chemistry-card:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-container-low);
+  transform: translateY(-2px);
+}
+
+.c-chemistry-card.is-active {
+  border-color: var(--color-primary);
+  outline: 2px solid var(--color-primary);
+}
+
+.c-chemistry-card--user-promoted {
+  border-color: var(--color-muted-clay);
+  background-color: rgba(140, 115, 97, 0.05);
+}
+
+.c-chemistry-card__badge {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-clay-text);
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.c-chemistry-card__duo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.c-chemistry-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.c-chemistry-card__tagline {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-on-surface-variant);
+  margin-bottom: var(--space-md);
+  flex-grow: 1;
+}
+
+.c-chemistry-card__footer {
+  border-top: 1px solid var(--color-outline-variant);
+  padding-top: var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  color: var(--color-outline-dark);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .c-chemistry-interactive {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .c-chemistry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .c-chemistry-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .c-chemistry-hero-card {
+    padding: var(--space-lg);
+  }
+
+  .c-chemistry-hero-card__insights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .c-chemistry-hero-card {
+    padding: var(--space-md);
+  }
+
+  .c-chemistry-card {
+    padding: var(--space-md);
+  }
+
+  .c-chemistry-pills {
+    gap: 0.375rem;
+  }
+
+  .c-chemistry-pill {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.6875rem;
+  }
+}

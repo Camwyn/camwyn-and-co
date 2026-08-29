@@ -1,0 +1,154 @@
+{
+  "pairings": {
+    "catalyst+catalyst": {
+      "archetypeA": "catalyst",
+      "archetypeB": "catalyst",
+      "isDouble": true,
+      "title": "The Double Spark",
+      "tagline": "Unstoppable kinetic velocity and explosive ideation.",
+      "chemistry": "When two Catalysts sit at the same table, the room fills with rapid-fire possibilities and instant momentum. Ideas multiply exponentially before the first cup of coffee is finished, and neither is afraid to leap into bold new ventures.",
+      "watchOut": "Risk of igniting ten new fires before keeping any single one warm. You need an anchor or craftsman to build lasting scaffolding around your sparks.",
+      "idealProject": "Early-stage incubation, hackathons, and breakthrough venture ideation."
+    },
+    "catalyst+craftsman": {
+      "archetypeA": "catalyst",
+      "archetypeB": "craftsman",
+      "isDouble": false,
+      "title": "The Crucible",
+      "tagline": "Kinetic velocity grounded by structural precision.",
+      "chemistry": "One of the most potent partnerships in the workshop. The Catalyst brings unstoppable momentum and daring ideas, while the Craftsman tests the grain, refines the joints, and ensures the structure can carry weight for decades.",
+      "watchOut": "Pacing tension: The Catalyst wants to ship yesterday; the Craftsman wants another week to perfect the bevel. Shared milestones keep both aligned.",
+      "idealProject": "Transforming raw experimental prototypes into durable production products."
+    },
+    "catalyst+explorer": {
+      "archetypeA": "catalyst",
+      "archetypeB": "explorer",
+      "isDouble": false,
+      "title": "The Expeditionary Engine",
+      "tagline": "Bold curiosity propelled by relentless forward momentum.",
+      "chemistry": "The Explorer senses uncharted territory just over the ridge, and the Catalyst builds the engine to get there immediately. Together, they turn vague wonder into pioneering expeditions that break conventional molds.",
+      "watchOut": "Both love the horizon more than the basecamp. Ensure you document what you discover and build shelters before moving on to the next frontier.",
+      "idealProject": "Pioneering new service models, experimental ventures, and exploratory road trips."
+    },
+    "catalyst+gatherer": {
+      "archetypeA": "catalyst",
+      "archetypeB": "gatherer",
+      "isDouble": false,
+      "title": "The Hearth & Forge",
+      "tagline": "Infectious ambition balanced by generous hospitality.",
+      "chemistry": "The Catalyst rallies the cause and sets the tempo; the Gatherer creates a welcoming atmosphere where people feel valued, nourished, and eager to contribute. Together, they build movements that people genuinely want to be part of.",
+      "watchOut": "The Catalyst may overwhelm the room with sheer volume if the Gatherer does not intentionally curate space for quiet voices to be heard.",
+      "idealProject": "Community-driven launches, collaborative feasts, and ecosystem convenings."
+    },
+    "catalyst+storykeeper": {
+      "archetypeA": "catalyst",
+      "archetypeB": "storykeeper",
+      "isDouble": false,
+      "title": "The Living Chronicle",
+      "tagline": "Future momentum anchored by profound human origin.",
+      "chemistry": "The Catalyst races toward tomorrow while the Storykeeper excavates the sacred origins of yesterday. Together, they create visionary projects that feel simultaneously brand-new and deeply rooted in timeless truth.",
+      "watchOut": "Nostalgia vs. Innovation: The Storykeeper must avoid clinging to obsolete forms, while the Catalyst must respect the lineage before rewriting it.",
+      "idealProject": "Brand reinventions, legacy company modernizations, and manifesto publishing."
+    },
+    "craftsman+craftsman": {
+      "archetypeA": "craftsman",
+      "archetypeB": "craftsman",
+      "isDouble": true,
+      "title": "The Master Guild",
+      "tagline": "Uncompromising standards and deep technical mastery.",
+      "chemistry": "A masterclass in precision. Two Craftsmen working together communicate in shorthand, sharing an innate reverence for detail, durability, and honest materials. Nothing half-baked ever leaves their workbench.",
+      "watchOut": "Perfectionism paralysis: Without an outside prompt or deadline, you might spend three months debating the exact bevel radius of an internal joint.",
+      "idealProject": "Architectural restorations, high-durability software infrastructure, and bespoke fabrication."
+    },
+    "craftsman+explorer": {
+      "archetypeA": "craftsman",
+      "archetypeB": "explorer",
+      "isDouble": false,
+      "title": "The Frontier Outpost",
+      "tagline": "Durable structures built in uncharted landscapes.",
+      "chemistry": "The Explorer discovers the wild river valley; the Craftsman builds the timber bridge to cross it safely. Together, they bring discipline to adventure and ensure exploration yields permanent, inhabitable progress.",
+      "watchOut": "The Explorer can get restless while the Craftsman planes the timber. Keep shared field logs to celebrate structural milestones.",
+      "idealProject": "Field research stations, backcountry renovations, and novel product architecture."
+    },
+    "craftsman+gatherer": {
+      "archetypeA": "craftsman",
+      "archetypeB": "gatherer",
+      "isDouble": false,
+      "title": "The Kitchen Table",
+      "tagline": "Carefully built environments designed for generous living.",
+      "chemistry": "The core founding chemistry of Camwyn & Co. Stephen builds the sturdy white-oak table; Ivy fills it with food, laughter, and open conversation. Structural integrity meets deep human connection.",
+      "watchOut": "The Craftsman may retreat into the workshop when the house gets full; the Gatherer must remember to protect the Craftsman's quiet making hours.",
+      "idealProject": "Hospitality spaces, heirloom workshops, family ventures, and atelier studios."
+    },
+    "craftsman+storykeeper": {
+      "archetypeA": "craftsman",
+      "archetypeB": "storykeeper",
+      "isDouble": false,
+      "title": "The Monument Builders",
+      "tagline": "Physical craft engineered to preserve enduring legacy.",
+      "chemistry": "The Storykeeper provides the narrative significance, and the Craftsman carves it into stone or wood. Together, they build artifacts, books, and buildings that survive generations and teach future builders how things were made.",
+      "watchOut": "Building monuments takes time. Make sure you celebrate intermediate drafts and small working prototypes along the multi-year journey.",
+      "idealProject": "Heirloom book printing, historical restorations, and physical archives."
+    },
+    "explorer+explorer": {
+      "archetypeA": "explorer",
+      "archetypeB": "explorer",
+      "isDouble": true,
+      "title": "The Open Horizon",
+      "tagline": "Boundless curiosity and shared taste for the unknown.",
+      "chemistry": "Two Explorers make fearless travel companions. Unbothered by missed turns or absent itineraries, they treat every obstacle as a scenic detour and discover beauty where others only see uncertainty.",
+      "watchOut": "Who is steering the boat? Without a dedicated anchor or pragmatic checklist, you may end up adrift in fascinating but unproductive waters.",
+      "idealProject": "Sabbatical expeditions, open-ended research discovery, and horizon scouting."
+    },
+    "explorer+gatherer": {
+      "archetypeA": "explorer",
+      "archetypeB": "gatherer",
+      "isDouble": false,
+      "title": "The Trailhead Basecamp",
+      "tagline": "The courage to wander, with a warm hearth to come home to.",
+      "chemistry": "The Gatherer packs the provisions and prepares the welcome feast; the Explorer brings back wild stories, exotic ingredients, and new friends from the road. Together, they make adventurous lives feel secure and rooted.",
+      "watchOut": "Distance tension: The Explorer's wanderlust can strain the Gatherer's desire for settled presence. Establish clear seasons for departure and return.",
+      "idealProject": "Culinary travel journeys, regional guidebooks, and destination retreats."
+    },
+    "explorer+storykeeper": {
+      "archetypeA": "explorer",
+      "archetypeB": "storykeeper",
+      "isDouble": false,
+      "title": "The Field Historians",
+      "tagline": "Uncovering lost lore and mapping forgotten cultural trails.",
+      "chemistry": "The Explorer finds the abandoned mountain pass; the Storykeeper listens to the local elders to learn who built it and why. Together, they produce deeply immersive, authentic travelogues and field dispatches.",
+      "watchOut": "Factual capture vs. living the moment: Ensure the Storykeeper doesn't get so absorbed in note-taking that they miss the sunset with the Explorer.",
+      "idealProject": "Oral history expeditions, cultural geography chronicles, and documentary field notes."
+    },
+    "gatherer+gatherer": {
+      "archetypeA": "gatherer",
+      "archetypeB": "gatherer",
+      "isDouble": true,
+      "title": "The Harvest Feast",
+      "tagline": "Infinite hospitality, shared bounty, and profound belonging.",
+      "chemistry": "Two Gatherers together create an atmosphere of warmth so potent that strangers become lifelong friends in an afternoon. Every detail—from the candlelight to the seating chart—is calibrated for comfort and inclusion.",
+      "watchOut": "Host exhaustion: When both partners are busy attending to everyone else, neither remembers to sit down and eat. Schedule dedicated quiet resets.",
+      "idealProject": "Community dining tables, community land trusts, and collaborative retreat spaces."
+    },
+    "gatherer+storykeeper": {
+      "archetypeA": "gatherer",
+      "archetypeB": "storykeeper",
+      "isDouble": false,
+      "title": "The Living Room Hearth",
+      "tagline": "Generational memory passed down over unhurried meals.",
+      "chemistry": "The Gatherer brings the people to the table, and the Storykeeper draws out their deepest, most meaningful recollections. Together, they weave personal histories into rich communal tapestries that comfort and inspire.",
+      "watchOut": "Over-focusing on the past: Ensure that remembering what once was leaves room for building what comes next.",
+      "idealProject": "Family chronicles, community archives, storytelling dinners, and memorial projects."
+    },
+    "storykeeper+storykeeper": {
+      "archetypeA": "storykeeper",
+      "archetypeB": "storykeeper",
+      "isDouble": true,
+      "title": "The Great Archive",
+      "tagline": "Deep reverence for lineage, memory, and cultural preservation.",
+      "chemistry": "Two Storykeepers create an impenetrable vault for human meaning. They value patience, careful listening, and nuanced prose, ensuring that what was precious in the past is never lost to the noise of modern life.",
+      "watchOut": "Living inside the library: Spending so much time archiving the chronicles of others that you forget to live out your own active adventure.",
+      "idealProject": "Oral history repositories, institutional biographies, and generational anthologies."
+    }
+  }
+}

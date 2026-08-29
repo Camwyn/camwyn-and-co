@@ -316,6 +316,52 @@ function testVenturesMatrix() {
 }
 
 // ============================================================================
+// 7. Workshop Table Archetype Chemistry Matrix Tests
+// ============================================================================
+function testChemistryMatrix() {
+  console.log('\n========================================');
+  console.log('7. Workshop Table Archetype Chemistry Matrix (15 Pairings)');
+  console.log('========================================');
+
+  const chemistryJsonPath = path.join(DATA_DIR, 'chemistry.json');
+  assert(fs.existsSync(chemistryJsonPath), `chemistry.json exists in src/_data`);
+  if (!fs.existsSync(chemistryJsonPath)) return;
+
+  const chemistry = JSON.parse(fs.readFileSync(chemistryJsonPath, 'utf8'));
+  assert(Boolean(chemistry.pairings && typeof chemistry.pairings === 'object'), `chemistry.json defines pairings dictionary`);
+
+  const keys = Object.keys(chemistry.pairings);
+  assert(keys.length === 15, `chemistry.json defines exactly 15 unique pairings (found ${keys.length})`);
+
+  const canonicalArchetypes = ['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'];
+
+  // Test all pairs combinatorially
+  for (let i = 0; i < canonicalArchetypes.length; i++) {
+    for (let j = i; j < canonicalArchetypes.length; j++) {
+      const archA = canonicalArchetypes[i];
+      const archB = canonicalArchetypes[j];
+      const canonicalKey = [archA, archB].sort().join('+');
+      const pair = chemistry.pairings[canonicalKey];
+
+      assert(Boolean(pair), `Chemistry matrix includes canonical pairing "${canonicalKey}"`);
+      if (pair) {
+        assert(Boolean(pair.title && pair.title.length > 2), `Pairing "${canonicalKey}" has evocative title ("${pair.title}")`);
+        assert(Boolean(pair.tagline && pair.tagline.length > 10), `Pairing "${canonicalKey}" has descriptive tagline`);
+        assert(Boolean(pair.chemistry && pair.chemistry.length > 30), `Pairing "${canonicalKey}" has rich chemistry narrative`);
+        assert(Boolean(pair.watchOut && pair.watchOut.length > 20), `Pairing "${canonicalKey}" has watch-out / friction alert`);
+        assert(Boolean(pair.idealProject && pair.idealProject.length > 10), `Pairing "${canonicalKey}" has ideal project domain`);
+
+        if (archA === archB) {
+          assert(pair.isDouble === true, `Double pairing "${canonicalKey}" has isDouble: true`);
+        } else {
+          assert(pair.isDouble === false, `Cross pairing "${canonicalKey}" has isDouble: false`);
+        }
+      }
+    }
+  }
+}
+
+// ============================================================================
 // Main Test Runner
 // ============================================================================
 function runAllIntegrityTests() {
@@ -328,6 +374,7 @@ function runAllIntegrityTests() {
   testLinksAndAssets();
   testCompassMatrix();
   testVenturesMatrix();
+  testChemistryMatrix();
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
   console.log('\n========================================');
@@ -344,3 +391,4 @@ function runAllIntegrityTests() {
 }
 
 runAllIntegrityTests();
+
