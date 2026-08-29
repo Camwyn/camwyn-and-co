@@ -1,4 +1,5 @@
 *.code-workspace
 node_modules/
 _site/
+scratch/
 digital_identity_mocks/**/code.html

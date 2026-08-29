@@ -17,6 +17,7 @@ module.exports = function(eleventyConfig) {
   // Passthrough copy for CSS and asset files
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/wp-content");
 
   // Filters
   eleventyConfig.addFilter("readableDate", function(dateObj) {
