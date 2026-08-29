@@ -79,25 +79,44 @@
 - [x] Configure safe FTP synchronization preserving existing server directories (`dangerous-clean-slate: false`).
 - [x] Add path-filtering on push triggers (`src/**`, `.eleventy.js`, dependencies, scripts) to optimize CI/CD runs.
 - [x] Untrack `.lando.yml` and harden `.gitignore` against keys, secrets, local configs, and temporary dumps.
+- [x] Configure external venture and markdown links to automatically open in new tabs with `target="_blank" rel="noopener noreferrer"`.
 
 ---
 
 ## Milestone 11: SEO & Syndication (Completed)
-- [x] **SEO & Indexing**: Add dynamic `sitemap.xml` and `robots.txt` generation.
+- [x] **SEO & Indexing**: Add dynamic `sitemap.xml` and `robots.txt` generation across all site routes.
 - [x] **RSS / Atom Feed**: Generate `src/feed.xml` for blog readers and syndication, auto-discovery in `<head>`, and footer link.
+- [x] Set canonical site URL to `https://camwyn.com`.
 
 ---
 
-## Milestone 12: Search & Discovery (Completed)
-- [x] **Search & Tagging**: Add client-side real-time keyword, title, and topic search integrated with archetype filter buttons on `/notes/`.
+## Milestone 12: Search, Discovery & Dynamic Personalization (Completed)
+- [x] **Live Search**: Add client-side real-time keyword, title, and topic search on `/notes/` integrated seamlessly with archetype filters.
+- [x] **Archetype Icons**: Embed visual Metrize icons on filter buttons with adaptive dark/light inversion styles (`.c-btn__icon`).
+- [x] **Archetype Pre-Selection**: Automatically pre-select the visitor's Compass archetype on `/notes/` from `$store.compass` / `localStorage`.
+- [x] **Dynamic Eyebrow**: Display archetype-tailored subtitle (`"Showing dispatches tailored for The Explorer (Your Archetype)"`) reflecting current active filter and user perspective.
+- [x] **Robust DOM Matching**: Pass `$el` to `matches()` avoiding quote and apostrophe escaping syntax errors in Alpine's expression evaluator.
 
 ---
 
-## Milestone 13: Craftsman Colophon & Atelier Spec (Completed)
-- [x] **Colophon Page**: Create dedicated `/colophon/` page documenting the engineering stack (Eleventy, Alpine.js, Pure OCSS), typography scale (DM Serif Display, Hanken Grotesk, JetBrains Mono), design philosophy (Generous Minimalism / Atelier Narrative), and accessibility commitments.
-- [x] **Footer Navigation**: Add Colophon link to global footer and include in automated WCAG accessibility test suite.
+## Milestone 13: Responsive Editorial Polish & ASCII Diagrams (Completed)
+- [x] **Responsive Code Blocks**: Add horizontal touch-scrolling (`overflow-x: auto; -webkit-overflow-scrolling: touch;`) and container containment to `.c-article__body pre` to keep wide ASCII architecture diagrams (e.g. The Threshold Protocol) responsive on mobile viewports.
+- [x] Add design system styling tokens to code and preformatted elements.
 
 ---
 
-## Milestone 14: Future Horizons (Planned)
+## Milestone 14: Contextual Archetype-Aware 404 Experience (Completed)
+- [x] **Adaptive 404 Page**: Build `/404.html` with personalized error copy, eyebrow, and CTAs tailored to the visitor's stored archetype (*Explorer*, *Craftsman*, *Gatherer*, *Catalyst*, *Storykeeper*) with warm fallback.
+- [x] Fully integrated with OCSS design system tokens and buttons.
+
+---
+
+## Milestone 15: Craftsman Colophon & Atelier Spec (Completed)
+- [x] **Colophon Page**: Create dedicated `/colophon/` page documenting the engineering stack (Eleventy, Alpine.js, Pure OCSS), typography scale (DM Serif Display, Hanken Grotesk, JetBrains Mono), design philosophy (Generous Minimalism / Atelier Narrative), and accessibility standards.
+- [x] **Iconography Attribution**: Attribute Metrize Circled Icons by Alessio Atzeni with live visual specimen cards.
+- [x] **Footer Navigation & A11y Audit**: Add Colophon link to global footer and include in automated WCAG accessibility test runner (27 static pages verified).
+
+---
+
+## Milestone 16: Future Horizons (Planned)
 - [ ] **Form Submission Backend**: Connect "The Next Thing" intake form to an active email or webhook endpoint (e.g., Netlify Forms, Formspree, or custom server endpoint).
