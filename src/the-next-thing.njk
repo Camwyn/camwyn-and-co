@@ -66,11 +66,11 @@ permalink: "/the-next-thing/index.html"
           if (data.errors && data.errors.length) {
             this.errorMessage = data.errors.map(e => e.message).join(', ');
           } else {
-            this.errorMessage = 'There was a problem submitting your dispatch. Please try again or email {{ site.contactEmail }} directly.';
+            this.errorMessage = 'There was a problem submitting your dispatch. Please try again or email {{ site.supportEmail }} directly.';
           }
         }
       } catch (err) {
-        this.errorMessage = 'Network error sending your dispatch. Please check your connection or email {{ site.contactEmail }} directly.';
+        this.errorMessage = 'Network error sending your dispatch. Please check your connection or email {{ site.supportEmail }} directly.';
       } finally {
         this.isSubmitting = false;
       }
@@ -395,7 +395,7 @@ permalink: "/the-next-thing/index.html"
         </button>
 
         <p class="u-font-mono u-text-muted" style="font-size: 0.75rem;">
-          Direct inquiries always welcome at <a href="mailto:hello@camwyn.com" style="color: inherit; text-decoration: underline;">hello@camwyn.com</a>
+          Direct inquiries always welcome at <a href="mailto:{{ site.contacttEmail }}" style="color: inherit; text-decoration: underline;">{{ site.contacttEmail }}</a>
         </p>
       </div>
     </form>
