@@ -23,9 +23,9 @@
     archetypeIcons: {
       gatherer: 'leaf',
       craftsman: 'brush',
-      explorer: 'compass',
-      catalyst: 'wand',
-      storykeeper: 'shield'
+      explorer: 'landscape',
+      catalyst: 'bolt',
+      storykeeper: 'key'
     },
     getCanonicalKey(a, b) {
       const sorted = [a, b].sort();
@@ -217,60 +217,18 @@
             <span>Doubles (5)</span>
           </button>
 
+          {% for id, arch in compass.archetypes %}
           <button 
             type="button" 
             class="c-btn"
-            :class="activeFilter === 'craftsman' ? 'c-btn--primary' : 'c-btn--secondary'"
-            @click="activeFilter = 'craftsman'"
+            :class="activeFilter === '{{ id }}' ? 'c-btn--primary' : 'c-btn--secondary'"
+            @click="activeFilter = '{{ id }}'"
             style="padding: 0.375rem 0.75rem; font-size: 0.6875rem; min-height: 36px;"
           >
-            <img src="/assets/brush.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
-            <span>Craftsman</span>
+            <img src="/assets/{{ arch.icon }}.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
+            <span>{{ arch.name | replace('The ', '') }}</span>
           </button>
-
-          <button 
-            type="button" 
-            class="c-btn"
-            :class="activeFilter === 'gatherer' ? 'c-btn--primary' : 'c-btn--secondary'"
-            @click="activeFilter = 'gatherer'"
-            style="padding: 0.375rem 0.75rem; font-size: 0.6875rem; min-height: 36px;"
-          >
-            <img src="/assets/leaf.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
-            <span>Gatherer</span>
-          </button>
-
-          <button 
-            type="button" 
-            class="c-btn"
-            :class="activeFilter === 'explorer' ? 'c-btn--primary' : 'c-btn--secondary'"
-            @click="activeFilter = 'explorer'"
-            style="padding: 0.375rem 0.75rem; font-size: 0.6875rem; min-height: 36px;"
-          >
-            <img src="/assets/compass.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
-            <span>Explorer</span>
-          </button>
-
-          <button 
-            type="button" 
-            class="c-btn"
-            :class="activeFilter === 'catalyst' ? 'c-btn--primary' : 'c-btn--secondary'"
-            @click="activeFilter = 'catalyst'"
-            style="padding: 0.375rem 0.75rem; font-size: 0.6875rem; min-height: 36px;"
-          >
-            <img src="/assets/wand.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
-            <span>Catalyst</span>
-          </button>
-
-          <button 
-            type="button" 
-            class="c-btn"
-            :class="activeFilter === 'storykeeper' ? 'c-btn--primary' : 'c-btn--secondary'"
-            @click="activeFilter = 'storykeeper'"
-            style="padding: 0.375rem 0.75rem; font-size: 0.6875rem; min-height: 36px;"
-          >
-            <img src="/assets/shield.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
-            <span>Storykeeper</span>
-          </button>
+          {% endfor %}
         </div>
       </div>
 
