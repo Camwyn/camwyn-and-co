@@ -12,12 +12,28 @@ permalink: "/notes/index.html"
     activeFilter: 'all', 
     userArchetype: null,
     searchQuery: '',
+    searchIndex: [],
+    hasLoadedIndex: false,
+    matchingUrls: null,
     archetypeNames: {
       gatherer: 'The Gatherer',
       craftsman: 'The Craftsman',
       explorer: 'The Explorer',
       catalyst: 'The Catalyst',
       storykeeper: 'The Storykeeper'
+    },
+    async loadSearchIndex() {
+      if (this.hasLoadedIndex) return;
+      try {
+        const res = await fetch('/search-index.json');
+        if (res.ok) {
+          this.searchIndex = await res.json();
+          this.hasLoadedIndex = true;
+          this.performSearch();
+        }
+      } catch (e) {
+        console.warn('Search index load error:', e);
+      }
     },
     init() {
       try {
@@ -27,12 +43,42 @@ permalink: "/notes/index.html"
           this.activeFilter = saved;
         }
       } catch (e) {}
+
+      this.$watch('searchQuery', (val) => {
+        if (val && !this.hasLoadedIndex) {
+          this.loadSearchIndex();
+        } else {
+          this.performSearch();
+        }
+      });
     },
-    matches(el, archetype) {
+    performSearch() {
+      const q = this.searchQuery ? this.searchQuery.toLowerCase().trim() : '';
+      if (!q) {
+        this.matchingUrls = null;
+        return;
+      }
+      if (!this.hasLoadedIndex) {
+        return;
+      }
+      const matched = new Set();
+      this.searchIndex.forEach(item => {
+        const corpus = ((item.title || '') + ' ' + (item.excerpt || '') + ' ' + (item.archetypeTag || '') + ' ' + (item.content || '')).toLowerCase();
+        if (corpus.includes(q)) {
+          matched.add(item.url);
+        }
+      });
+      this.matchingUrls = matched;
+    },
+    matches(url, archetype, el) {
       const matchesArchetype = this.activeFilter === 'all' || this.activeFilter === archetype;
       if (!matchesArchetype) return false;
-      if (!this.searchQuery || !this.searchQuery.trim()) return true;
-      return el.textContent.toLowerCase().includes(this.searchQuery.toLowerCase().trim());
+      const q = this.searchQuery ? this.searchQuery.toLowerCase().trim() : '';
+      if (!q) return true;
+      if (this.matchingUrls !== null) {
+        return this.matchingUrls.has(url);
+      }
+      return el ? el.textContent.toLowerCase().includes(q) : true;
     }
   }"
 >
@@ -124,15 +170,16 @@ permalink: "/notes/index.html"
         </button>
       </div>
 
-      <!-- Search Input with Clear Button -->
+      <!-- Search Input with Clear Button & Lazy Index Load -->
       <div style="position: relative; min-width: 240px; flex-grow: 1; max-width: 320px;">
-        <label for="notes-search-input" class="u-sr-only">Search field notes by title, topic, or keyword</label>
+        <label for="notes-search-input" class="u-sr-only">Search field notes by title, topic, full text, or keyword</label>
         <input 
           type="search" 
           id="notes-search-input"
           x-model="searchQuery" 
-          placeholder="Search notes..." 
-          aria-label="Search field notes by title, topic, or keyword"
+          @focus="loadSearchIndex()"
+          placeholder="Search full text..." 
+          aria-label="Search field notes by title, topic, full text, or keyword"
           style="width: 100%; padding: 0.5rem 2rem 0.5rem 0.875rem; font-family: var(--font-sans); font-size: 0.875rem; border: 1px solid var(--color-outline-variant); background: var(--color-surface); color: var(--color-on-surface); border-radius: 0; box-sizing: border-box;"
         />
         <button 
@@ -152,7 +199,7 @@ permalink: "/notes/index.html"
       {% for note in collections.notes %}
         <article 
           class="c-note-card"
-          x-show="matches($el, '{{ note.data.archetype }}')"
+          x-show="matches('{{ note.url }}', '{{ note.data.archetype }}', $el)"
           {% if note.data.archetype %}
             :style="$store.compass.result && $store.compass.result === '{{ note.data.archetype }}' ? 'border-color: var(--color-muted-clay); background-color: var(--color-surface-container-low);' : ''"
           {% endif %}

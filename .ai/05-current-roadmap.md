@@ -93,11 +93,12 @@
 ---
 
 ## Milestone 12: Search, Discovery & Dynamic Personalization (Completed)
-- [x] **Live Search**: Add client-side real-time keyword, title, and topic search on `/notes/` integrated seamlessly with archetype filters.
+- [x] **Static Search Index Auto-Generation**: Generate a lightweight `/search-index.json` during the Eleventy build step containing cleaned full-text bodies, excerpts, and metadata across all dispatches.
+- [x] **Full-Text Live Search**: Alpine lazy-loads the index on search focus/typing to perform instant client-side full-text searches with zero external dependencies.
 - [x] **Archetype Icons**: Embed visual Metrize icons on filter buttons with adaptive dark/light inversion styles (`.c-btn__icon`).
 - [x] **Archetype Pre-Selection**: Automatically pre-select the visitor's Compass archetype on `/notes/` from `$store.compass` / `localStorage`.
 - [x] **Dynamic Eyebrow**: Display archetype-tailored subtitle (`"Showing dispatches tailored for The Explorer (Your Archetype)"`) reflecting current active filter and user perspective.
-- [x] **Robust DOM Matching**: Pass `$el` to `matches()` avoiding quote and apostrophe escaping syntax errors in Alpine's expression evaluator.
+- [x] **Robust DOM & URL Matching**: Match cards by URL and archetype, avoiding quote escaping errors and supporting full-text query matches.
 
 ---
 

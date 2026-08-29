@@ -1,0 +1,18 @@
+---
+permalink: "/search-index.json"
+eleventyExcludeFromCollections: true
+---
+[
+  {% for note in collections.notes %}
+  {
+    "url": {{ note.url | dump | safe }},
+    "title": {{ note.data.title | dump | safe }},
+    "excerpt": {{ (note.data.excerpt | default('')) | dump | safe }},
+    "archetype": {{ (note.data.archetype | default('')) | dump | safe }},
+    "archetypeTag": {{ (note.data.archetype | archetypeTag) | dump | safe }},
+    "date": {{ (note.date | htmlDateString) | dump | safe }},
+    "readableDate": {{ (note.date | readableDate) | dump | safe }},
+    "content": {{ (note.templateContent | cleanSearchText) | dump | safe }}
+  }{% if not loop.last %},{% endif %}
+  {% endfor %}
+]

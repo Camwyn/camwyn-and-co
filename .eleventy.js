@@ -62,6 +62,15 @@ module.exports = function(eleventyConfig) {
     return compassData.archetypes[archetypeId]?.name || "Adventure Compass";
   });
 
+  eleventyConfig.addFilter("cleanSearchText", function(rawContent) {
+    if (!rawContent) return "";
+    return rawContent
+      .replace(/<[^>]*>?/gm, ' ')
+      .replace(/&[a-z0-9#]+;/gi, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  });
+
   // Collections
   eleventyConfig.addCollection("notes", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/notes/*.md").sort((a, b) => b.date - a.date);
