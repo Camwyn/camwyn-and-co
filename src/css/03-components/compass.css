@@ -219,8 +219,10 @@
 }
 
 .c-btn__icon {
-  width: 14px;
-  height: 14px;
+  width: var(--icon-min-size, 14px);
+  height: var(--icon-min-size, 14px);
+  min-width: var(--icon-min-size, 14px);
+  min-height: var(--icon-min-size, 14px);
   display: inline-block;
   flex-shrink: 0;
   transition: filter 0.2s ease;

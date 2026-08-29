@@ -339,6 +339,42 @@ function testSelectiveIconDeployment() {
 }
 
 // ============================================================================
+// 9. Minimum Icon Legibility & Sizing Standard (>= 14px)
+// ============================================================================
+function testMinimumIconSizes() {
+  console.log('\n========================================');
+  console.log('9. Icon Legibility Standard (Minimum 14px Sizing)');
+  console.log('========================================');
+
+  const htmlFiles = getAllFiles(SITE_DIR, '.html');
+  const MIN_SIZE = 14;
+
+  htmlFiles.forEach(file => {
+    const relPath = path.relative(SITE_DIR, file);
+    const html = fs.readFileSync(file, 'utf8');
+    const dom = new JSDOM(html);
+    const imgs = dom.window.document.querySelectorAll('img[src$=".svg"]');
+
+    imgs.forEach(img => {
+      const src = img.getAttribute('src') || '';
+      if (src.includes('logo.svg')) return;
+
+      const widthAttr = img.getAttribute('width');
+      const heightAttr = img.getAttribute('height');
+
+      if (widthAttr && heightAttr) {
+        const w = parseInt(widthAttr, 10);
+        const h = parseInt(heightAttr, 10);
+        assert(
+          w >= MIN_SIZE && h >= MIN_SIZE,
+          `${relPath} -> Icon "${src}" meets min 14px legibility standard (${w}x${h}px)`
+        );
+      }
+    });
+  });
+}
+
+// ============================================================================
 // Main Test Runner
 // ============================================================================
 function runAllIntegrityTests() {
@@ -352,6 +388,7 @@ function runAllIntegrityTests() {
   testCompassMatrix();
   testVenturesMatrix();
   testSelectiveIconDeployment();
+  testMinimumIconSizes();
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
   console.log('\n========================================');

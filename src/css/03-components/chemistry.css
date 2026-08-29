@@ -89,8 +89,10 @@
 }
 
 .c-chemistry-pill__icon {
-  width: 14px;
-  height: 14px;
+  width: var(--icon-min-size, 14px);
+  height: var(--icon-min-size, 14px);
+  min-width: var(--icon-min-size, 14px);
+  min-height: var(--icon-min-size, 14px);
   display: inline-block;
   flex-shrink: 0;
 }
@@ -190,6 +192,14 @@
   margin-bottom: var(--space-xs);
 }
 
+.c-chemistry-insight-box__label img {
+  width: var(--icon-min-size, 14px);
+  height: var(--icon-min-size, 14px);
+  min-width: var(--icon-min-size, 14px);
+  min-height: var(--icon-min-size, 14px);
+  flex-shrink: 0;
+}
+
 .c-chemistry-insight-box__text {
   font-size: 0.875rem;
   line-height: 1.6;
@@ -260,6 +270,14 @@
   display: flex;
   align-items: center;
   gap: 0.375rem;
+}
+
+.c-chemistry-card__badge img {
+  width: var(--icon-min-size, 14px);
+  height: var(--icon-min-size, 14px);
+  min-width: var(--icon-min-size, 14px);
+  min-height: var(--icon-min-size, 14px);
+  flex-shrink: 0;
 }
 
 .c-chemistry-card__duo {
