@@ -40,7 +40,9 @@ permalink: "/the-next-thing/index.html"
       if (!endpoint || endpoint.includes('placeholder')) {
         this.submitted = true;
         this.isSubmitting = false;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.$nextTick(() => {
+          document.getElementById('dispatch-received')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
         return;
       }
 
@@ -56,7 +58,9 @@ permalink: "/the-next-thing/index.html"
 
         if (response.ok) {
           this.submitted = true;
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          this.$nextTick(() => {
+            document.getElementById('dispatch-received')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
         } else {
           const data = await response.json().catch(() => ({}));
           if (data.errors && data.errors.length) {
@@ -80,7 +84,9 @@ permalink: "/the-next-thing/index.html"
       this.stage = 'sketch';
       this.submitted = false;
       this.errorMessage = '';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      this.$nextTick(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     }
   }">
     <!-- Breadcrumb -->
@@ -91,7 +97,7 @@ permalink: "/the-next-thing/index.html"
     </div>
 
     <!-- Header -->
-    <header class="c-form-header">
+    <header class="c-form-header" x-show="!submitted">
       <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; letter-spacing: 0.1em; color: var(--color-muted-clay-text); margin-bottom: var(--space-sm);">
         Experiments · Possibility · The Next Thing
       </p>
@@ -105,7 +111,15 @@ permalink: "/the-next-thing/index.html"
     </header>
 
     <!-- Success Screen (Shown after submission) -->
-    <div class="c-form-success" x-show="submitted" style="display: none;" x-cloak>
+    <div 
+      id="dispatch-received"
+      class="c-form-success" 
+      x-show="submitted" 
+      style="display: none;" 
+      x-cloak
+      tabindex="-1"
+      aria-live="polite"
+    >
       <p class="c-form-success__badge">Dispatch Received</p>
       <h2 class="c-form-success__title">Pull up a chair. We've got your note.</h2>
       <p class="c-form-success__message">
