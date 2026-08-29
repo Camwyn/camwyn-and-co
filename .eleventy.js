@@ -76,6 +76,32 @@ module.exports = function(eleventyConfig) {
     return latest;
   });
 
+  // Configure Markdown parser to automatically open external links in new tab
+  const markdownIt = require("markdown-it");
+  const markdownLib = markdownIt({
+    html: true,
+    breaks: false,
+    linkify: true
+  });
+
+  const defaultRender = markdownLib.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+    return self.renderToken(tokens, idx, options);
+  };
+
+  markdownLib.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+    const hrefIndex = tokens[idx].attrIndex('href');
+    if (hrefIndex >= 0) {
+      const href = tokens[idx].attrs[hrefIndex][1];
+      if (/^https?:\/\//i.test(href) && !href.includes('camwyn.com') && !href.includes('camwyn-and-co.lndo.site')) {
+        tokens[idx].attrPush(['target', '_blank']);
+        tokens[idx].attrPush(['rel', 'noopener noreferrer']);
+      }
+    }
+    return defaultRender(tokens, idx, options, env, self);
+  };
+
+  eleventyConfig.setLibrary("md", markdownLib);
+
   return {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
