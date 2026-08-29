@@ -285,3 +285,106 @@
     padding-top: var(--space-md);
   }
 }
+
+/* ==========================================================================
+   Colophon & Specimen Cards
+   ========================================================================== */
+
+.c-colophon-header {
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  gap: var(--gutter);
+  align-items: end;
+  margin-bottom: var(--space-xxl);
+}
+
+.c-colophon-section-header {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: var(--gutter);
+  margin-bottom: var(--space-lg);
+}
+
+.c-specimen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter);
+}
+
+.c-specimen-card {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-outline-variant);
+  background: var(--color-surface);
+  box-sizing: border-box;
+}
+
+.c-specimen-card--alt {
+  background-color: var(--color-surface-container-low);
+}
+
+.c-icon-showcase {
+  margin-top: var(--space-md);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-outline-variant);
+  background: var(--color-surface-container-low);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-lg);
+  box-sizing: border-box;
+}
+
+.c-icon-showcase__cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.c-palette-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: var(--space-lg);
+}
+
+@media (max-width: 1024px) {
+  .c-specimen-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .c-colophon-header,
+  .c-colophon-section-header,
+  .c-specimen-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .c-specimen-card {
+    padding: var(--space-md);
+  }
+
+  .c-icon-showcase {
+    padding: var(--space-md);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .c-icon-showcase__cluster {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    margin-top: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .c-icon-showcase__cluster {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
