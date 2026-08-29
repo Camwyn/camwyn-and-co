@@ -180,12 +180,23 @@ function testLinksAndAssets() {
     const dom = new JSDOM(html);
     const doc = dom.window.document;
 
-    // Check <a> internal links
-    const anchors = doc.querySelectorAll('a[href]');
-    anchors.forEach(a => {
-      const href = a.getAttribute('href').trim();
+    // Check <a> internal links and accessible names
+    const allAnchors = doc.querySelectorAll('a');
+    allAnchors.forEach(a => {
+      const href = (a.getAttribute('href') || '').trim();
+      assert(href !== '', `${relPath} -> Link has non-empty href`);
+      
+      if (href.toLowerCase().startsWith('mailto:')) {
+        const email = href.replace(/^mailto:/i, '').split('?')[0].trim();
+        assert(email.length > 0 && email.includes('@'), `${relPath} -> mailto link "${href}" has a valid email address`);
+      }
 
-      // Skip external, mailto, tel, javascript
+      const text = a.textContent.trim();
+      const ariaLabel = a.getAttribute('aria-label') || '';
+      const imgAlt = a.querySelector('img[alt]')?.getAttribute('alt') || '';
+      assert(Boolean(text || ariaLabel || imgAlt), `${relPath} -> Link "${href}" has discernible text`);
+
+      // Skip external, mailto, tel, javascript for file resolution check
       if (/^(https?:\/\/|mailto:|tel:|javascript:)/i.test(href)) return;
 
       checkedLinks++;

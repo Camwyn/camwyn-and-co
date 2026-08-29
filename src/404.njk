@@ -59,23 +59,24 @@ eleventyExcludeFromCollections: true
     <p class="c-hero__eyebrow" x-text="archetype && messages[archetype] ? messages[archetype].eyebrow : 'A wrong turn on a quiet lane'"></p>
 
     <!-- Serif Title -->
-    <h1 class="c-hero__title" style="max-width: 25ch;" x-text="archetype && messages[archetype] ? messages[archetype].title : 'The page you are looking for has moved or taken a detour.'"></h1>
+    <h1 class="c-hero__title" style="max-width: 25ch;" x-text="archetype && messages[archetype] ? messages[archetype].title : 'The page you are looking for has moved or taken a detour.'">The page you are looking for has moved or taken a detour.</h1>
 
     <!-- Body Text with Color Punch (Uses x-html) -->
     <p 
       class="u-font-serif" 
       style="font-size: 1.375rem; color: var(--color-primary); max-width: 45ch; margin-top: var(--space-md); line-height: 1.5;"
-      x-html="archetype && messages[archetype] ? messages[archetype].body : 'Camwyn & Co. is built on generous tables and steady craft, but <span class=\'u-text-clay\'>this particular path leads nowhere right now.</span>'"
-    ></p>
+      x-html="archetype && messages[archetype] ? messages[archetype].body : 'Camwyn &amp; Co. is built on generous tables and steady craft, but <span class=\'u-text-clay\'>this particular path leads nowhere right now.</span>'"
+    >Camwyn &amp; Co. is built on generous tables and steady craft, but <span class="u-text-clay">this particular path leads nowhere right now.</span></p>
 
     <!-- Call to Action Controls -->
     <div style="margin-top: var(--space-xl); display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap;">
       <a 
+        href="/"
         :href="archetype && messages[archetype] ? messages[archetype].ctaUrl : '/'" 
         class="c-btn c-btn--primary" 
         style="font-size: 0.875rem; padding: 0.875rem 1.5rem;"
         x-text="archetype && messages[archetype] ? messages[archetype].ctaText : 'Take a detour home ↗'"
-      ></a>
+      >Take a detour home ↗</a>
 
       <template x-if="archetype">
         <span class="u-font-mono" style="font-size: 0.8125rem; color: var(--color-muted-clay-text);">
