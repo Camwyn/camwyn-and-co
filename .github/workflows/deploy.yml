@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'src/**'
+      - '.eleventy.js'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/**'
+      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 concurrency:
