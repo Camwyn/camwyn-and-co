@@ -210,6 +210,10 @@ description: "Some companies begin with a plan. Ours began with curiosity, famil
 </section>
 
 <!-- Workshop Table & Archetype Chemistry Grid -->
+<script>
+  window.__CHEMISTRY_PAIRINGS__ = {{ chemistry.pairings | dump | safe }};
+</script>
+
 <section 
   class="c-chemistry-section" 
   id="workshop-table" 
@@ -219,7 +223,7 @@ description: "Some companies begin with a plan. Ours began with curiosity, famil
     archetypeB: 'gatherer',
     activeFilter: 'all',
     userArchetype: null,
-    pairings: {{ chemistry.pairings | dump | safe }},
+    pairings: window.__CHEMISTRY_PAIRINGS__ || {},
     archetypeNames: {
       gatherer: 'The Gatherer',
       craftsman: 'The Craftsman',
@@ -240,7 +244,7 @@ description: "Some companies begin with a plan. Ours began with curiosity, famil
     },
     get currentPairing() {
       const key = this.getCanonicalKey(this.archetypeA, this.archetypeB);
-      return this.pairings[key] || this.pairings['craftsman+gatherer'];
+      return (this.pairings && this.pairings[key]) ? this.pairings[key] : (this.pairings ? this.pairings['craftsman+gatherer'] : {});
     },
     selectDuo(a, b) {
       this.archetypeA = a;
@@ -257,14 +261,14 @@ description: "Some companies begin with a plan. Ours began with curiosity, famil
         }
       } catch (e) {}
     },
-    matchesFilter(pair) {
+    matchesFilter(archA, archB, isDouble) {
       if (this.activeFilter === 'all') return true;
-      if (this.activeFilter === 'doubles') return pair.isDouble;
+      if (this.activeFilter === 'doubles') return isDouble;
       if (this.activeFilter === 'user') {
         if (!this.userArchetype) return true;
-        return pair.archetypeA === this.userArchetype || pair.archetypeB === this.userArchetype;
+        return archA === this.userArchetype || archB === this.userArchetype;
       }
-      return pair.archetypeA === this.activeFilter || pair.archetypeB === this.activeFilter;
+      return archA === this.activeFilter || archB === this.activeFilter;
     }
   }"
 >
@@ -295,40 +299,40 @@ description: "Some companies begin with a plan. Ours began with curiosity, famil
               <span style="color: var(--color-muted-clay-text); text-transform: none; margin-left: 0.25rem;">(Active Compass detected)</span>
             </template>
           </span>
-          <div class="c-chemistry-pills" role="radiogroup" aria-label="Select first archetype">
-            <template x-for="(name, key) in archetypeNames" :key="'a-' + key">
+          <div class="c-chemistry-pills" role="group" aria-label="Select first archetype">
+            {% for key, arch in compass.archetypes %}
               <button 
                 type="button" 
                 class="c-chemistry-pill" 
-                :class="{ 'is-active': archetypeA === key }"
-                @click="archetypeA = key"
-                :aria-checked="archetypeA === key"
-                role="radio"
+                :class="{ 'is-active': archetypeA === '{{ key }}' }"
+                @click="archetypeA = '{{ key }}'"
+                :aria-pressed="archetypeA === '{{ key }}'"
+                aria-pressed="false"
               >
-                <img :src="'/assets/' + archetypeIcons[key] + '.svg'" alt="" aria-hidden="true" class="c-chemistry-pill__icon" width="14" height="14" />
-                <span x-text="name"></span>
+                <img src="/assets/{{ arch.icon }}.svg" alt="" aria-hidden="true" class="c-chemistry-pill__icon" width="14" height="14" />
+                <span>{{ arch.name }}</span>
               </button>
-            </template>
+            {% endfor %}
           </div>
         </div>
 
         <!-- Person 2 Selector -->
         <div class="c-chemistry-picker-group">
           <span class="c-chemistry-picker-label">Second Instinct (Collaborator)</span>
-          <div class="c-chemistry-pills" role="radiogroup" aria-label="Select collaborator archetype">
-            <template x-for="(name, key) in archetypeNames" :key="'b-' + key">
+          <div class="c-chemistry-pills" role="group" aria-label="Select collaborator archetype">
+            {% for key, arch in compass.archetypes %}
               <button 
                 type="button" 
                 class="c-chemistry-pill" 
-                :class="{ 'is-active': archetypeB === key }"
-                @click="archetypeB = key"
-                :aria-checked="archetypeB === key"
-                role="radio"
+                :class="{ 'is-active': archetypeB === '{{ key }}' }"
+                @click="archetypeB = '{{ key }}'"
+                :aria-pressed="archetypeB === '{{ key }}'"
+                aria-pressed="false"
               >
-                <img :src="'/assets/' + archetypeIcons[key] + '.svg'" alt="" aria-hidden="true" class="c-chemistry-pill__icon" width="14" height="14" />
-                <span x-text="name"></span>
+                <img src="/assets/{{ arch.icon }}.svg" alt="" aria-hidden="true" class="c-chemistry-pill__icon" width="14" height="14" />
+                <span>{{ arch.name }}</span>
               </button>
-            </template>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -338,30 +342,30 @@ description: "Some companies begin with a plan. Ours began with curiosity, famil
         <div class="c-chemistry-hero-card__header">
           <div class="c-chemistry-hero-card__duo-icons">
             <div class="c-chemistry-hero-card__icon-badge">
-              <img :src="'/assets/' + archetypeIcons[currentPairing.archetypeA] + '.svg'" alt="" aria-hidden="true" width="16" height="16" />
-              <span x-text="archetypeNames[currentPairing.archetypeA]"></span>
+              <img :src="'/assets/' + (archetypeIcons[currentPairing.archetypeA] || 'brush') + '.svg'" alt="" aria-hidden="true" width="16" height="16" />
+              <span x-text="archetypeNames[currentPairing.archetypeA] || 'The Craftsman'">The Craftsman</span>
             </div>
             <span class="c-chemistry-hero-card__plus">+</span>
             <div class="c-chemistry-hero-card__icon-badge">
-              <img :src="'/assets/' + archetypeIcons[currentPairing.archetypeB] + '.svg'" alt="" aria-hidden="true" width="16" height="16" />
-              <span x-text="archetypeNames[currentPairing.archetypeB]"></span>
+              <img :src="'/assets/' + (archetypeIcons[currentPairing.archetypeB] || 'leaf') + '.svg'" alt="" aria-hidden="true" width="16" height="16" />
+              <span x-text="archetypeNames[currentPairing.archetypeB] || 'The Gatherer'">The Gatherer</span>
             </div>
           </div>
-          <span class="u-font-mono u-text-uppercase" style="font-size: 0.6875rem; color: var(--color-muted-clay-text);" x-text="currentPairing.isDouble ? '★ Double Synergy' : 'Reciprocal Chemistry'"></span>
+          <span class="u-font-mono u-text-uppercase" style="font-size: 0.6875rem; color: var(--color-muted-clay-text);" x-text="currentPairing.isDouble ? '★ Double Synergy' : 'Reciprocal Chemistry'">Reciprocal Chemistry</span>
         </div>
 
-        <h3 class="c-chemistry-hero-card__title" x-text="currentPairing.title"></h3>
-        <p class="c-chemistry-hero-card__tagline" x-text="currentPairing.tagline"></p>
-        <p class="c-chemistry-hero-card__body" x-text="currentPairing.chemistry"></p>
+        <h3 class="c-chemistry-hero-card__title" x-text="currentPairing.title || 'The Kitchen Table'">The Kitchen Table</h3>
+        <p class="c-chemistry-hero-card__tagline" x-text="currentPairing.tagline || 'Carefully built environments designed for generous living.'">Carefully built environments designed for generous living.</p>
+        <p class="c-chemistry-hero-card__body" x-text="currentPairing.chemistry || 'The core founding chemistry of Camwyn & Co. Stephen builds the sturdy white-oak table; Ivy fills it with food, laughter, and open conversation. Structural integrity meets deep human connection.'">The core founding chemistry of Camwyn &amp; Co. Stephen builds the sturdy white-oak table; Ivy fills it with food, laughter, and open conversation. Structural integrity meets deep human connection.</p>
 
         <div class="c-chemistry-hero-card__insights">
           <div class="c-chemistry-insight-box">
             <span class="c-chemistry-insight-box__label">⚡ Where Friction Sparks</span>
-            <p class="c-chemistry-insight-box__text" x-text="currentPairing.watchOut"></p>
+            <p class="c-chemistry-insight-box__text" x-text="currentPairing.watchOut || 'The Craftsman may retreat into the workshop when the house gets full; the Gatherer must remember to protect the Craftsman\'s quiet making hours.'">The Craftsman may retreat into the workshop when the house gets full; the Gatherer must remember to protect the Craftsman's quiet making hours.</p>
           </div>
           <div class="c-chemistry-insight-box">
             <span class="c-chemistry-insight-box__label">🎯 Sweet Spot &amp; Venture Fit</span>
-            <p class="c-chemistry-insight-box__text" x-text="currentPairing.idealProject"></p>
+            <p class="c-chemistry-insight-box__text" x-text="currentPairing.idealProject || 'Hospitality spaces, heirloom workshops, family ventures, and atelier studios.'">Hospitality spaces, heirloom workshops, family ventures, and atelier studios.</p>
           </div>
         </div>
       </div>
@@ -471,41 +475,41 @@ description: "Some companies begin with a plan. Ours began with curiosity, famil
       </div>
 
       <div class="c-chemistry-grid">
-        <template x-for="(pair, key) in pairings" :key="'card-' + key">
+        {% for key, pair in chemistry.pairings %}
           <div 
             class="c-chemistry-card"
             :class="{
-              'is-active': getCanonicalKey(archetypeA, archetypeB) === key,
-              'c-chemistry-card--user-promoted': userArchetype && (pair.archetypeA === userArchetype || pair.archetypeB === userArchetype)
+              'is-active': getCanonicalKey(archetypeA, archetypeB) === '{{ key }}',
+              'c-chemistry-card--user-promoted': userArchetype && ('{{ pair.archetypeA }}' === userArchetype || '{{ pair.archetypeB }}' === userArchetype)
             }"
-            x-show="matchesFilter(pair)"
-            @click="selectDuo(pair.archetypeA, pair.archetypeB); document.getElementById('workshop-table').scrollIntoView({ behavior: 'smooth', block: 'start' });"
+            x-show="matchesFilter('{{ pair.archetypeA }}', '{{ pair.archetypeB }}', {{ 'true' if pair.isDouble else 'false' }})"
+            @click="selectDuo('{{ pair.archetypeA }}', '{{ pair.archetypeB }}'); document.getElementById('workshop-table').scrollIntoView({ behavior: 'smooth', block: 'start' });"
             role="button"
             tabindex="0"
-            @keydown.enter="selectDuo(pair.archetypeA, pair.archetypeB); document.getElementById('workshop-table').scrollIntoView({ behavior: 'smooth', block: 'start' });"
-            @keydown.space.prevent="selectDuo(pair.archetypeA, pair.archetypeB); document.getElementById('workshop-table').scrollIntoView({ behavior: 'smooth', block: 'start' });"
-            :aria-label="'Explore chemistry for ' + pair.title"
+            @keydown.enter="selectDuo('{{ pair.archetypeA }}', '{{ pair.archetypeB }}'); document.getElementById('workshop-table').scrollIntoView({ behavior: 'smooth', block: 'start' });"
+            @keydown.space.prevent="selectDuo('{{ pair.archetypeA }}', '{{ pair.archetypeB }}'); document.getElementById('workshop-table').scrollIntoView({ behavior: 'smooth', block: 'start' });"
+            aria-label="Explore chemistry for {{ pair.title }}"
           >
             <div>
-              <div class="c-chemistry-card__badge" x-show="userArchetype && (pair.archetypeA === userArchetype || pair.archetypeB === userArchetype)">
+              <div class="c-chemistry-card__badge" x-show="userArchetype && ('{{ pair.archetypeA }}' === userArchetype || '{{ pair.archetypeB }}' === userArchetype)">
                 <span>✦ Resonates with Your Compass</span>
               </div>
               <div class="c-chemistry-card__duo">
-                <img :src="'/assets/' + archetypeIcons[pair.archetypeA] + '.svg'" alt="" aria-hidden="true" width="16" height="16" />
-                <span class="u-font-mono" style="font-size: 0.75rem;" x-text="archetypeNames[pair.archetypeA]"></span>
+                <img src="/assets/{{ compass.archetypes[pair.archetypeA].icon }}.svg" alt="" aria-hidden="true" width="16" height="16" />
+                <span class="u-font-mono" style="font-size: 0.75rem;">{{ compass.archetypes[pair.archetypeA].name }}</span>
                 <span class="u-font-mono" style="font-size: 0.75rem; color: var(--color-muted-clay-text);">+</span>
-                <img :src="'/assets/' + archetypeIcons[pair.archetypeB] + '.svg'" alt="" aria-hidden="true" width="16" height="16" />
-                <span class="u-font-mono" style="font-size: 0.75rem;" x-text="archetypeNames[pair.archetypeB]"></span>
+                <img src="/assets/{{ compass.archetypes[pair.archetypeB].icon }}.svg" alt="" aria-hidden="true" width="16" height="16" />
+                <span class="u-font-mono" style="font-size: 0.75rem;">{{ compass.archetypes[pair.archetypeB].name }}</span>
               </div>
-              <h4 class="c-chemistry-card__title" x-text="pair.title"></h4>
-              <p class="c-chemistry-card__tagline" x-text="pair.tagline"></p>
+              <h4 class="c-chemistry-card__title">{{ pair.title }}</h4>
+              <p class="c-chemistry-card__tagline">{{ pair.tagline }}</p>
             </div>
             <div class="c-chemistry-card__footer">
-              <span x-text="pair.isDouble ? 'Double Synergy' : 'Reciprocal Duo'"></span>
+              <span>{{ 'Double Synergy' if pair.isDouble else 'Reciprocal Duo' }}</span>
               <span>Inspect Specimen →</span>
             </div>
           </div>
-        </template>
+        {% endfor %}
       </div>
     </div>
   </div>
