@@ -10,10 +10,35 @@
   <nav class="c-sidenav__list">
     {% for item in site.nav %}
       <div class="c-sidenav__item">
-        <a href="{{ item.url }}" class="c-nav-link{% if page.url == item.url %} is-active{% endif %}">
-          <img class="c-nav-link__icon" src="/assets/{{ item.icon }}.svg" alt="" aria-hidden="true" width="16" height="16" />
-          <span class="c-nav-link__label">{{ item.label }}</span>
-        </a>
+        {% if item.num == "02" %}
+          <!-- Dynamic In-Place Compass Navigation Link -->
+          <a 
+            :href="$store.compass.result ? ('/compass/' + $store.compass.result + '/') : '{{ item.url }}'" 
+            href="{{ item.url }}" 
+            class="c-nav-link{% if page.url == item.url %} is-active{% endif %}"
+            :class="{ 'is-active': $store.compass.result && page.url === ('/compass/' + $store.compass.result + '/') }"
+            :title="$store.compass.result ? ('View your ' + ($store.compass.archetypes[$store.compass.result]?.name || 'Compass') + ' profile') : 'Find your creative archetype'"
+          >
+            <img 
+              class="c-nav-link__icon" 
+              :src="'/assets/' + ($store.compass.archetypes[$store.compass.result]?.icon || '{{ item.icon }}') + '.svg'" 
+              src="/assets/{{ item.icon }}.svg" 
+              alt="" 
+              aria-hidden="true" 
+              width="16" 
+              height="16" 
+            />
+            <span 
+              class="c-nav-link__label" 
+              x-text="$store.compass.result ? ('Compass: ' + ($store.compass.archetypes[$store.compass.result]?.name || '{{ item.label }}')) : '{{ item.label }}'"
+            >{{ item.label }}</span>
+          </a>
+        {% else %}
+          <a href="{{ item.url }}" class="c-nav-link{% if page.url == item.url %} is-active{% endif %}">
+            <img class="c-nav-link__icon" src="/assets/{{ item.icon }}.svg" alt="" aria-hidden="true" width="16" height="16" />
+            <span class="c-nav-link__label">{{ item.label }}</span>
+          </a>
+        {% endif %}
       </div>
     {% endfor %}
   </nav>
@@ -28,8 +53,15 @@
   <a href="/" class="c-sidenav__brand-link" aria-label="{{ site.name }} homepage">
     <img src="/assets/logo.svg" alt="{{ site.name }}" class="c-mobile-nav__logo" width="100" height="72">
   </a>
-  <div class="o-cluster" style="gap: 0.75rem;">
+  <div class="o-cluster" style="gap: 0.75rem; align-items: center;">
     <a href="/our-story/" class="c-nav-link__label" style="text-decoration: none; color: var(--color-primary);">Story</a>
     <a href="/what-we-do/" class="c-nav-link__label" style="text-decoration: none; color: var(--color-primary);">Ventures</a>
+    <a 
+      :href="$store.compass.result ? ('/compass/' + $store.compass.result + '/') : '/#your-compass'" 
+      href="/#your-compass"
+      class="c-nav-link__label" 
+      style="text-decoration: none; color: var(--color-primary); font-weight: 500;"
+      x-text="$store.compass.result ? ($store.compass.archetypes[$store.compass.result]?.name || 'Compass') : 'Compass'"
+    >Compass</a>
   </div>
 </header>

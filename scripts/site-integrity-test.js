@@ -289,6 +289,33 @@ function testCompassMatrix() {
 }
 
 // ============================================================================
+// 6. Ventures Archetype Resonance Matrix
+// ============================================================================
+function testVenturesMatrix() {
+  console.log('\n========================================');
+  console.log('6. Ventures Data & Archetype Resonance Matrix');
+  console.log('========================================');
+
+  const venturesJsonPath = path.join(DATA_DIR, 'ventures.json');
+  assert(fs.existsSync(venturesJsonPath), `ventures.json exists in src/_data`);
+  if (!fs.existsSync(venturesJsonPath)) return;
+
+  const ventures = JSON.parse(fs.readFileSync(venturesJsonPath, 'utf8'));
+  assert(Array.isArray(ventures) && ventures.length === 3, `ventures.json defines exactly 3 core operating ventures`);
+
+  const canonicalArchetypes = ['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'];
+
+  ventures.forEach((v, idx) => {
+    assert(Boolean(v.num && v.title && v.category && v.description && v.link && v.linkLabel), `Venture ${idx + 1} (${v.title}) has all required properties`);
+    assert(Boolean(v.resonance && typeof v.resonance === 'object'), `Venture ${idx + 1} has resonance mapping object`);
+
+    canonicalArchetypes.forEach(arch => {
+      assert(Boolean(v.resonance && v.resonance[arch] && v.resonance[arch].length > 10), `Venture ${idx + 1} (${v.title}) defines resonance for archetype "${arch}"`);
+    });
+  });
+}
+
+// ============================================================================
 // Main Test Runner
 // ============================================================================
 function runAllIntegrityTests() {
@@ -300,6 +327,7 @@ function runAllIntegrityTests() {
   testXmlAndSeo();
   testLinksAndAssets();
   testCompassMatrix();
+  testVenturesMatrix();
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
   console.log('\n========================================');

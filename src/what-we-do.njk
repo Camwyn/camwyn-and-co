@@ -17,44 +17,39 @@ title: "What We Do — Camwyn & Co."
 <!-- Active Operating Ventures Grid -->
 <section class="u-py-section u-bg-warm-sand u-border-bottom">
   <div class="o-container o-container--wide">
-    <p class="c-hero__eyebrow" style="margin-bottom: var(--space-lg);">Work Under Our Roof</p>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: var(--space-sm); margin-bottom: var(--space-lg);">
+      <p class="c-hero__eyebrow" style="margin-bottom: 0;">Work Under Our Roof</p>
+      <div x-show="$store.compass.result" x-cloak class="u-font-mono" style="font-size: 0.75rem; color: var(--color-muted-clay-text);">
+        <span>Resonance for: <strong x-text="$store.compass.archetypes[$store.compass.result]?.name"></strong></span>
+      </div>
+    </div>
     
     <div class="o-grid" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-lg);">
-      <!-- Venture 01: Mema's Inclination -->
-      <div style="border-top: 2px solid var(--color-primary); padding-top: var(--space-md);">
-        <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text);">01 · Hospitality &amp; Story</p>
-        <h3 class="u-font-serif" style="font-size: 1.75rem; margin: 0.5rem 0;">Mema's Inclination</h3>
-        <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant); line-height: 1.6; margin-bottom: 1rem;">
-          Generous tables, physical land stewardship, heritage livestock, and community gathering. The heart of our family operations.
-        </p>
-        <a href="https://memas-inclination.com/" class="u-font-mono u-text-uppercase" style="font-size: 0.8125rem; color: var(--color-primary); font-weight: 600; text-decoration: underline;">
-          Made to be shared ↗
-        </a>
-      </div>
+      {% for v in ventures %}
+        <div style="border-top: 2px solid var(--color-primary); padding-top: var(--space-md);" x-data="{ resonance: {{ v.resonance | dump | safe }} }">
+          <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text);">{{ v.num }} · {{ v.category }}</p>
+          <h3 class="u-font-serif" style="font-size: 1.75rem; margin: 0.5rem 0;">{{ v.title }}</h3>
+          <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant); line-height: 1.6; margin-bottom: 1rem;">
+            {{ v.description }}
+          </p>
 
-      <!-- Venture 02: Creative Work -->
-      <div style="border-top: 2px solid var(--color-primary); padding-top: var(--space-md);">
-        <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text);">02 · Creative &amp; Brand</p>
-        <h3 class="u-font-serif" style="font-size: 1.75rem; margin: 0.5rem 0;">Creative Work</h3>
-        <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant); line-height: 1.6; margin-bottom: 1rem;">
-          Poetic Entanglement dispatches, brand architecture, narrative strategy, and editorial direction for purposeful ideas.
-        </p>
-        <a href="https://poeticentanglement.com/" class="u-font-mono u-text-uppercase" style="font-size: 0.8125rem; color: var(--color-primary); font-weight: 600; text-decoration: underline;">
-          Curiosity at work ↗
-        </a>
-      </div>
+          <!-- Dynamic Archetype Resonance Box -->
+          <div 
+            x-show="$store.compass.result && resonance[$store.compass.result]" 
+            x-cloak
+            style="margin-bottom: 1.25rem; padding: 0.625rem 0.75rem; background: var(--color-surface-container-low); border-left: 2px solid var(--color-muted-clay); font-size: 0.8125rem; color: var(--color-on-surface); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;"
+          >
+            <span class="u-font-mono u-text-uppercase" style="font-size: 0.6875rem; color: var(--color-muted-clay-text); display: block; margin-bottom: 0.25rem; letter-spacing: 0.05em;">
+              ★ Where <span x-text="$store.compass.archetypes[$store.compass.result]?.name || 'You'"></span> Shines
+            </span>
+            <p style="margin: 0; line-height: 1.45;" x-text="resonance[$store.compass.result]"></p>
+          </div>
 
-      <!-- Venture 03: The Next Thing -->
-      <div style="border-top: 2px solid var(--color-primary); padding-top: var(--space-md);">
-        <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text);">03 · Experiments &amp; Play</p>
-        <h3 class="u-font-serif" style="font-size: 1.75rem; margin: 0.5rem 0;">The Next Thing</h3>
-        <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant); line-height: 1.6; margin-bottom: 1rem;">
-          A permanent open door for the worthwhile adventures we haven't met yet. The point is to keep making room.
-        </p>
-        <a href="/the-next-thing/" class="u-font-mono u-text-uppercase" style="font-size: 0.8125rem; color: var(--color-primary); font-weight: 600; text-decoration: underline;">
-          Tell us about your project ↗
-        </a>
-      </div>
+          <a href="{{ v.link }}" class="u-font-mono u-text-uppercase" style="font-size: 0.8125rem; color: var(--color-primary); font-weight: 600; text-decoration: underline;">
+            {{ v.linkLabel }}
+          </a>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>

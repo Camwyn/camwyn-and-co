@@ -128,4 +128,12 @@
 - [x] **Spam Mitigation**: Add a hidden honeypot field (`<input type="text" name="_gotcha" style="display:none !important">`) to trap bots without annoying visitors with CAPTCHAs.
 - [x] **Fallback Progressive Enhancement**: Form gracefully degrades and submits natively via standard HTTP POST if JavaScript is disabled or blocked.
 - [x] **Accessibility (a11y)**: All inputs maintain explicit `<label for="...">` associations, high-contrast focus rings, and accessible live error alerts (`role="alert"`).
-- [x] **Client-Side Async State**: Alpine handles asynchronous JSON submission with loading indicators, inline error handling, and branded confirmation view with reset flow.   
+- [x] **Client-Side Async State**: Alpine handles asynchronous JSON submission with loading indicators, inline error handling, and branded confirmation view with reset flow.
+
+---
+
+## Milestone 17: Archetype-Linked Venture Resonance & In-Place Nav Evolution (Completed)
+- [x] **Ventures Data Architecture**: Create `src/_data/ventures.json` housing the 3 core operating ventures (*Mema's Inclination*, *Creative Work*, *The Next Thing*) with a complete 5-way archetype resonance mapping.
+- [x] **Dynamic Venture Resonance**: Render client-side archetype callouts (*"★ Where [Archetype] Shines"*) on `/what-we-do/` that adapt instantly to the visitor's stored compass.
+- [x] **In-Place Navigation Evolution**: Dynamically transform nav item `02` (`Your Compass`) in [`src/_includes/sidenav.njk`](file:///c:/Users/camwy/Projects/camwyn-and-co/src/_includes/sidenav.njk) to the visitor's archetype icon and permalink (*"Compass: Craftsman"*) while preserving the 4-item vertical rhythm and static fallback.
+- [x] **Automated Integrity Tests**: Add venture data and archetype matrix tests to [`scripts/site-integrity-test.js`](file:///c:/Users/camwy/Projects/camwyn-and-co/scripts/site-integrity-test.js) (852 total assertions verified).
