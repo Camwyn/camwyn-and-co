@@ -16,7 +16,7 @@
 
     <!-- Notes Grid with Pre-rendered HTML and Alpine dynamic filtering -->
     <div class="c-notes-grid" x-data>
-      {% for note in collections.latestNotesByArchetype %}
+      {% for note in collections.notes %}
         <article 
           class="c-note-card"
           {% if note.data.archetype %}
