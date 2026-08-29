@@ -8,16 +8,22 @@ const archetypeTags = {
   storykeeper: 'Chronicle'
 };
 
+const { scanAndDeployUsedAssets } = require('./scripts/selective-assets');
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.setServerOptions({
     port: 8080,
     showAllHosts: true,
   });
 
-  // Passthrough copy for CSS and asset files
+  // Passthrough copy for CSS and wp-content
   eleventyConfig.addPassthroughCopy("src/css");
-  eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/wp-content");
+
+  // Selective tree-shaking & monitoring for icons and assets
+  eleventyConfig.on('eleventy.after', async () => {
+    scanAndDeployUsedAssets('src', '_site');
+  });
 
   // Filters
   eleventyConfig.addFilter("readableDate", function(dateObj) {

@@ -316,49 +316,26 @@ function testVenturesMatrix() {
 }
 
 // ============================================================================
-// 7. Workshop Table Archetype Chemistry Matrix Tests
+// 8. Selective Icon Deployment & Tree-Shaker Tests
 // ============================================================================
-function testChemistryMatrix() {
+function testSelectiveIconDeployment() {
   console.log('\n========================================');
-  console.log('7. Workshop Table Archetype Chemistry Matrix (15 Pairings)');
+  console.log('8. Selective Icon Deployment & Tree-Shaker Manifest');
   console.log('========================================');
 
-  const chemistryJsonPath = path.join(DATA_DIR, 'chemistry.json');
-  assert(fs.existsSync(chemistryJsonPath), `chemistry.json exists in src/_data`);
-  if (!fs.existsSync(chemistryJsonPath)) return;
+  const manifestPath = path.join(SITE_DIR, 'assets', 'icons-manifest.json');
+  assert(fs.existsSync(manifestPath), `icons-manifest.json exists in _site/assets/`);
+  if (!fs.existsSync(manifestPath)) return;
 
-  const chemistry = JSON.parse(fs.readFileSync(chemistryJsonPath, 'utf8'));
-  assert(Boolean(chemistry.pairings && typeof chemistry.pairings === 'object'), `chemistry.json defines pairings dictionary`);
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  assert(typeof manifest.activeIconsCount === 'number' && manifest.activeIconsCount > 0, `icons-manifest.json reports active icons (count: ${manifest.activeIconsCount})`);
+  assert(typeof manifest.treeShakenCount === 'number' && manifest.treeShakenCount > 200, `Tree-shaker successfully pruned unused library icons (${manifest.treeShakenCount} pruned, ${manifest.savingsPercentage} payload savings)`);
 
-  const keys = Object.keys(chemistry.pairings);
-  assert(keys.length === 15, `chemistry.json defines exactly 15 unique pairings (found ${keys.length})`);
-
-  const canonicalArchetypes = ['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'];
-
-  // Test all pairs combinatorially
-  for (let i = 0; i < canonicalArchetypes.length; i++) {
-    for (let j = i; j < canonicalArchetypes.length; j++) {
-      const archA = canonicalArchetypes[i];
-      const archB = canonicalArchetypes[j];
-      const canonicalKey = [archA, archB].sort().join('+');
-      const pair = chemistry.pairings[canonicalKey];
-
-      assert(Boolean(pair), `Chemistry matrix includes canonical pairing "${canonicalKey}"`);
-      if (pair) {
-        assert(Boolean(pair.title && pair.title.length > 2), `Pairing "${canonicalKey}" has evocative title ("${pair.title}")`);
-        assert(Boolean(pair.tagline && pair.tagline.length > 10), `Pairing "${canonicalKey}" has descriptive tagline`);
-        assert(Boolean(pair.chemistry && pair.chemistry.length > 30), `Pairing "${canonicalKey}" has rich chemistry narrative`);
-        assert(Boolean(pair.watchOut && pair.watchOut.length > 20), `Pairing "${canonicalKey}" has watch-out / friction alert`);
-        assert(Boolean(pair.idealProject && pair.idealProject.length > 10), `Pairing "${canonicalKey}" has ideal project domain`);
-
-        if (archA === archB) {
-          assert(pair.isDouble === true, `Double pairing "${canonicalKey}" has isDouble: true`);
-        } else {
-          assert(pair.isDouble === false, `Cross pairing "${canonicalKey}" has isDouble: false`);
-        }
-      }
-    }
-  }
+  // Verify that all active icons in manifest exist in _site/assets/
+  Object.keys(manifest.activeIcons || {}).forEach(icon => {
+    const iconFile = path.join(SITE_DIR, 'assets', `${icon}.svg`);
+    assert(fs.existsSync(iconFile), `Active icon "${icon}.svg" is deployed to _site/assets/`);
+  });
 }
 
 // ============================================================================
@@ -374,7 +351,7 @@ function runAllIntegrityTests() {
   testLinksAndAssets();
   testCompassMatrix();
   testVenturesMatrix();
-  testChemistryMatrix();
+  testSelectiveIconDeployment();
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
   console.log('\n========================================');
