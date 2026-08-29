@@ -24,12 +24,12 @@ title: "What We Do — Camwyn & Co."
       </div>
     </div>
     
-    <div class="o-grid" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-lg);">
+    <div class="c-ventures-grid">
       {% for v in ventures %}
-        <div style="border-top: 2px solid var(--color-primary); padding-top: var(--space-md);">
-          <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text);">{{ v.num }} · {{ v.category }}</p>
-          <h3 class="u-font-serif" style="font-size: 1.75rem; margin: 0.5rem 0;">{{ v.title }}</h3>
-          <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant); line-height: 1.6; margin-bottom: 1rem;">
+        <div class="c-venture-card">
+          <p class="c-venture-card__meta">{{ v.num }} · {{ v.category }}</p>
+          <h3 class="c-venture-card__title">{{ v.title }}</h3>
+          <p class="c-venture-card__desc">
             {{ v.description }}
           </p>
 
@@ -38,7 +38,7 @@ title: "What We Do — Camwyn & Co."
             <div 
               x-show="$store.compass.result === '{{ archKey }}'" 
               x-cloak
-              style="margin-bottom: 1.25rem; padding: 0.625rem 0.75rem; background: var(--color-surface-container-low); border-left: 2px solid var(--color-muted-clay); font-size: 0.8125rem; color: var(--color-on-surface); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;"
+              class="c-venture-card__resonance"
             >
               <span class="u-font-mono u-text-uppercase" style="font-size: 0.6875rem; color: var(--color-muted-clay-text); display: block; margin-bottom: 0.25rem; letter-spacing: 0.05em;">
                 ★ Where {{ compass.archetypes[archKey].name }} Shines
@@ -47,7 +47,7 @@ title: "What We Do — Camwyn & Co."
             </div>
           {% endfor %}
 
-          <a href="{{ v.link }}" class="u-font-mono u-text-uppercase" style="font-size: 0.8125rem; color: var(--color-primary); font-weight: 600; text-decoration: underline;">
+          <a href="{{ v.link }}" class="c-venture-card__link">
             {{ v.linkLabel }}
           </a>
         </div>
@@ -59,13 +59,13 @@ title: "What We Do — Camwyn & Co."
 <!-- How We Work Together (Engagement Modes) -->
 <section class="u-py-section">
   <div class="o-container o-container--wide">
-    <div class="o-grid" style="align-items: start;">
-      <div style="grid-column: span 5;">
+    <div class="c-engagement-layout">
+      <div>
         <p class="c-hero__eyebrow">Engagement Modes</p>
         <h2 class="u-font-serif" style="font-size: 2.25rem; color: var(--color-primary);">Ways to pull up a chair.</h2>
       </div>
 
-      <div style="grid-column: span 7; display: flex; flex-direction: column; gap: var(--space-lg);">
+      <div class="c-engagement-layout__modes">
         <div>
           <h4 class="u-font-serif" style="font-size: 1.25rem; color: var(--color-primary); margin-bottom: 0.25rem;">1. Technical &amp; Operational Sparring</h4>
           <p style="font-size: 1rem; color: var(--color-on-surface-variant); line-height: 1.6;">
