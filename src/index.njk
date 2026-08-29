@@ -52,7 +52,12 @@ description: "Camwyn & Co is the home of Mema's Inclination and a growing collec
 <!-- Hero Section -->
 <section class="c-hero" aria-labelledby="hero-title">
   <div class="o-container o-container--wide">
-    <p class="c-hero__eyebrow">An independent house of projects</p>
+    <p class="c-hero__eyebrow">
+      <span x-show="!$store.compass.result">An independent house of projects</span>
+      <span x-show="$store.compass.result" x-cloak>
+        Greetings, <strong x-text="$store.compass.archetypes[$store.compass.result]?.name"></strong> · Your compass is set
+      </span>
+    </p>
     
     <h1 id="hero-title" class="c-hero__title">
       A place<br>
