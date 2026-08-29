@@ -199,11 +199,17 @@ description: "Some companies begin with a plan. Ours began with curiosity, famil
            x-html="archetype && partnerships[archetype] ? partnerships[archetype] : 'When you pull up a chair to our table, we combine strategy, systems, and story to turn what you know into <span class=\'u-text-clay\'>something that truly works.</span>'">
         </p>
         
-        <template x-if="!archetype">
-          <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text); margin-top: var(--space-sm);">
-            <a href="/#your-compass" style="color: var(--color-primary); text-decoration: underline;">Take the 5-question compass quiz</a> to personalize your dynamic partnership prompt.
-          </p>
-        </template>
+        <div class="o-cluster" style="gap: var(--space-sm); margin-top: var(--space-md); align-items: center; flex-wrap: wrap;">
+          <a href="/compass/#workshop-table" class="c-btn c-btn--secondary">
+            <img src="/assets/compass.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
+            <span>Explore Workshop Table Chemistry ↗</span>
+          </a>
+          <template x-if="!archetype">
+            <a href="/#your-compass" class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text); text-decoration: underline;">
+              Take the 5-question compass quiz
+            </a>
+          </template>
+        </div>
       </div>
     </div>
   </div>

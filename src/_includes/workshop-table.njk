@@ -140,7 +140,12 @@
               <span x-text="archetypeNames[currentPairing.archetypeB] || 'The Gatherer'">The Gatherer</span>
             </div>
           </div>
-          <span class="u-font-mono u-text-uppercase" style="font-size: 0.6875rem; color: var(--color-muted-clay-text);" x-text="currentPairing.isDouble ? '★ Double Synergy' : 'Reciprocal Chemistry'">Reciprocal Chemistry</span>
+          <div style="display: inline-flex; align-items: center; gap: 0.375rem;">
+            <template x-if="currentPairing.isDouble">
+              <img src="/assets/star.svg" alt="" aria-hidden="true" width="12" height="12" />
+            </template>
+            <span class="u-font-mono u-text-uppercase" style="font-size: 0.6875rem; color: var(--color-muted-clay-text);" x-text="currentPairing.isDouble ? 'Double Synergy' : 'Reciprocal Chemistry'">Reciprocal Chemistry</span>
+          </div>
         </div>
 
         <h3 class="c-chemistry-hero-card__title" x-text="currentPairing.title || 'The Kitchen Table'">The Kitchen Table</h3>
@@ -149,11 +154,17 @@
 
         <div class="c-chemistry-hero-card__insights">
           <div class="c-chemistry-insight-box">
-            <span class="c-chemistry-insight-box__label">⚡ Where Friction Sparks</span>
+            <span class="c-chemistry-insight-box__label" style="display: flex; align-items: center; gap: 0.375rem;">
+              <img src="/assets/bolt.svg" alt="" aria-hidden="true" width="12" height="12" />
+              <span>Where Friction Sparks</span>
+            </span>
             <p class="c-chemistry-insight-box__text" x-text="currentPairing.watchOut || 'The Craftsman may retreat into the workshop when the house gets full; the Gatherer must remember to protect the Craftsman\'s quiet making hours.'">The Craftsman may retreat into the workshop when the house gets full; the Gatherer must remember to protect the Craftsman's quiet making hours.</p>
           </div>
           <div class="c-chemistry-insight-box">
-            <span class="c-chemistry-insight-box__label">🎯 Sweet Spot &amp; Venture Fit</span>
+            <span class="c-chemistry-insight-box__label" style="display: flex; align-items: center; gap: 0.375rem;">
+              <img src="/assets/star.svg" alt="" aria-hidden="true" width="12" height="12" />
+              <span>Sweet Spot &amp; Venture Fit</span>
+            </span>
             <p class="c-chemistry-insight-box__text" x-text="currentPairing.idealProject || 'Hospitality spaces, heirloom workshops, family ventures, and atelier studios.'">Hospitality spaces, heirloom workshops, family ventures, and atelier studios.</p>
           </div>
         </div>
@@ -281,7 +292,8 @@
           >
             <div>
               <div class="c-chemistry-card__badge" x-show="userArchetype && ('{{ pair.archetypeA }}' === userArchetype || '{{ pair.archetypeB }}' === userArchetype)">
-                <span>✦ Resonates with Your Compass</span>
+                <img src="/assets/compass.svg" alt="" aria-hidden="true" width="12" height="12" />
+                <span>Resonates with Your Compass</span>
               </div>
               <div class="c-chemistry-card__duo">
                 <img src="/assets/{{ compass.archetypes[pair.archetypeA].icon }}.svg" alt="" aria-hidden="true" width="16" height="16" />
