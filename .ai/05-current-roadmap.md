@@ -93,5 +93,11 @@
 
 ---
 
-## Milestone 13: Future Horizons (Planned)
+## Milestone 13: Craftsman Colophon & Atelier Spec (Completed)
+- [x] **Colophon Page**: Create dedicated `/colophon/` page documenting the engineering stack (Eleventy, Alpine.js, Pure OCSS), typography scale (DM Serif Display, Hanken Grotesk, JetBrains Mono), design philosophy (Generous Minimalism / Atelier Narrative), and accessibility commitments.
+- [x] **Footer Navigation**: Add Colophon link to global footer and include in automated WCAG accessibility test suite.
+
+---
+
+## Milestone 14: Future Horizons (Planned)
 - [ ] **Form Submission Backend**: Connect "The Next Thing" intake form to an active email or webhook endpoint (e.g., Netlify Forms, Formspree, or custom server endpoint).
