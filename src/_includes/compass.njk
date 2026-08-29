@@ -69,34 +69,31 @@
             <div class="c-compass-share-group u-border-top u-pt-sm u-mt-sm" x-data="{ copied: false }">
               <span class="u-font-mono u-text-uppercase" style="font-size: 0.6875rem; letter-spacing: 0.1em; color: var(--color-muted-clay-text);">Share your result</span>
               <div class="o-cluster" style="gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
-                <!-- Native Web Share API -->
+                <!-- Universal Share Button with fallback -->
                 <button 
                   type="button" 
                   class="c-btn c-btn--secondary"
                   style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
-                  x-show="'share' in navigator"
                   @click="
-                    navigator.share({
-                      title: 'My Adventure Compass: ' + ($store.compass.archetypes[$store.compass.result]?.name || ''),
-                      text: $store.compass.archetypes[$store.compass.result]?.tagline || '',
-                      url: '{{ site.url }}/compass/' + $store.compass.result + '/'
-                    }).catch(() => {})
+                    const shareUrl = window.location.origin + '/compass/' + $store.compass.result + '/';
+                    const arch = $store.compass.archetypes[$store.compass.result];
+                    const name = arch ? arch.name : 'Adventure Compass';
+                    const text = arch ? (arch.gift + ' ' + arch.tagline) : 'Discover what you bring to the next adventure.';
+                    if (navigator.share) {
+                      navigator.share({
+                        title: 'I\'m ' + name + ' — Camwyn & Co. Adventure Compass',
+                        text: text,
+                        url: shareUrl
+                      }).catch(() => {});
+                    } else {
+                      copyToClipboard(shareUrl);
+                      copied = true;
+                      setTimeout(() => copied = false, 2500);
+                    }
                   "
                 >
-                  Share ↗
+                  <span x-text="copied ? '✓ Link Copied!' : 'Share Result ↗'">Share Result ↗</span>
                 </button>
-
-                <!-- Facebook Direct Share -->
-                <a 
-                  :href="'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('{{ site.url }}/compass/' + $store.compass.result + '/')" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="c-btn c-btn--secondary"
-                  style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
-                  aria-label="Share result on Facebook"
-                >
-                  Facebook ↗
-                </a>
 
                 <!-- Copy Link Button -->
                 <button 

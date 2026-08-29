@@ -6,8 +6,8 @@ pagination:
   alias: arch
 permalink: "/compass/{{ arch.id }}/index.html"
 eleventyComputed:
-  title: "My Adventure Compass: {{ arch.name }} — Camwyn & Co"
-  description: "{{ arch.tagline }} Discover what you bring to the next worthwhile adventure."
+  pageTitle: "I'm {{ arch.name }} — Camwyn & Co. Adventure Compass"
+  description: "{{ arch.gift }} {{ arch.tagline }}"
   ogImage: "{{ site.url }}/assets/og/{{ arch.id }}.svg"
 ---
 
@@ -44,25 +44,45 @@ eleventyComputed:
           </div>
         {% endif %}
 
+        {% if arch.fieldPrompt %}
+          <div class="u-border-top u-pt-sm u-mt-md">
+            <p class="u-font-mono u-text-muted" style="font-size: 0.8125rem;">Field Recommendation: {{ arch.fieldPrompt }}</p>
+          </div>
+        {% endif %}
+
         <!-- Social Share Bar & Quiz Callout -->
         <div class="u-border-top u-pt-md u-mt-lg o-stack" style="gap: var(--space-md);">
           <div style="display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap;" x-data="{ copied: false }">
-            <a 
-              href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/compass/{{ arch.id }}/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="c-btn c-btn--secondary"
-              aria-label="Share this result on Facebook"
+            <button 
+              type="button" 
+              class="c-btn c-btn--primary"
+              @click="
+                if (navigator.share) {
+                  navigator.share({
+                    title: 'I\'m {{ arch.name }} — Camwyn & Co. Adventure Compass',
+                    text: '{{ arch.gift }} {{ arch.tagline }}',
+                    url: window.location.href
+                  }).catch(() => {});
+                } else {
+                  copyToClipboard(window.location.href);
+                  copied = true;
+                  setTimeout(() => copied = false, 2500);
+                }
+              "
             >
-              Share on Facebook ↗
-            </a>
+              <span x-text="copied ? '✓ Link Copied!' : 'Share Your Result ↗'">Share Your Result ↗</span>
+            </button>
             
             <button 
               type="button" 
               class="c-btn c-btn--secondary"
-              @click="copyToClipboard(window.location.origin + '/compass/{{ arch.id }}/'); copied = true; setTimeout(() => copied = false, 2500)"
+              @click="
+                copyToClipboard(window.location.href);
+                copied = true;
+                setTimeout(() => copied = false, 2500);
+              "
             >
-              <span x-text="copied ? '✓ Copied Link!' : 'Copy Link'">Copy Link</span>
+              <span x-text="copied ? '✓ Copied!' : 'Copy Link'">Copy Link</span>
             </button>
           </div>
 
@@ -73,7 +93,7 @@ eleventyComputed:
             <p style="font-size: 1rem; margin-bottom: var(--space-sm); color: var(--color-primary);">
               Curious what archetype you naturally bring to the next adventure?
             </p>
-            <a href="/#your-compass" class="c-btn c-btn--primary">
+            <a href="/#your-compass" class="c-btn c-btn--secondary">
               Find Your Adventure Compass ↗
             </a>
           </div>
@@ -82,4 +102,3 @@ eleventyComputed:
     </div>
   </div>
 </section>
-

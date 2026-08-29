@@ -72,23 +72,33 @@ eleventyComputed:
     <div class="o-stack" style="gap: var(--space-md);">
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md);" x-data="{ copied: false }">
         <div class="o-cluster" style="gap: 0.5rem;">
-          <a 
-            href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <button 
+            type="button" 
             class="c-btn c-btn--secondary"
             style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
-            aria-label="Share article on Facebook"
+            @click="
+              if (navigator.share) {
+                navigator.share({
+                  title: '{{ title }} — Notes from the Field | {{ site.name }}',
+                  text: '{{ excerpt }}',
+                  url: window.location.href
+                }).catch(() => {});
+              } else {
+                copyToClipboard(window.location.href);
+                copied = true;
+                setTimeout(() => copied = false, 2500);
+              }
+            "
           >
-            Share on Facebook ↗
-          </a>
+            <span x-text="copied ? '✓ Link Copied!' : 'Share Note ↗'">Share Note ↗</span>
+          </button>
 
           <button 
             type="button" 
             class="c-btn c-btn--secondary"
             style="padding: 0.5rem 0.875rem; font-size: 0.6875rem; min-height: 38px;"
             @click="
-              copyToClipboard(window.location.origin + '{{ page.url }}');
+              copyToClipboard(window.location.href);
               copied = true;
               setTimeout(() => copied = false, 2500);
             "
