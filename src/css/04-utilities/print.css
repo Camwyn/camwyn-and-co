@@ -1,0 +1,105 @@
+/* ==========================================================================
+   04-UTILITIES / PRINT.CSS
+   Print stylesheets for clean, distraction-free hardcopy & PDF rendering
+   ========================================================================== */
+
+@media print {
+  /* 1. Hide Screen-Only Navigation, Footers, and Interactive Controls */
+  nav,
+  .c-sidenav,
+  .c-nav-mobile,
+  .c-skip-link,
+  footer,
+  .c-footer,
+  .c-btn,
+  .c-button,
+  button,
+  .c-article__back,
+  .c-article__footer .c-btn,
+  .c-compass__controls,
+  input[type="search"],
+  input,
+  textarea {
+    display: none !important;
+  }
+
+  /* 2. Reset Page Layout & Canvas Offsets */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #121211 !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .o-canvas {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .o-container,
+  .o-container--wide {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .c-article {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* 3. Typography & Contrast */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  p, blockquote, ul, ol {
+    orphans: 3;
+    widows: 3;
+  }
+
+  blockquote {
+    border-left: 3px solid #666666 !important;
+    color: #333333 !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* 4. Preformatted Text & Code Blocks */
+  pre, code {
+    font-family: monospace !important;
+    font-size: 9.5pt !important;
+    background: #f4f4f4 !important;
+    color: #000000 !important;
+    border: 1px solid #dddddd !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+  }
+
+  /* 5. External URL Footnotes */
+  a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+
+  a[href^="http"]:not([href*="camwyn.com"]):not(.c-nav-link):not(.c-btn)::after {
+    content: " (" attr(href) ")";
+    font-size: 8.5pt;
+    color: #555555;
+    word-break: break-all;
+  }
+
+  /* 6. Page Margins */
+  @page {
+    margin: 1.5cm;
+    size: auto;
+  }
+}
