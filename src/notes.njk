@@ -16,68 +16,103 @@ permalink: "/notes/index.html"
       </div>
       <div style="grid-column: span 4;">
         <p class="c-hero__lead" style="font-size: 1rem; border-top: 1px solid var(--color-outline-variant); padding-top: var(--space-md);">
-          A living collection of things we're making, learning, tasting, and following. Below are the latest dispatches from each perspective in our house of projects.
+          A living collection of things we're making, learning, tasting, and following. Dispatches from every perspective in our house of projects.
         </p>
       </div>
     </div>
 
-    <!-- Optional Archetype Filter Pills -->
-    <div x-data="{ activeFilter: 'all' }">
-      <div class="o-cluster" style="gap: 0.5rem; margin-bottom: var(--space-xl);" role="group" aria-label="Filter notes by archetype">
-        <button 
-          type="button" 
-          class="c-btn"
-          :class="activeFilter === 'all' ? 'c-btn--primary' : 'c-btn--secondary'"
-          @click="activeFilter = 'all'"
-          style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
-        >
-          All Notes ({{ collections.notes.length }})
-        </button>
-        <button 
-          type="button" 
-          class="c-btn"
-          :class="activeFilter === 'gatherer' ? 'c-btn--primary' : 'c-btn--secondary'"
-          @click="activeFilter = 'gatherer'"
-          style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
-        >
-          The Gatherer
-        </button>
-        <button 
-          type="button" 
-          class="c-btn"
-          :class="activeFilter === 'craftsman' ? 'c-btn--primary' : 'c-btn--secondary'"
-          @click="activeFilter = 'craftsman'"
-          style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
-        >
-          The Craftsman
-        </button>
-        <button 
-          type="button" 
-          class="c-btn"
-          :class="activeFilter === 'explorer' ? 'c-btn--primary' : 'c-btn--secondary'"
-          @click="activeFilter = 'explorer'"
-          style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
-        >
-          The Explorer
-        </button>
-        <button 
-          type="button" 
-          class="c-btn"
-          :class="activeFilter === 'catalyst' ? 'c-btn--primary' : 'c-btn--secondary'"
-          @click="activeFilter = 'catalyst'"
-          style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
-        >
-          The Catalyst
-        </button>
-        <button 
-          type="button" 
-          class="c-btn"
-          :class="activeFilter === 'storykeeper' ? 'c-btn--primary' : 'c-btn--secondary'"
-          @click="activeFilter = 'storykeeper'"
-          style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
-        >
-          The Storykeeper
-        </button>
+    <!-- Interactive Filtering & Search Container -->
+    <div x-data="{ 
+      activeFilter: 'all', 
+      searchQuery: '',
+      matches(archetype, searchCorpus) {
+        const matchesArchetype = this.activeFilter === 'all' || this.activeFilter === archetype;
+        if (!matchesArchetype) return false;
+        if (!this.searchQuery || !this.searchQuery.trim()) return true;
+        return searchCorpus.toLowerCase().includes(this.searchQuery.toLowerCase().trim());
+      }
+    }">
+      <!-- Controls Toolbar -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: var(--space-xl);">
+        <!-- Archetype Filter Pills -->
+        <div class="o-cluster" style="gap: 0.5rem;" role="group" aria-label="Filter notes by archetype">
+          <button 
+            type="button" 
+            class="c-btn"
+            :class="activeFilter === 'all' ? 'c-btn--primary' : 'c-btn--secondary'"
+            @click="activeFilter = 'all'"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+          >
+            All Notes ({{ collections.notes.length }})
+          </button>
+          <button 
+            type="button" 
+            class="c-btn"
+            :class="activeFilter === 'gatherer' ? 'c-btn--primary' : 'c-btn--secondary'"
+            @click="activeFilter = 'gatherer'"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+          >
+            The Gatherer
+          </button>
+          <button 
+            type="button" 
+            class="c-btn"
+            :class="activeFilter === 'craftsman' ? 'c-btn--primary' : 'c-btn--secondary'"
+            @click="activeFilter = 'craftsman'"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+          >
+            The Craftsman
+          </button>
+          <button 
+            type="button" 
+            class="c-btn"
+            :class="activeFilter === 'explorer' ? 'c-btn--primary' : 'c-btn--secondary'"
+            @click="activeFilter = 'explorer'"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+          >
+            The Explorer
+          </button>
+          <button 
+            type="button" 
+            class="c-btn"
+            :class="activeFilter === 'catalyst' ? 'c-btn--primary' : 'c-btn--secondary'"
+            @click="activeFilter = 'catalyst'"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+          >
+            The Catalyst
+          </button>
+          <button 
+            type="button" 
+            class="c-btn"
+            :class="activeFilter === 'storykeeper' ? 'c-btn--primary' : 'c-btn--secondary'"
+            @click="activeFilter = 'storykeeper'"
+            style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+          >
+            The Storykeeper
+          </button>
+        </div>
+
+        <!-- Search Input with Clear Button -->
+        <div style="position: relative; min-width: 240px; flex-grow: 1; max-width: 320px;">
+          <label for="notes-search-input" class="u-sr-only">Search field notes by title, topic, or keyword</label>
+          <input 
+            type="search" 
+            id="notes-search-input"
+            x-model="searchQuery" 
+            placeholder="Search notes..." 
+            aria-label="Search field notes by title, topic, or keyword"
+            style="width: 100%; padding: 0.5rem 2rem 0.5rem 0.875rem; font-family: var(--font-sans); font-size: 0.875rem; border: 1px solid var(--color-outline-variant); background: var(--color-surface); color: var(--color-on-surface); border-radius: 0; box-sizing: border-box;"
+          />
+          <button 
+            type="button" 
+            x-show="searchQuery && searchQuery.length > 0" 
+            @click="searchQuery = ''" 
+            aria-label="Clear search query"
+            style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 1.125rem; line-height: 1; cursor: pointer; color: var(--color-on-surface-variant); padding: 0.25rem;"
+          >
+            &times;
+          </button>
+        </div>
       </div>
 
       <!-- Notes Grid displaying all notes -->
@@ -85,7 +120,7 @@ permalink: "/notes/index.html"
         {% for note in collections.notes %}
           <article 
             class="c-note-card"
-            x-show="activeFilter === 'all' || activeFilter === '{{ note.data.archetype }}'"
+            x-show="matches('{{ note.data.archetype }}', '{{ (note.data.title ~ " " ~ note.data.excerpt ~ " " ~ (note.data.archetype | archetypeTag)) | escape | replace("'", "\\'") }}')"
             {% if note.data.archetype %}
               :style="$store.compass.result && $store.compass.result === '{{ note.data.archetype }}' ? 'border-color: var(--color-muted-clay); background-color: var(--color-surface-container-low);' : ''"
             {% endif %}
@@ -124,4 +159,3 @@ permalink: "/notes/index.html"
     </div>
   </div>
 </section>
-
