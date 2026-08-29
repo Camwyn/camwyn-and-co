@@ -21,17 +21,13 @@
 
   <!-- Subtitle -->
   <text x="80" y="420" font-family="'Hanken Grotesk', sans-serif" font-size="28" fill="#474741">
-    The home of Mema's Inclination and a growing collection of ventures,
+    The home of Mema's Inclination and a growing collection of experiments
   </text>
   <text x="80" y="460" font-family="'Hanken Grotesk', sans-serif" font-size="28" fill="#474741">
-    experiments, and worthwhile adventures.
+  and worthwhile (ad)ventures.
   </text>
 
   <!-- Footer Brand Mark -->
-  <g transform="translate(1000, 470)">
-    <circle cx="45" cy="45" r="40" fill="#121211" />
-    <text x="45" y="58" font-family="'DM Serif Display', Georgia, serif" font-size="40" fill="#F9F8F6" text-anchor="middle">C</text>
-  </g>
   <text x="80" y="530" font-family="'JetBrains Mono', monospace" font-size="18" letter-spacing="2" fill="#595954" text-transform="uppercase">
     CAMWYN &amp; CO · CAMWYN.COM
   </text>
