@@ -41,7 +41,12 @@
       "icon": "chat",
       "label": "Field Notes",
       "url": "/notes/"
+    },
+    {
+      "num": "05",
+      "icon": "sun",
+      "label": "The Next Thing",
+      "url": "/the-next-thing/"
     }
   ]
 }
-
