@@ -42,7 +42,7 @@
   padding: var(--space-md) var(--space-lg);
   background-color: var(--color-warm-sand);
   border-left: 2px solid var(--color-muted-clay);
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
   font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--color-on-surface);
