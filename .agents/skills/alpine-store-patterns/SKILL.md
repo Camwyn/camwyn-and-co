@@ -53,13 +53,12 @@ document.addEventListener('alpine:init', () => {
 ## Mandatory Directives:
 
 1. **State Persistence:**
-   - Use `Alpine.$persist(value).as('keyName')` from `@alpinejs/persist` to save user selections across page reloads.
+   * Use `Alpine.$persist(value).as('keyName')` from `@alpinejs/persist` to save user selections across page reloads.
 2. **Accessible Step Transitions:**
-   - Add `aria-live="polite"` and `aria-atomic="true"` on the question container so screen readers announce changes as steps advance.
+   * Add `aria-live="polite"` and `aria-atomic="true"` on the question container so screen readers announce changes as steps advance.
 3. **Keyboard Accessibility:**
-   - Use semantic `<button type="button">` elements for all interactive quiz options.
-   - Do NOT use clickable `<div>` or `<span>` without keyboard handlers and roles.
+   * Use semantic `<button type="button">` elements for all interactive quiz options.
+   * Do NOT use clickable `<div>` or `<span>` without keyboard handlers and roles.
 4. **SSR / Pre-rendered HTML Parity:**
-   - Always output valid, styled default markup inside Nunjucks templates before Alpine mounts (`x-cloak` used only on alternate step views).
-   - "Notes from the Field" must pre-render a default set of notes in HTML so non-JS visitors and search engine crawlers see complete content.
-
+   * Always output valid, styled default markup inside Nunjucks templates before Alpine mounts (`x-cloak` used only on alternate step views).
+   * "Notes from the Field" must pre-render a default set of notes in HTML so non-JS visitors and search engine crawlers see complete content.

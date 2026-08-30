@@ -30,26 +30,26 @@ src/css/
 ## Class Naming Conventions:
 
 1. **Layout Objects (`.o-*`):**
-   - Agnostic of design details (no background colors or borders).
-   - Examples: `.o-container`, `.o-grid`, `.o-stack`.
+   * Agnostic of design details (no background colors or borders).
+   * Examples: `.o-container`, `.o-grid`, `.o-stack`, `.o-cluster`.
 
 2. **Components (`.c-*`):**
-   - Concrete visual modules.
-   - Examples: `.c-compass`, `.c-note-card`, `.c-sidenav`.
-   - Modifiers use BEM double-hyphen or semantic state classes: `.c-button--primary`, `.c-note-card--featured`.
+   * Concrete visual modules.
+   * Examples: `.c-compass`, `.c-note-card`, `.c-sidenav`, `.c-btn`.
+   * Modifiers use BEM double-hyphen or semantic state classes: `.c-btn--primary`, `.c-note-card--featured`.
 
 3. **State Modifiers (`.is-*`):**
-   - Applied dynamically by Alpine.js.
-   - Examples: `.is-selected`, `.is-active`, `.is-visible`, `.is-hidden`.
-   - Never manipulate inline styles via JS when a `.is-*` class can express the state.
+   * Applied dynamically by Alpine.js.
+   * Examples: `.is-selected`, `.is-active`, `.is-visible`, `.is-hidden`.
+   * Never manipulate inline styles via JS when a `.is-*` class can express the state.
 
 4. **Utilities (`.u-*`):**
-   - Single-purpose overrides.
-   - Examples: `.u-visually-hidden`, `.u-text-center`.
+   * Single-purpose overrides.
+   * Examples: `.u-visually-hidden`, `.u-text-center`, `.u-text-clay`.
 
 ## Design Token Rules:
 
-- Never hardcode raw hex values (like `#121211` or `#8C7361`) in component files.
-- Always reference `var(--color-*)`, `var(--font-*)`, and `var(--space-*)`.
-- Ensure all text/background combinations meet WCAG 2.1 AA (4.5:1 for normal body text, 3:1 for large headlines >= 24px/18pt).
-
+* Never hardcode raw hex values (like `#121211` or `#8C7361`) in component files.
+* Always reference `var(--color-*)`, `var(--font-*)`, and `var(--space-*)`.
+* Ensure all text/background combinations meet WCAG 2.1 AA (4.5:1 for normal body text, 3:1 for large headlines >= 24px/18pt).
+* Maintain `border-radius: 0px` strictly across all selectors.
