@@ -327,6 +327,30 @@ function testVenturesMatrix() {
 }
 
 // ============================================================================
+// 7. Dynamic CTA Matrix & Archetype Text Integrity
+// ============================================================================
+function testCtaMatrix() {
+  console.log('\n========================================');
+  console.log('7. Dynamic CTA Matrix & Archetype Personalization');
+  console.log('========================================');
+
+  const ctaJsonPath = path.join(DATA_DIR, 'cta.json');
+  assert(fs.existsSync(ctaJsonPath), `cta.json exists in src/_data`);
+  if (!fs.existsSync(ctaJsonPath)) return;
+
+  const cta = JSON.parse(fs.readFileSync(ctaJsonPath, 'utf8'));
+  const requiredKeys = ['default', 'gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'];
+
+  requiredKeys.forEach(key => {
+    const item = cta[key];
+    assert(Boolean(item), `CTA matrix defines entry for "${key}"`);
+    if (item) {
+      assert(Boolean(item.eyebrow && item.heading && item.lead && item.buttonText && item.openThreadPrefix), `CTA key "${key}" contains eyebrow, heading, lead, buttonText, and openThreadPrefix`);
+    }
+  });
+}
+
+// ============================================================================
 // 8. Selective Icon Deployment & Tree-Shaker Tests
 // ============================================================================
 function testSelectiveIconDeployment() {
@@ -398,6 +422,7 @@ function runAllIntegrityTests() {
   testLinksAndAssets();
   testCompassMatrix();
   testVenturesMatrix();
+  testCtaMatrix();
   testSelectiveIconDeployment();
   testMinimumIconSizes();
 

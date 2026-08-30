@@ -3,17 +3,19 @@
   <div class="o-container o-container--wide">
     <div class="c-cta-layout">
       <div>
-        <p class="c-hero__eyebrow">Pull up a chair</p>
-        <h2 id="cta-heading" class="c-cta__title">
+        <p class="c-hero__eyebrow" x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).eyebrow">
+          {{ cta.default.eyebrow }}
+        </p>
+        <h2 id="cta-heading" class="c-cta__title" x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).heading">
           Let's see<br>where<br>this leads.
         </h2>
       </div>
       <div class="o-stack" style="align-items: flex-start;">
-        <p class="c-hero__lead" style="font-size: 1.125rem;">
-          For new projects, unexpected collaborations, or simply a good conversation.
+        <p class="c-hero__lead" style="font-size: 1.125rem;" x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).lead">
+          {{ cta.default.lead }}
         </p>
-        <a href="/the-next-thing/" class="c-btn c-btn--primary" style="font-size: 0.875rem; padding: 1rem 2rem;">
-          Tell us about the spark ↗
+        <a href="/the-next-thing/" class="c-btn c-btn--primary" style="font-size: 0.875rem; padding: 1rem 2rem;" x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).buttonText">
+          {{ cta.default.buttonText }}
         </a>
       </div>
     </div>

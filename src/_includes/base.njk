@@ -86,6 +86,7 @@
         // Questions and Archetypes matrices injected from JSON
         archetypes: {{ compass.archetypes | dump | safe }},
         questions: {{ compass.questions | dump | safe }},
+        cta: {{ cta | dump | safe }},
 
         selectOption(questionId, archetype) {
           this.answers[questionId] = archetype;

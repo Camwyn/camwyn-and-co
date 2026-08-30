@@ -110,9 +110,12 @@ permalink: "/the-next-thing/index.html"
       </p>
     </header>
 
-    Prefer an open thread? Say <a href="mailto:{{ site.contactEmail }}" class="c-btn c-btn--primary" style="font-size: 0.875rem; padding: 1rem 2rem;">
-      {{ site.contactEmail }} ↗
-    </a>
+    <!-- Direct Email / Open Thread Prompt -->
+    <div class="c-form-alt-prompt" x-show="!submitted">
+      <p style="margin: 0;">
+        <span x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).openThreadPrefix">{{ cta.default.openThreadPrefix }}</span><a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a><span x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).openThreadSuffix">{{ cta.default.openThreadSuffix }}</span>
+      </p>
+    </div>
 
     <!-- Success Screen (Shown after submission) -->
     <div 
