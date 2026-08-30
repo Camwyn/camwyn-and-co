@@ -166,3 +166,36 @@ The shape language is strictly "Sharp."
 - **Lists:** High-density but clear. Use fine horizontal dividers between items. Leading numerals (01, 02) should be used to provide a sense of order.
 - **Signatures:** The brand mark should be used sparingly, almost like a "wax seal" or a signature at the end of a note, rather than a repetitive header element on every page.
 - **Directional Glyphs:** Use standard unicode arrows (↑, ↓, →, ↗) as the primary iconography for actions.
+
+### Voice and Tone for Text Created by Agents (AI Governance)
+
+When autonomous agents or automated workflows generate content—such as Field Note drafts, system dispatches, dynamic UI copy, or automated summaries—they must strictly adhere to the established Camwyn & Co. editorial identity[cite: 1, 3, 6]. AI output should never sound like generic corporate marketing, sterile tech boilerplate, or frantic "growth-hacking" copy[cite: 1, 2, 6].
+
+#### Core Working Principles
+Agent-generated text must be directly anchored in our three working pillars[cite: 1, 2]:
+* **Smart can be warm[cite: 1, 2]:** Technical concepts, software architectures, or operational systems should be explained using clear, welcoming, and accessible language[cite: 1, 2]. Avoid dense corporate jargon ("synergy," "paradigm shift," "disruption")[cite: 1, 2].
+* **Ambition can have soul[cite: 1, 2]:** Emphasize human context, long-term purpose, memory, and relationships over pure throughput, vanity metrics, or raw output[cite: 1, 2, 3].
+* **Serious work can still be fun[cite: 1, 2]:** Treat craft, engineering discipline, and problem-solving with respect, while leaving ample room for curiosity, unscripted breakthroughs, and the joy of experimentation[cite: 1, 2, 4].
+
+---
+
+#### Vocabulary & Imagery Guidelines
+Agents must draw from a physical, grounded, and tactile lexicon ("Workbench & Table" imagery) to explain abstract ideas[cite: 1, 2, 3]:
+* **Use Grounded Metaphors:** Favor workshop, architectural, agricultural, and culinary metaphors—such as *workbench dispatches, joinery vs. lacquer, off-cuts, worn wooden mallets, structural shoring, and generous tables*[cite: 1, 3, 4].
+* **Care Over Polish[cite: 2, 6]:** Frame quality as structural durability rather than superficial shine (*"Durability lives in the joints, not the lacquer"*[cite: 1, 4]). 
+* **Useful Over Impressive[cite: 2, 6]:** Focus on real-world utility, clear solutions, and unhurried dispatches rather than aggressive sales pitches or pushy calls to action[cite: 1, 2, 6].
+
+---
+
+#### Editorial Rhythm & Formatting Rules
+* **Generous Minimalism[cite: 2, 6]:** Maintain an unhurried, conversational reading cadence[cite: 1, 2, 6]. Use short, deliberate paragraph blocks and allow whitespace to let ideas breathe[cite: 1, 2, 6].
+* **Selective Bolding & Emphasis:** In headlines or summary callouts, apply the signature secondary accent color (`.u-text-clay`) to trailing words (the "punch") to establish visual rhythm[cite: 1, 11, 12].
+* **Quotable Centerpieces:** Where appropriate, format core insights as standalone, punchy pull-quotes[cite: 1, 3] (e.g., *"To remember what mattered is to give the next generation a foundation rather than an empty room"*[cite: 1, 3]).
+* **Actionable Field Prompts:** Conclude long-form posts or dispatches with grounding, low-pressure habits or invites rather than aggressive conversion funnels[cite: 1, 3] (e.g., *"Send the message early"*[cite: 4], *"Measure twice, question the measurement"*[cite: 4]).
+
+---
+
+#### Banned Patterns for Agents
+* 🚫 **No Frantic Urgency:** Avoid artificial scarcity or aggressive hype (e.g., "Don't miss out," "Act now," "Game-changing").
+* 🚫 **No Over-Polished Boilerplate:** Avoid generic, sterile summaries (e.g., "We leverage synergistic frameworks to drive holistic engagement").
+* 🚫 **No Staccato Fragmentation:** Avoid breaking prose into repetitive single-line sentences without cohesive paragraph flow[cite: 1, 10].

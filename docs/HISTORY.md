@@ -1,12 +1,15 @@
-# Current Roadmap & Milestones: Camwyn & Co
+# Historical Roadmap & Completed Milestones: Camwyn & Co
+
+This document preserves the development history and architectural milestones completed during the initial development and consolidation phases of **Camwyn & Co.**
+
+---
 
 ## Milestone 1: AI Infrastructure & Guardrails (Completed)
-- [x] Establish `.agentskills/lando-execution/SKILL.md` (Windows PowerShell & Lando routing).
-- [x] Establish `.agentskills/scope-guardrails/SKILL.md` (Anti-scope creep directives).
-- [x] Establish `.agentskills/ocss-architecture/SKILL.md` (Pure OCSS conventions).
-- [x] Establish `.agentskills/alpine-store-patterns/SKILL.md` (Alpine store & persistence patterns).
-- [x] Establish `.agentskills/a11y-audit/SKILL.md` (A11y, Axe-Core & WCAG standards).
-- [x] Establish `.ai/` living documentation (`00-prd.md` through `05-current-roadmap.md`).
+- [x] Establish Lando execution guardrails (Windows PowerShell & containerized Node 20 routing).
+- [x] Establish anti-scope creep directives (rejection of heavy frameworks, CSS preprocessors, runtime servers).
+- [x] Establish Object-Oriented CSS (OCSS) directory and naming conventions.
+- [x] Establish Alpine.js store patterns and `$persist` state management conventions.
+- [x] Establish A11y, Axe-Core, and WCAG 2.1 AA/AAA compliance standards.
 
 ---
 
@@ -27,7 +30,7 @@
 ---
 
 ## Milestone 4: JSON Data Matrices & Alpine Store Integration (Completed)
-- [x] Create `src/_data/compass.json` (5 questions, archetype scoring matrices, archetype profiles).
+- [x] Create `src/_data/compass.json` (5 questions, archetype scoring matrices, 5 archetype profiles).
 - [x] Create `src/_data/compassArchetypes.js` (Eleventy collection helpers).
 - [x] Create `src/_data/site.json` (metadata & navigation).
 - [x] Initialize `Alpine.store('compass', ...)` with `@alpinejs/persist` in `base.njk` for instant client-side state hydration.
@@ -44,10 +47,10 @@
 ---
 
 ## Milestone 6: Automated Verification & 100% Corpus A11y Audit (Completed)
-- [x] Run `lando test` to verify clean static compilation across all 24 production pages.
+- [x] Run `lando test` to verify clean static compilation across all production pages.
 - [x] Verify zero Axe-core DOM accessibility violations and 100% WCAG 2.1 AA/AAA color contrast across all routes.
-- [x] Execute 780+ automated site integrity assertions on dead links, media assets, XML feeds, and structured data.
-- [x] Keyboard navigation, focus states, skip-links, and responsive testing.
+- [x] Execute automated site integrity assertions on dead links, media assets, XML feeds, and structured data.
+- [x] Verify keyboard navigation, focus states, skip-links, and responsive testing.
 
 ---
 
@@ -135,5 +138,5 @@
 ## Milestone 17: Archetype-Linked Venture Resonance & In-Place Nav Evolution (Completed)
 - [x] **Ventures Data Architecture**: Create `src/_data/ventures.json` housing the 3 core operating ventures (*Mema's Inclination*, *Creative Work*, *The Next Thing*) with a complete 5-way archetype resonance mapping.
 - [x] **Dynamic Venture Resonance**: Render client-side archetype callouts (*"★ Where [Archetype] Shines"*) on `/what-we-do/` that adapt instantly to the visitor's stored compass.
-- [x] **In-Place Navigation Evolution**: Dynamically transform nav item `02` (`Your Compass`) in [`src/_includes/sidenav.njk`](file:///c:/Users/camwy/Projects/camwyn-and-co/src/_includes/sidenav.njk) to the visitor's archetype icon and permalink (*"Compass: Craftsman"*) while preserving the 4-item vertical rhythm and static fallback.
-- [x] **Automated Integrity Tests**: Add venture data and archetype matrix tests to [`scripts/site-integrity-test.js`](file:///c:/Users/camwy/Projects/camwyn-and-co/scripts/site-integrity-test.js) (852 total assertions verified).
+- [x] **In-Place Navigation Evolution**: Dynamically transform nav item `02` (`Your Compass`) in `src/_includes/sidenav.njk` to the visitor's archetype icon and permalink (*"Compass: Craftsman"*) while preserving the 4-item vertical rhythm and static fallback.
+- [x] **Automated Integrity Tests**: Add venture data and archetype matrix tests to `scripts/site-integrity-test.js` (852 total assertions verified).
