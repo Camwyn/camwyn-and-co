@@ -45,8 +45,8 @@
           </div>
         {% endfor %}
 
-        <!-- Result View (Step 6 / Persisted Result) -->
-        <div x-show="$store.compass.result || $store.compass.step === 6" style="display: none;" x-cloak>
+        <!-- Result View (Step > totalSteps / Persisted Result) -->
+        <div x-show="$store.compass.result || $store.compass.step > $store.compass.totalSteps" style="display: none;" x-cloak>
           <div class="c-compass-result">
             <span class="c-compass-result__badge">Your adventure compass points to</span>
             <img 

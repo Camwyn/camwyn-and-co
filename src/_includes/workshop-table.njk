@@ -34,10 +34,10 @@
     init() {
       try {
         const saved = (this.$store?.compass?.result || localStorage.getItem('compassResult') || '').toLowerCase();
-        if (['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'].includes(saved)) {
+        if (saved && (this.$store?.compass?.archetypes?.[saved] || ['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper', 'architect'].includes(saved))) {
           this.userArchetype = saved;
           this.archetypeA = saved;
-          this.archetypeB = saved === 'craftsman' ? 'gatherer' : (saved === 'gatherer' ? 'craftsman' : 'craftsman');
+          this.archetypeB = saved === 'craftsman' ? 'gatherer' : 'craftsman';
           this.activeFilter = 'user';
         }
       } catch (e) {}
@@ -163,12 +163,12 @@
       </div>
     </div>
 
-    <!-- Complete 15-Pairing Catalog Grid -->
+    <!-- Complete Pairing Catalog Grid -->
     <div class="c-chemistry-catalog">
       <div class="c-chemistry-catalog-header">
         <div>
           <h3 class="u-font-serif" style="font-size: 1.75rem; color: var(--color-primary); margin-bottom: 0.25rem;">
-            Explore All 15 Combinations
+            Explore All {{ chemistry.pairings | length }} Combinations
           </h3>
           <p style="font-size: 0.9375rem; color: var(--color-on-surface-variant);">
             Click any pairing card below to load its full collaborative spec.
@@ -184,7 +184,7 @@
             @click="activeFilter = 'all'"
             style="padding: 0.375rem 0.75rem; font-size: 0.6875rem; min-height: 36px;"
           >
-            <span>All 15</span>
+            <span>All ({{ chemistry.pairings | length }})</span>
           </button>
           
           <template x-if="userArchetype">
@@ -195,7 +195,7 @@
               @click="activeFilter = 'user'"
               style="padding: 0.375rem 0.75rem; font-size: 0.6875rem; min-height: 36px;"
             >
-              <span>My Pairings (5)</span>
+              <span>My Pairings (<span x-text="Object.keys($store.compass?.archetypes || {}).length || {{ compassArchetypes | length }}">{{ compassArchetypes | length }}</span>)</span>
             </button>
           </template>
 
@@ -206,7 +206,7 @@
             @click="activeFilter = 'doubles'"
             style="padding: 0.375rem 0.75rem; font-size: 0.6875rem; min-height: 36px;"
           >
-            <span>Doubles (5)</span>
+            <span>Doubles (<span x-text="Object.keys($store.compass?.archetypes || {}).length || {{ compassArchetypes | length }}">{{ compassArchetypes | length }}</span>)</span>
           </button>
 
           {% for id, arch in compass.archetypes %}

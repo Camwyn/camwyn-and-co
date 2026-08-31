@@ -7,80 +7,36 @@ eleventyExcludeFromCollections: true
 
 <section 
   class="u-py-section"
-  x-data="{
-    archetype: null,
-    messages: {
-      explorer: {
-        eyebrow: 'Off the mapped trail',
-        title: 'You have wandered past the edge of the map.',
-        body: 'While unexpected detours are your natural habitat, this specific path is currently an empty field. Let us get you <span class=\'u-text-clay\'>back onto an uncharted dispatch worth reading.</span>',
-        ctaText: 'Seek out field notes ↗',
-        ctaUrl: '/notes/'
-      },
-      storykeeper: {
-        eyebrow: 'An unrecorded entry',
-        title: 'This dispatch has slipped through the chronicle.',
-        body: 'The page you are looking for was either moved or never transcribed into the records. Let us pull up an entry <span class=\'u-text-clay\'>from the recorded archives instead.</span>',
-        ctaText: 'Browse the archives ↗',
-        ctaUrl: '/notes/'
-      },
-      craftsman: {
-        eyebrow: 'Under construction on the bench',
-        title: 'This piece isn\'t fitted yet.',
-        body: 'You reached a page that is still back on the drawing board. We value care over polish, but <span class=\'u-text-clay\'>this link requires a bit more workshop time.</span>',
-        ctaText: 'Inspect workbench dispatches ↗',
-        ctaUrl: '/notes/'
-      },
-      gatherer: {
-        eyebrow: 'An empty chair',
-        title: 'Looks like this seat is unassigned.',
-        body: 'The page you sought isn\'t at this table. Come back into the main house <span class=\'u-text-clay\'>where the fire is warm and the conversation is active.</span>',
-        ctaText: 'Return to the main table ↗',
-        ctaUrl: '/'
-      },
-      catalyst: {
-        eyebrow: 'Friction in the line',
-        title: 'You moved faster than the blueprints.',
-        body: 'The project or dispatch you are looking for hasn\'t sparked here yet. Don\'t let inertia win—<span class=\'u-text-clay\'>redirect your momentum into something new.</span>',
-        ctaText: 'Start The Next Thing ↗',
-        ctaUrl: '/the-next-thing/'
-      }
-    },
-    init() {
-      try {
-        this.archetype = Alpine.store('compass')?.result || localStorage.getItem('compassResult') || null;
-      } catch (e) {}
-    }
-  }"
+  x-data
 >
   <div class="o-container o-container--wide">
     
     <!-- Eyebrow -->
-    <p class="c-hero__eyebrow" x-text="archetype && messages[archetype] ? messages[archetype].eyebrow : 'A wrong turn on a quiet lane'"></p>
+    <p class="c-hero__eyebrow" x-text="$store.compass.result && $store.compass.archetypes[$store.compass.result]?.notFound ? $store.compass.archetypes[$store.compass.result].notFound.eyebrow : 'A wrong turn on a quiet lane'">A wrong turn on a quiet lane</p>
 
     <!-- Serif Title -->
-    <h1 class="c-hero__title" style="max-width: 25ch;" x-text="archetype && messages[archetype] ? messages[archetype].title : 'The page you are looking for has moved or taken a detour.'">The page you are looking for has moved or taken a detour.</h1>
+    <h1 class="c-hero__title" style="max-width: 25ch;" x-text="$store.compass.result && $store.compass.archetypes[$store.compass.result]?.notFound ? $store.compass.archetypes[$store.compass.result].notFound.title : 'The page you are looking for has moved or taken a detour.'">The page you are looking for has moved or taken a detour.</h1>
 
     <!-- Body Text with Color Punch (Uses x-html) -->
     <p 
       class="u-font-serif" 
       style="font-size: 1.375rem; color: var(--color-primary); max-width: 45ch; margin-top: var(--space-md); line-height: 1.5;"
-      x-html="archetype && messages[archetype] ? messages[archetype].body : 'Camwyn &amp; Co. is built on generous tables and steady craft, but <span class=\'u-text-clay\'>this particular path leads nowhere right now.</span>'"
+      x-html="$store.compass.result && $store.compass.archetypes[$store.compass.result]?.notFound ? $store.compass.archetypes[$store.compass.result].notFound.body : 'Camwyn &amp; Co. is built on generous tables and steady craft, but <span class=\'u-text-clay\'>this particular path leads nowhere right now.</span>'"
     >Camwyn &amp; Co. is built on generous tables and steady craft, but <span class="u-text-clay">this particular path leads nowhere right now.</span></p>
 
     <!-- Call to Action Controls -->
     <div style="margin-top: var(--space-xl); display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap;">
       <a 
         href="/"
-        :href="archetype && messages[archetype] ? messages[archetype].ctaUrl : '/'" 
+        :href="$store.compass.result && $store.compass.archetypes[$store.compass.result]?.notFound ? $store.compass.archetypes[$store.compass.result].notFound.ctaUrl : '/'" 
         class="c-btn c-btn--primary" 
         style="font-size: 0.875rem; padding: 0.875rem 1.5rem;"
-        x-text="archetype && messages[archetype] ? messages[archetype].ctaText : 'Take a detour home ↗'"
+        x-text="$store.compass.result && $store.compass.archetypes[$store.compass.result]?.notFound ? $store.compass.archetypes[$store.compass.result].notFound.ctaText : 'Take a detour home ↗'"
       >Take a detour home ↗</a>
 
-      <template x-if="archetype">
+      <template x-if="$store.compass.result">
         <span class="u-font-mono" style="font-size: 0.8125rem; color: var(--color-muted-clay-text);">
-          Tailored for <strong style="color: var(--color-primary);" x-text="archetype.toUpperCase()"></strong>
+          Tailored for <strong style="color: var(--color-primary);" x-text="($store.compass.archetypes[$store.compass.result]?.name || $store.compass.result).toUpperCase()"></strong>
         </span>
       </template>
     </div>

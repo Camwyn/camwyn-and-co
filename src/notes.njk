@@ -31,7 +31,7 @@ permalink: "/notes/index.html"
     init() {
       try {
         const saved = (this.$store?.compass?.result || localStorage.getItem('compassResult') || '').toLowerCase();
-        if (['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'].includes(saved)) {
+        if (saved && (this.$store?.compass?.archetypes?.[saved] || ['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper', 'architect'].includes(saved))) {
           this.userArchetype = saved;
           this.activeFilter = saved;
         }

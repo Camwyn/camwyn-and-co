@@ -6,7 +6,7 @@
       "tag": "Table note",
       "title": "The case for staying a little longer",
       "excerpt": "On full glasses, unhurried meals, and why the best part of gathering usually begins after dinner.",
-      "link": "#",
+      "link": "/notes/the-case-for-staying-a-little-longer/",
       "archetype": "gatherer"
     },
     {
@@ -15,7 +15,7 @@
       "tag": "Workbench",
       "title": "Currently making: room",
       "excerpt": "Not every good idea arrives with a plan. Here's what we're learning about protecting space for the unfinished.",
-      "link": "#",
+      "link": "/notes/currently-making-room/",
       "archetype": "craftsman"
     },
     {
@@ -24,7 +24,7 @@
       "tag": "Dispatch",
       "title": "Notes on taking the long road",
       "excerpt": "Efficiency is fine for errands, but terrible for discovery. Why our best ventures started as happy detours.",
-      "link": "#",
+      "link": "/notes/notes-on-taking-the-long-road/",
       "archetype": "explorer"
     },
     {
@@ -33,7 +33,7 @@
       "tag": "Collaboration",
       "title": "The physics of good partnerships",
       "excerpt": "How complementary instincts turn fragile sparks into durable, exciting ventures.",
-      "link": "#",
+      "link": "/notes/the-physics-of-good-partnerships/",
       "archetype": "catalyst"
     },
     {
@@ -42,8 +42,17 @@
       "tag": "Chronicle",
       "title": "On remembering what mattered",
       "excerpt": "Why ordinary moments carry the deepest meaning, and how passing stories down keeps good ideas alive.",
-      "link": "#",
+      "link": "/notes/on-remembering-what-mattered/",
       "archetype": "storykeeper"
+    },
+    {
+      "id": 6,
+      "index": "06",
+      "tag": "Blueprint",
+      "title": "Analyzing the Bones: Legacy Architecture Restoration",
+      "excerpt": "What dealing with the irregular geometry of an 1800s farmhouse kitchen taught me about analyzing the bones of enterprise systems.",
+      "link": "/notes/analyzing-the-bones-the-art-of-legacy-architecture-restoration/",
+      "archetype": "architect"
     }
   ]
 }

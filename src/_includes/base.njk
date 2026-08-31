@@ -78,8 +78,8 @@
       } catch (e) {}
 
       Alpine.store('compass', {
-        step: initialResult ? 6 : 1,
-        totalSteps: 5,
+        step: initialResult ? {{ (compass.questions | length) + 1 }} : 1,
+        totalSteps: {{ compass.questions | length }},
         answers: {},
         result: initialResult,
         
@@ -107,13 +107,13 @@
           try {
             localStorage.setItem('compassResult', topArchetype);
           } catch (e) {}
-          this.step = 6;
+          this.step = this.totalSteps + 1;
         },
 
         setArchetype(archKey) {
           if (this.archetypes && this.archetypes[archKey]) {
             this.result = archKey;
-            this.step = 6;
+            this.step = this.totalSteps + 1;
             try {
               localStorage.setItem('compassResult', archKey);
             } catch (e) {}

@@ -1,5 +1,65 @@
 {
   "pairings": {
+    "architect+architect": {
+      "archetypeA": "architect",
+      "archetypeB": "architect",
+      "isDouble": true,
+      "title": "The Master Blueprint",
+      "tagline": "Deep systems thinking, structural elegance, and resilient frameworks.",
+      "chemistry": "When two Architects collaborate, complexity dissolves into clean, modular logic. They share an instinct for mapping dependencies, eliminating technical debt before it manifests, and building systems capable of carrying immense load effortlessly.",
+      "watchOut": "Over-engineering risk: Don't spend months drafting abstract specifications before validating the first practical iteration.",
+      "idealProject": "Enterprise software platforms, large-scale organizational architectures, and city-scale infrastructure design."
+    },
+    "architect+catalyst": {
+      "archetypeA": "architect",
+      "archetypeB": "catalyst",
+      "isDouble": false,
+      "title": "The Vector & Grid",
+      "tagline": "Explosive kinetic momentum guided by systematic precision.",
+      "chemistry": "A high-velocity operational pairing. The Catalyst generates endless energy and sparks new initiatives, while the Architect provides the logical scaffolding and workflow channels that prevent burnout and turn chaos into repeatable execution.",
+      "watchOut": "Velocity mismatch: The Catalyst wants to sprint immediately; the Architect wants to map the data flow first. Agree on lightweight guardrails before launch.",
+      "idealProject": "High-growth venture incubation, agile product transformation, and rapid go-to-market systems."
+    },
+    "architect+craftsman": {
+      "archetypeA": "architect",
+      "archetypeB": "craftsman",
+      "isDouble": false,
+      "title": "The Drafting Table & Bench",
+      "tagline": "Systems architecture paired with hands-on material mastery.",
+      "chemistry": "The quintessential builder alliance. The Architect designs the modular framework and structural tolerances; the Craftsman executes with tactile perfection and fine detail. Together, they create products that are as robust underneath as they are beautiful on top.",
+      "watchOut": "Theoretical vs. Physical: The Architect must respect physical assembly constraints, while the Craftsman must trust the modular blueprint.",
+      "idealProject": "Complex hardware-software integration, architectural renovations, and custom digital atelier tools."
+    },
+    "architect+explorer": {
+      "archetypeA": "architect",
+      "archetypeB": "explorer",
+      "isDouble": false,
+      "title": "The Cartographer & Scout",
+      "tagline": "Bold curiosity mapped into navigable, scalable systems.",
+      "chemistry": "The Explorer discovers wild, unmapped territory, and the Architect surveys the terrain, establishing gridlines, transit routes, and basecamp infrastructure. Together, they turn raw discoveries into sustainable, inhabitable domains.",
+      "watchOut": "Constraint vs. Freedom: The Explorer resists rigid structures; the Architect thrives in order. Frame systems as enablers of adventure rather than restrictions.",
+      "idealProject": "Pioneering new industry categories, open-source framework ecosystems, and exploratory research networks."
+    },
+    "architect+gatherer": {
+      "archetypeA": "architect",
+      "archetypeB": "gatherer",
+      "isDouble": false,
+      "title": "The Civic Forum",
+      "tagline": "Generous hospitality engineered with thoughtful spatial and operational flow.",
+      "chemistry": "The Gatherer creates an inviting, inclusive culture, while the Architect builds the community infrastructure, seating layouts, and communication pipelines that allow hundreds of people to connect seamlessly without administrative friction.",
+      "watchOut": "System vs. Serendipity: Don't let operational rigor squeeze out spontaneous human connection at the table.",
+      "idealProject": "Community campuses, collaborative dining platforms, and member-supported cultural institutions."
+    },
+    "architect+storykeeper": {
+      "archetypeA": "architect",
+      "archetypeB": "storykeeper",
+      "isDouble": false,
+      "title": "The Living Taxonomy",
+      "tagline": "Deep narrative meaning structured into durable knowledge systems.",
+      "chemistry": "The Storykeeper captures sacred origins, folklore, and institutional memory; the Architect constructs the knowledge graph, digital ontology, and search taxonomy that ensures future generations can discover and navigate the archive effortlessly.",
+      "watchOut": "Classification overload: The Architect must preserve the messy, emotional nuance of stories without forcing everything into rigid database tables.",
+      "idealProject": "Digital humanities archives, corporate legacy platforms, and multimedia knowledge bases."
+    },
     "catalyst+catalyst": {
       "archetypeA": "catalyst",
       "archetypeB": "catalyst",

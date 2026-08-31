@@ -167,22 +167,7 @@ description: "Some companies begin with a plan. Ours began with curiosity, famil
 
 <!-- Partnering Section -->
 <section class="u-py-section u-bg-warm-sand u-border-bottom" aria-labelledby="partner-heading">
-  <div class="o-container o-container--wide" 
-       x-data="{
-         archetype: null,
-         partnerships: {
-           catalyst: 'When you join the workshop as a <strong class=\'u-text-clay\'>Catalyst</strong>, we turn your kinetic energy and cross-pollinated ideas into durable, living systems before momentum fades.',
-           craftsman: 'When you join the workshop as a <strong class=\'u-text-clay\'>Craftsman</strong>, we honor the grain of your work, refining fine lines and structural joints so your ideas hold weight for the long haul.',
-           explorer: 'When you join the workshop as an <strong class=\'u-text-clay\'>Explorer</strong>, we build stable scaffolding around your curiosity, mapping uncharted lanes without forcing you onto a predictable grid.',
-           gatherer: 'When you join the workshop as a <strong class=\'u-text-clay\'>Gatherer</strong>, we turn solitary efforts into hospitable spaces, ensuring your table is built on durable foundations.',
-           storykeeper: 'When you join the workshop as a <strong class=\'u-text-clay\'>Storykeeper</strong>, we archive the human origin behind your work, giving the next generation a foundation rather than an empty room.'
-         },
-         init() {
-           try {
-             this.archetype = Alpine.store('compass')?.result || localStorage.getItem('compassResult') || null;
-           } catch(e) {}
-         }
-       }">
+  <div class="o-container o-container--wide" x-data>
     <div class="c-partnering-layout">
       <div>
         <p class="c-hero__eyebrow">Shared Momentum</p>
@@ -196,15 +181,15 @@ description: "Some companies begin with a plan. Ours began with curiosity, famil
         </p>
         <p class="u-font-serif" 
            style="font-size: 1.375rem; line-height: 1.4; color: var(--color-primary);"
-           x-html="archetype && partnerships[archetype] ? partnerships[archetype] : 'When you pull up a chair to our table, we combine strategy, systems, and story to turn what you know into <span class=\'u-text-clay\'>something that truly works.</span>'">
+           x-html="$store.compass.result && $store.compass.archetypes[$store.compass.result]?.partnership ? $store.compass.archetypes[$store.compass.result].partnership : 'When you pull up a chair to our table, we combine strategy, systems, and story to turn what you know into <span class=\'u-text-clay\'>something that truly works.</span>'">
         </p>
         
         <div class="o-cluster" style="gap: var(--space-sm); margin-top: var(--space-md); align-items: center; flex-wrap: wrap;">
           <a href="/compass/#workshop-table" class="c-btn c-btn--secondary">
             <img src="/assets/compass.svg" class="c-btn__icon" alt="" aria-hidden="true" width="14" height="14" />
-            <span>Explore Workshop Table Chemistry ↗</span>
+            <span>Explore Workshop Table Chemistry&nbsp;↗</span>
           </a>
-          <template x-if="!archetype">
+          <template x-if="!$store.compass.result">
             <a href="/#your-compass" class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; color: var(--color-muted-clay-text); text-decoration: underline;">
               Take the 5-question compass quiz
             </a>

@@ -32,38 +32,50 @@ The three core operating expressions of the House:
 ### The Adventure Compass (`/compass/` & Homepage Widget)
 An interactive 5-question discovery widget that helps visitors discover their personal creative archetype and tailors site dispatches, 404 guidance, navigation permalinks, and venture resonance to their perspective.
 
-### The 5 Archetypes (`src/_data/compass.json`)
-The five canonical creative profiles recognized across the site:
+### The 6 Archetypes (`src/_data/compass.json`)
+The six canonical creative profiles recognized across the site:
 1. **The Gatherer (`gatherer`):**
    * *Icon:* Leaf (`leaf`)
    * *Gift:* "You bring warmth to good company."
    * *Tagline:* "Rooted in hospitality, generous tables, and shared stories."
+   * *Dispatch Tag:* "Table note"
    * *Field Prompt:* "Pull up a chair to our table notes and family recipes."
    * *Life Prompt:* "Invite two people who should know each other to share a meal."
 2. **The Explorer (`explorer`):**
    * *Icon:* Landscape (`landscape`)
    * *Gift:* "You bring possibility to good company."
    * *Tagline:* "Drawn to untraveled roads and open possibilities."
+   * *Dispatch Tag:* "Dispatch"
    * *Field Prompt:* "Seek out uncharted notes and open-ended experiments."
    * *Life Prompt:* "Take the unfamiliar route and document one thing you nearly missed."
 3. **The Craftsman (`craftsman`):**
    * *Icon:* Brush (`brush`)
    * *Gift:* "You bring shape to good ideas."
    * *Tagline:* "Driven by care, fine lines, and the patience of the workshop."
+   * *Dispatch Tag:* "Workbench"
    * *Field Prompt:* "Inspect our workbench dispatches and making-of notes."
    * *Life Prompt:* "Make the smallest real version of an idea you keep postponing."
 4. **The Catalyst (`catalyst`):**
    * *Icon:* Bolt (`bolt`)
    * *Gift:* "You bring momentum to good ideas."
    * *Tagline:* "Sparking action, cross-pollinating ideas, and defying inertia."
+   * *Dispatch Tag:* "Collaboration"
    * *Field Prompt:* "Explore active collaborations and in-progress ventures."
    * *Life Prompt:* "Send the message that could start something worthwhile."
 5. **The Storykeeper (`storykeeper`):**
    * *Icon:* Key (`key`)
    * *Gift:* "You bring meaning to good company."
    * *Tagline:* "Recording, remembering, and passing on good ideas."
+   * *Dispatch Tag:* "Chronicle"
    * *Field Prompt:* "Explore our chronicles and recorded stories."
    * *Life Prompt:* "Ask someone you love for a story you have never heard."
+6. **The Architect (`architect`):**
+   * *Icon:* Rules (`rules`)
+   * *Gift:* "You bring structure and logic to good ideas."
+   * *Tagline:* "Mapping blueprints, system workflows, and load-bearing logic."
+   * *Dispatch Tag:* "Blueprint"
+   * *Field Prompt:* "Explore our blueprints and backend architecture notes."
+   * *Life Prompt:* "Map the logical dependencies between three things you want to accomplish this year."
 
 ### Field Notes & Dispatches (`src/notes/` & `/notes/`)
 Editorial essays, workbench notes, and table dispatches authored in Markdown with YAML frontmatter. Tagged by category and archetype, searchable via client-side full-text index, and syndicated via RSS (`/feed.xml`).

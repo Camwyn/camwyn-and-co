@@ -46,5 +46,13 @@
     "buttonText": "Record the spark\u00A0↗",
     "openThreadPrefix": "Prefer a simple letter? Write to us at ",
     "openThreadSuffix": "."
+  },
+  "architect": {
+    "eyebrow": "Systems & Structure",
+    "heading": "Map the blueprint.",
+    "lead": "For technical architectures, complex operations, and frameworks engineered to scale.",
+    "buttonText": "Draft the framework\u00A0↗",
+    "openThreadPrefix": "Want to discuss architecture directly? Send a note to ",
+    "openThreadSuffix": "."
   }
 }

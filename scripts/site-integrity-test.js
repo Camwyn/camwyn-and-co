@@ -264,21 +264,24 @@ function testCompassMatrix() {
   if (!fs.existsSync(compassJsonPath)) return;
 
   const compass = JSON.parse(fs.readFileSync(compassJsonPath, 'utf8'));
-  const canonicalArchetypes = ['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'];
+  const canonicalArchetypes = Object.keys(compass.archetypes || {});
+  assert(canonicalArchetypes.length >= 5, `Compass defines at least 5 creative archetypes (found: ${canonicalArchetypes.length})`);
 
-  // Check archetypes
+  // Check archetypes complete data contracts
   canonicalArchetypes.forEach(archKey => {
     const arch = compass.archetypes[archKey];
-    assert(Boolean(arch && arch.name && arch.icon && arch.tagline && arch.description), `Archetype "${archKey}" is fully configured`);
+    assert(Boolean(arch && arch.id && arch.name && arch.icon && arch.tagline && arch.description && arch.gift), `Archetype "${archKey}" defines id, name, icon, tagline, description, and gift`);
+    assert(Boolean(arch.dispatchTag && arch.partnership), `Archetype "${archKey}" defines dispatchTag and partnership copy`);
+    assert(Boolean(arch.notFound && arch.notFound.eyebrow && arch.notFound.title && arch.notFound.body && arch.notFound.ctaText && arch.notFound.ctaUrl), `Archetype "${archKey}" defines complete 404 message object`);
   });
 
   // Check questions
   assert(Array.isArray(compass.questions) && compass.questions.length === 5, `Compass defines exactly 5 quiz questions`);
   compass.questions.forEach((q, idx) => {
-    assert(Boolean(q.id && (q.prompt || q.question) && Array.isArray(q.options) && q.options.length === 5), `Question ${idx + 1} (${q.id}) has 5 options`);
+    assert(Boolean(q.id && (q.prompt || q.question) && Array.isArray(q.options) && q.options.length === canonicalArchetypes.length), `Question ${idx + 1} (${q.id}) has ${canonicalArchetypes.length} options`);
     const optionsArchetypes = q.options.map(o => o.archetype).sort();
     const matchesAll = JSON.stringify(optionsArchetypes) === JSON.stringify([...canonicalArchetypes].sort());
-    assert(matchesAll, `Question ${idx + 1} options map 1:1 to all 5 archetypes`);
+    assert(matchesAll, `Question ${idx + 1} options map 1:1 to all ${canonicalArchetypes.length} archetypes`);
   });
 
   // Simulate scoring function
@@ -287,8 +290,8 @@ function testCompassMatrix() {
       q1: targetArch,
       q2: targetArch,
       q3: targetArch,
-      q4: 'craftsman',
-      q5: 'explorer'
+      q4: canonicalArchetypes[(canonicalArchetypes.indexOf(targetArch) + 1) % canonicalArchetypes.length],
+      q5: canonicalArchetypes[(canonicalArchetypes.indexOf(targetArch) + 2) % canonicalArchetypes.length]
     };
     const counts = {};
     Object.values(answers).forEach(arch => {
@@ -307,14 +310,16 @@ function testVenturesMatrix() {
   console.log('6. Ventures Data & Archetype Resonance Matrix');
   console.log('========================================');
 
+  const compassJsonPath = path.join(DATA_DIR, 'compass.json');
+  const compass = JSON.parse(fs.readFileSync(compassJsonPath, 'utf8'));
+  const canonicalArchetypes = Object.keys(compass.archetypes || {});
+
   const venturesJsonPath = path.join(DATA_DIR, 'ventures.json');
   assert(fs.existsSync(venturesJsonPath), `ventures.json exists in src/_data`);
   if (!fs.existsSync(venturesJsonPath)) return;
 
   const ventures = JSON.parse(fs.readFileSync(venturesJsonPath, 'utf8'));
   assert(Array.isArray(ventures) && ventures.length === 3, `ventures.json defines exactly 3 core operating ventures`);
-
-  const canonicalArchetypes = ['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'];
 
   ventures.forEach((v, idx) => {
     assert(Boolean(v.num && v.title && v.category && v.description && v.link && v.linkLabel), `Venture ${idx + 1} (${v.title}) has all required properties`);
@@ -334,12 +339,16 @@ function testCtaMatrix() {
   console.log('7. Dynamic CTA Matrix & Archetype Personalization');
   console.log('========================================');
 
+  const compassJsonPath = path.join(DATA_DIR, 'compass.json');
+  const compass = JSON.parse(fs.readFileSync(compassJsonPath, 'utf8'));
+  const canonicalArchetypes = Object.keys(compass.archetypes || {});
+
   const ctaJsonPath = path.join(DATA_DIR, 'cta.json');
   assert(fs.existsSync(ctaJsonPath), `cta.json exists in src/_data`);
   if (!fs.existsSync(ctaJsonPath)) return;
 
   const cta = JSON.parse(fs.readFileSync(ctaJsonPath, 'utf8'));
-  const requiredKeys = ['default', 'gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'];
+  const requiredKeys = ['default', ...canonicalArchetypes];
 
   requiredKeys.forEach(key => {
     const item = cta[key];

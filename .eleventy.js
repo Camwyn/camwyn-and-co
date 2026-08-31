@@ -1,13 +1,5 @@
 const compassData = require('./src/_data/compass.json');
 
-const archetypeTags = {
-  gatherer: 'Table note',
-  craftsman: 'Workbench',
-  explorer: 'Dispatch',
-  catalyst: 'Collaboration',
-  storykeeper: 'Chronicle'
-};
-
 const { scanAndDeployUsedAssets } = require('./scripts/selective-assets');
 
 module.exports = function(eleventyConfig) {
@@ -57,7 +49,7 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("archetypeTag", function(archetypeId) {
-    return archetypeTags[archetypeId] || "Dispatch";
+    return compassData.archetypes[archetypeId]?.dispatchTag || "Dispatch";
   });
 
   eleventyConfig.addFilter("archetypeIcon", function(archetypeId) {
@@ -84,7 +76,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection("latestNotesByArchetype", function(collectionApi) {
     const allNotes = collectionApi.getFilteredByGlob("src/notes/*.md").sort((a, b) => b.date - a.date);
-    const archetypes = ['gatherer', 'craftsman', 'explorer', 'catalyst', 'storykeeper'];
+    const archetypes = Object.keys(compassData.archetypes || {});
     const latest = [];
 
     archetypes.forEach(arch => {

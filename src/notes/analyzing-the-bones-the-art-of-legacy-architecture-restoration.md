@@ -1,7 +1,7 @@
 ---
 title: "Analyzing the Bones: The Art of Legacy Architecture Restoration"
 date: 2026-06-16
-archetype: "craftsman"
+archetype: "architect"
 excerpt: "What dealing with the irregular geometry of an 1800s farmhouse kitchen taught me about analyzing the bones of enterprise codebases."
 author: "Stephen Page"
 ---

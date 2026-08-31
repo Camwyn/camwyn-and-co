@@ -8,7 +8,16 @@
       "tagline": "Rooted in hospitality, generous tables, and shared stories.",
       "description": "You understand that good things are made to be shared. You bring people together and turn solitary efforts into vibrant communities.",
       "lifePrompt": "Invite two people who should know each other to share a meal.",
-      "fieldPrompt": "Pull up a chair to our table notes and family recipes."
+      "fieldPrompt": "Pull up a chair to our table notes and family recipes.",
+      "dispatchTag": "Table note",
+      "partnership": "When you join the workshop as a <strong class='u-text-clay'>Gatherer</strong>, we turn solitary efforts into hospitable spaces, ensuring your table is built on durable foundations.",
+      "notFound": {
+        "eyebrow": "An empty chair",
+        "title": "Looks like this seat is unassigned.",
+        "body": "The page you sought isn't at this table. Come back into the main house <span class='u-text-clay'>where the fire is warm and the conversation is active.</span>",
+        "ctaText": "Return to the main table\u00A0↗",
+        "ctaUrl": "/"
+      }
     },
     "explorer": {
       "id": "explorer",
@@ -18,7 +27,16 @@
       "tagline": "Drawn to untraveled roads and open possibilities.",
       "description": "You thrive where plans give way to curiosity. In every project, you provide the momentum and the instinct to see what lies beyond the next turn.",
       "lifePrompt": "Take the unfamiliar route and document one thing you nearly missed.",
-      "fieldPrompt": "Seek out uncharted notes and open-ended experiments."
+      "fieldPrompt": "Seek out uncharted notes and open-ended experiments.",
+      "dispatchTag": "Dispatch",
+      "partnership": "When you join the workshop as an <strong class='u-text-clay'>Explorer</strong>, we build stable scaffolding around your curiosity, mapping uncharted lanes without forcing you onto a predictable grid.",
+      "notFound": {
+        "eyebrow": "Off the mapped trail",
+        "title": "You have wandered past the edge of the map.",
+        "body": "While unexpected detours are your natural habitat, this specific path is currently an empty field. Let us get you <span class='u-text-clay'>back onto an uncharted dispatch worth reading.</span>",
+        "ctaText": "Seek out field notes\u00A0↗",
+        "ctaUrl": "/notes/"
+      }
     },
     "craftsman": {
       "id": "craftsman",
@@ -28,7 +46,16 @@
       "tagline": "Driven by care, fine lines, and the patience of the workshop.",
       "description": "You know that beauty lives in the details. You take raw ideas and shape them into lasting, purposeful work.",
       "lifePrompt": "Make the smallest real version of an idea you keep postponing.",
-      "fieldPrompt": "Inspect our workbench dispatches and making-of notes."
+      "fieldPrompt": "Inspect our workbench dispatches and making-of notes.",
+      "dispatchTag": "Workbench",
+      "partnership": "When you join the workshop as a <strong class='u-text-clay'>Craftsman</strong>, we honor the grain of your work, refining fine lines and structural joints so your ideas hold weight for the long haul.",
+      "notFound": {
+        "eyebrow": "Under construction on the bench",
+        "title": "This piece isn't fitted yet.",
+        "body": "You reached a page that is still back on the drawing board. We value care over polish, but <span class='u-text-clay'>this link requires a bit more workshop time.</span>",
+        "ctaText": "Inspect workbench dispatches\u00A0↗",
+        "ctaUrl": "/notes/"
+      }
     },
     "catalyst": {
       "id": "catalyst",
@@ -38,7 +65,16 @@
       "tagline": "Sparking action, cross-pollinating ideas, and defying inertia.",
       "description": "You connect disparate dots and ignite momentum. You refuse to let worthwhile adventures gather dust on a shelf.",
       "lifePrompt": "Send the message that could start something worthwhile.",
-      "fieldPrompt": "Explore active collaborations and in-progress ventures."
+      "fieldPrompt": "Explore active collaborations and in-progress ventures.",
+      "dispatchTag": "Collaboration",
+      "partnership": "When you join the workshop as a <strong class='u-text-clay'>Catalyst</strong>, we turn your kinetic energy and cross-pollinated ideas into durable, living systems before momentum fades.",
+      "notFound": {
+        "eyebrow": "Friction in the line",
+        "title": "You moved faster than the blueprints.",
+        "body": "The project or dispatch you are looking for hasn't sparked here yet. Don't let inertia win—<span class='u-text-clay'>redirect your momentum into something new.</span>",
+        "ctaText": "Start The Next Thing\u00A0↗",
+        "ctaUrl": "/the-next-thing/"
+      }
     },
     "storykeeper": {
       "id": "storykeeper",
@@ -48,7 +84,35 @@
       "tagline": "Recording, remembering, and passing on good ideas.",
       "description": "You find the meaning hiding in ordinary moments. You help people remember what matters and why it mattered.",
       "lifePrompt": "Ask someone you love for a story you have never heard.",
-      "fieldPrompt": "Explore our chronicles and recorded stories."
+      "fieldPrompt": "Explore our chronicles and recorded stories.",
+      "dispatchTag": "Chronicle",
+      "partnership": "When you join the workshop as a <strong class='u-text-clay'>Storykeeper</strong>, we archive the human origin behind your work, giving the next generation a foundation rather than an empty room.",
+      "notFound": {
+        "eyebrow": "An unrecorded entry",
+        "title": "This dispatch has slipped through the chronicle.",
+        "body": "The page you are looking for was either moved or never transcribed into the records. Let us pull up an entry <span class='u-text-clay'>from the recorded archives instead.</span>",
+        "ctaText": "Browse the archives\u00A0↗",
+        "ctaUrl": "/notes/"
+      }
+    },
+    "architect": {
+      "id": "architect",
+      "name": "The Architect",
+      "icon": "rules",
+      "gift": "You bring structure and logic to good ideas.",
+      "tagline": "Mapping blueprints, system workflows, and load-bearing logic.",
+      "description": "You see the world in systems, workflows, and load-bearing frameworks. Whether managing a complex team, mapping backend architecture, or drafting physical plans, you focus on the sequence of operations required to turn vision into functional reality.",
+      "lifePrompt": "Map the logical dependencies between three things you want to accomplish this year.",
+      "fieldPrompt": "Explore our blueprints and backend architecture notes.",
+      "dispatchTag": "Blueprint",
+      "partnership": "When you join the workshop as an <strong class='u-text-clay'>Architect</strong>, we align load-bearing systems, technical workflows, and operations so your architecture scales without fragility.",
+      "notFound": {
+        "eyebrow": "Blueprint in progress",
+        "title": "This framework hasn't been mapped yet.",
+        "body": "You're looking for a structure that hasn't been drafted. Let us redirect you <span class='u-text-clay'>to our active blueprints and architecture notes.</span>",
+        "ctaText": "Explore architecture notes\u00A0↗",
+        "ctaUrl": "/notes/"
+      }
     }
   },
   "questions": [
@@ -76,6 +140,10 @@
         {
           "text": "Into the city to meet friends and start a project",
           "archetype": "catalyst"
+        },
+        {
+          "text": "Drafting a blueprint for a system that needs rebuilding",
+          "archetype": "architect"
         }
       ]
     },
@@ -103,6 +171,10 @@
         {
           "text": "The unexpected territory it opened up along the way",
           "archetype": "explorer"
+        },
+        {
+          "text": "The structural logic and resilience of its systems",
+          "archetype": "architect"
         }
       ]
     },
@@ -130,6 +202,10 @@
         {
           "text": "Sketch a recipe or an outline for a gathering",
           "archetype": "gatherer"
+        },
+        {
+          "text": "Map dependencies, step-by-step logic, and system flow",
+          "archetype": "architect"
         }
       ]
     },
@@ -157,6 +233,10 @@
         {
           "text": "Listens intently and ponders how the problem was solved",
           "archetype": "craftsman"
+        },
+        {
+          "text": "Identifies the core system dynamics and connects the moving parts",
+          "archetype": "architect"
         }
       ]
     },
@@ -184,6 +264,10 @@
         {
           "text": "Small spark, steady fire, worthwhile adventure.",
           "archetype": "catalyst"
+        },
+        {
+          "text": "Structure creates freedom. Measure the dependencies; build to scale.",
+          "archetype": "architect"
         }
       ]
     }
