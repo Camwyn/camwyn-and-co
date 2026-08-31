@@ -3,7 +3,7 @@
     "eyebrow": "Pull up a chair",
     "heading": "Let's see where this leads.",
     "lead": "For new projects, unexpected collaborations, or simply a good conversation.",
-    "buttonText": "Tell us about the spark ↗",
+    "buttonText": "Tell us about the spark\u00A0↗",
     "openThreadPrefix": "Prefer an open thread? Say ",
     "openThreadSuffix": "."
   },
@@ -11,7 +11,7 @@
     "eyebrow": "Hospitality & Warmth",
     "heading": "Pull up a chair.",
     "lead": "For new projects, generous collaborations, or simply a good conversation at the table.",
-    "buttonText": "Tell us what you're making ↗",
+    "buttonText": "Tell us what you're making\u00A0↗",
     "openThreadPrefix": "Just want to say hello? Drop a direct line to ",
     "openThreadSuffix": "."
   },
@@ -19,7 +19,7 @@
     "eyebrow": "Possibility & Discovery",
     "heading": "The next trailhead.",
     "lead": "For untested ideas, quiet instincts, and ventures ready to find their footing.",
-    "buttonText": "Map out the spark ↗",
+    "buttonText": "Map out the spark\u00A0↗",
     "openThreadPrefix": "Prefer an open thread? Send a dispatch to ",
     "openThreadSuffix": "."
   },
@@ -27,7 +27,7 @@
     "eyebrow": "Structure & Patience",
     "heading": "Into the workshop.",
     "lead": "For ideas that need structure, systems that need repair, and things built to last.",
-    "buttonText": "Bring it to the bench ↗",
+    "buttonText": "Bring it to the bench\u00A0↗",
     "openThreadPrefix": "Not one for forms? Send a raw spec to ",
     "openThreadSuffix": "."
   },
@@ -35,7 +35,7 @@
     "eyebrow": "Momentum & Action",
     "heading": "Let's build momentum.",
     "lead": "For ideas stuck in neutral, unexpected cross-pollinations, and ventures ready to move.",
-    "buttonText": "Spark the next thing ↗",
+    "buttonText": "Spark the next thing\u00A0↗",
     "openThreadPrefix": "Rather just get straight to it? Fire an email to ",
     "openThreadSuffix": "."
   },
@@ -43,7 +43,7 @@
     "eyebrow": "Meaning & Legacy",
     "heading": "Start the next chapter.",
     "lead": "For legacies in the making, durable ideas, and work that matters long after we're gone.",
-    "buttonText": "Record the spark ↗",
+    "buttonText": "Record the spark\u00A0↗",
     "openThreadPrefix": "Prefer a simple letter? Write to us at ",
     "openThreadSuffix": "."
   }

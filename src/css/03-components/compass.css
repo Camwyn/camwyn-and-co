@@ -225,6 +225,7 @@
   min-height: var(--icon-min-size, 14px);
   display: inline-block;
   flex-shrink: 0;
+  align-self: flex-start;
   transition: filter 0.2s ease;
 }
 

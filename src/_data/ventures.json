@@ -5,7 +5,7 @@
     "title": "Mema's Inclination",
     "description": "Generous tables, physical land stewardship, heritage livestock, and community gathering. The heart of our family operations.",
     "link": "https://memas-inclination.com/",
-    "linkLabel": "Made to be shared ↗",
+    "linkLabel": "Made to be shared\u00A0↗",
     "resonance": {
       "gatherer": "Weaving community tables, shared meals, and generous hospitality for neighbors old and new.",
       "craftsman": "Hand-building physical structures, working with heritage materials, and tending sustainable grounds.",
@@ -20,7 +20,7 @@
     "title": "Creative Work",
     "description": "Poetic Entanglement dispatches, brand architecture, narrative strategy, and editorial direction for purposeful ideas.",
     "link": "https://poeticentanglement.com/",
-    "linkLabel": "Curiosity at work ↗",
+    "linkLabel": "Curiosity at work\u00A0↗",
     "resonance": {
       "gatherer": "Fostering reader correspondence and cultivating an unhurried, thoughtful creative community.",
       "craftsman": "Designing durable typographic scale, tactile print specimens, and enduring brand identity systems.",
@@ -35,7 +35,7 @@
     "title": "The Next Thing",
     "description": "A permanent open door for the worthwhile adventures we haven't met yet. The point is to keep making room.",
     "link": "/the-next-thing/",
-    "linkLabel": "Tell us about your project ↗",
+    "linkLabel": "Tell us about your project\u00A0↗",
     "resonance": {
       "gatherer": "Connecting complementary minds, skills, and communal energy around a nascent venture.",
       "craftsman": "Bringing systems discipline, clean architecture, and structural integrity to raw prototypes.",
@@ -45,4 +45,3 @@
     }
   }
 ]
-
