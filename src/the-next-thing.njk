@@ -354,6 +354,10 @@ permalink: "/the-next-thing/index.html"
               <input type="radio" name="project_stage" value="open" x-model="stage" />
               <span>Looking for good company to start</span>
             </label>
+            <label class="c-stage-choice" :class="{ 'is-selected': stage === 'execution' }">
+              <input type="radio" name="project_stage" value="execution" x-model="stage" />
+              <span>Just the specs / Ready for execution</span>
+            </label>
           </div>
         </div>
 
@@ -369,7 +373,7 @@ permalink: "/the-next-thing/index.html"
             required 
             class="c-textarea" 
             rows="4" 
-            placeholder="What is the idea? What question or itch made you want to start it?"
+            placeholder="What is the idea? What question, itch, or functional requirement made you want to start it?"
           ></textarea>
         </div>
 
@@ -384,7 +388,7 @@ permalink: "/the-next-thing/index.html"
             x-model="support" 
             class="c-textarea" 
             rows="3" 
-            placeholder="Design, storytelling, recipe development, workshop space, sounding board, a mix of skills..."
+            placeholder="Design, storytelling, technical architecture, recipe development, workflow drafting, a mix of skills..."
           ></textarea>
         </div>
       </fieldset>
