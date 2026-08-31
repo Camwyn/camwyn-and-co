@@ -14,8 +14,9 @@
         <p class="c-hero__lead" style="font-size: 1.125rem;" x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).lead">
           {{ cta.default.lead }}
         </p>
-        <a href="/the-next-thing/" class="c-btn c-btn--primary" style="font-size: 0.875rem; padding: 1rem 2rem;" x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).buttonText">
-          {{ cta.default.buttonText }}
+        <a href="/the-next-thing/" class="c-btn c-btn--primary" style="font-size: 0.875rem; padding: 1rem 2rem;">
+          <img src="/assets/wand.svg" class="c-btn__icon" alt="" aria-hidden="true" width="16" height="16" />
+          <span x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).buttonText">{{ cta.default.buttonText }}</span>
         </a>
       </div>
     </div>
