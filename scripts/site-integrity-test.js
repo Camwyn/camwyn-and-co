@@ -25,6 +25,7 @@ function getAllFiles(dirPath, ext, arrayOfFiles = []) {
   const files = fs.readdirSync(dirPath);
 
   files.forEach(file => {
+    if (file === 'wp-content') return;
     const fullPath = path.join(dirPath, file);
     if (fs.statSync(fullPath).isDirectory()) {
       arrayOfFiles = getAllFiles(fullPath, ext, arrayOfFiles);
@@ -126,24 +127,73 @@ function testSearchIndex() {
 }
 
 // ============================================================================
-// 3. XML Syndication & Indexing Validation (Sitemap, Feed, Robots)
+// 3. XML Syndication & Sitewide SEO Validation (Sitemap, Feed, Robots, Metadata)
 // ============================================================================
 function testXmlAndSeo() {
   console.log('\n========================================');
-  console.log('3. XML Feeds & SEO Metadata');
+  console.log('3. XML Feeds & SEO Metadata Audits');
   console.log('========================================');
 
-  // Sitemap
+  // 3.1 XML Sitemap Completeness & Schema
   const sitemapPath = path.join(SITE_DIR, 'sitemap.xml');
   assert(fs.existsSync(sitemapPath), `sitemap.xml exists in _site`);
   if (fs.existsSync(sitemapPath)) {
     const sitemap = fs.readFileSync(sitemapPath, 'utf8');
     assert(sitemap.includes('<urlset') && sitemap.includes('</urlset>'), `sitemap.xml has valid <urlset> wrapper`);
-    const locMatches = sitemap.match(/<loc>(https:\/\/camwyn\.com[^<]+)<\/loc>/g) || [];
-    assert(locMatches.length >= 15, `sitemap.xml contains ${locMatches.length} canonical URLs`);
+    
+    const locMatches = (sitemap.match(/<loc>(https:\/\/camwyn\.com[^<]+)<\/loc>/g) || []).map(m => m.replace(/<\/?loc>/g, ''));
+    assert(locMatches.length >= 25, `sitemap.xml contains at least 25 canonical URLs (found: ${locMatches.length})`);
+    
+    // Check key required URLs
+    const requiredUrls = [
+      'https://camwyn.com/',
+      'https://camwyn.com/our-story/',
+      'https://camwyn.com/what-we-do/',
+      'https://camwyn.com/notes/',
+      'https://camwyn.com/the-next-thing/',
+      'https://camwyn.com/compass/',
+      'https://camwyn.com/sitemap/',
+      'https://camwyn.com/colophon/',
+      'https://camwyn.com/privacy/',
+      'https://camwyn.com/terms/',
+      'https://camwyn.com/compass/architect/',
+      'https://camwyn.com/compass/catalyst/',
+      'https://camwyn.com/compass/craftsman/',
+      'https://camwyn.com/compass/explorer/',
+      'https://camwyn.com/compass/gatherer/',
+      'https://camwyn.com/compass/storykeeper/'
+    ];
+
+    requiredUrls.forEach(reqUrl => {
+      assert(locMatches.includes(reqUrl), `sitemap.xml contains required endpoint: ${reqUrl}`);
+    });
+
+    // 404.html must NOT be in sitemap
+    assert(!sitemap.includes('404.html'), `sitemap.xml strictly excludes 404.html error page`);
+
+    // Verify priority and changefreq tags exist for all entries
+    const priorityMatches = sitemap.match(/<priority>[0-9\.]+<\/priority>/g) || [];
+    const changefreqMatches = sitemap.match(/<changefreq>[a-z]+<\/changefreq>/g) || [];
+    assert(priorityMatches.length === locMatches.length, `sitemap.xml defines <priority> for 100% of URLs (${priorityMatches.length}/${locMatches.length})`);
+    assert(changefreqMatches.length === locMatches.length, `sitemap.xml defines <changefreq> for 100% of URLs (${changefreqMatches.length}/${locMatches.length})`);
   }
 
-  // Atom Feed
+  // 3.2 HTML Sitemap Page (/sitemap/)
+  const sitemapHtmlPath = path.join(SITE_DIR, 'sitemap', 'index.html');
+  assert(fs.existsSync(sitemapHtmlPath), `HTML Sitemap exists at _site/sitemap/index.html`);
+  if (fs.existsSync(sitemapHtmlPath)) {
+    const sitemapHtml = fs.readFileSync(sitemapHtmlPath, 'utf8');
+    const sitemapDom = new JSDOM(sitemapHtml);
+    const sitemapDoc = sitemapDom.window.document;
+    const h1 = sitemapDoc.querySelector('h1');
+    assert(Boolean(h1 && h1.textContent.includes('Sitemap')), `HTML Sitemap has prominent <h1> heading`);
+    const links = Array.from(sitemapDoc.querySelectorAll('a[href]')).map(a => a.getAttribute('href'));
+    assert(links.includes('/') && links.includes('/our-story/') && links.includes('/notes/'), `HTML Sitemap links to all core pages`);
+    assert(links.includes('/compass/gatherer/') && links.includes('/compass/explorer/'), `HTML Sitemap links to archetype profiles`);
+    assert(links.includes('/feed.xml') && links.includes('/sitemap.xml'), `HTML Sitemap links to machine feeds and XML sitemap`);
+  }
+
+  // 3.3 Atom Syndication Feed
   const feedPath = path.join(SITE_DIR, 'feed.xml');
   assert(fs.existsSync(feedPath), `feed.xml exists in _site`);
   if (fs.existsSync(feedPath)) {
@@ -153,13 +203,63 @@ function testXmlAndSeo() {
     assert(entries.length >= 10, `feed.xml contains ${entries.length} published note entries`);
   }
 
-  // Robots.txt
+  // 3.4 Robots.txt Directives
   const robotsPath = path.join(SITE_DIR, 'robots.txt');
   assert(fs.existsSync(robotsPath), `robots.txt exists in _site`);
   if (fs.existsSync(robotsPath)) {
     const robots = fs.readFileSync(robotsPath, 'utf8');
     assert(robots.includes('Sitemap: https://camwyn.com/sitemap.xml'), `robots.txt defines canonical Sitemap location`);
+    assert(robots.includes('Disallow: /404.html'), `robots.txt disallows crawler indexing of /404.html`);
   }
+
+  // 3.5 Sitewide HTML SEO Meta Tags & Open Graph PNG Validation
+  const htmlFiles = getAllFiles(SITE_DIR, '.html');
+  htmlFiles.forEach(file => {
+    const relPath = path.relative(SITE_DIR, file);
+    const html = fs.readFileSync(file, 'utf8');
+    const dom = new JSDOM(html);
+    const doc = dom.window.document;
+
+    // Title
+    const title = doc.querySelector('title')?.textContent.trim();
+    assert(Boolean(title && title.length > 5), `${relPath} -> Has descriptive <title> ("${title}")`);
+
+    // Meta description
+    const desc = doc.querySelector('meta[name="description"]')?.getAttribute('content');
+    assert(Boolean(desc && desc.length > 15), `${relPath} -> Has non-empty <meta name="description">`);
+
+    // Canonical link
+    const canonical = doc.querySelector('link[rel="canonical"]')?.getAttribute('href');
+    assert(Boolean(canonical && canonical.startsWith('https://camwyn.com')), `${relPath} -> Has valid canonical URL (${canonical})`);
+
+    // Robots directive
+    const robotsMeta = doc.querySelector('meta[name="robots"]')?.getAttribute('content');
+    if (relPath.includes('404')) {
+      assert(Boolean(robotsMeta && robotsMeta.includes('noindex')), `${relPath} -> 404 page has "noindex" robots meta directive`);
+    } else {
+      assert(Boolean(robotsMeta && !robotsMeta.includes('noindex')), `${relPath} -> Production page is indexable`);
+    }
+
+    // Open Graph & Social Cards
+    const ogTitle = doc.querySelector('meta[property="og:title"]')?.getAttribute('content');
+    const ogDesc = doc.querySelector('meta[property="og:description"]')?.getAttribute('content');
+    const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute('content');
+    const twitterCard = doc.querySelector('meta[name="twitter:card"]')?.getAttribute('content');
+    const twitterImage = doc.querySelector('meta[name="twitter:image"]')?.getAttribute('content');
+
+    assert(Boolean(ogTitle && ogDesc), `${relPath} -> Has complete og:title and og:description`);
+    assert(Boolean(twitterCard === 'summary_large_image'), `${relPath} -> Has twitter:card="summary_large_image"`);
+
+    // Ensure OG/Twitter images use PNG (not SVG) for social crawler compatibility
+    if (ogImage) {
+      assert(ogImage.endsWith('.png'), `${relPath} -> og:image uses raster PNG format (${ogImage})`);
+      const localOgPath = path.join(SITE_DIR, ogImage.replace('https://camwyn.com/', ''));
+      assert(fs.existsSync(localOgPath), `${relPath} -> og:image asset exists at ${localOgPath}`);
+    }
+    if (twitterImage) {
+      assert(twitterImage.endsWith('.png'), `${relPath} -> twitter:image uses raster PNG format (${twitterImage})`);
+    }
+  });
 }
 
 // ============================================================================

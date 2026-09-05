@@ -4,7 +4,7 @@ ogType: article
 eleventyComputed:
   pageTitle: "{{ title }} — Notes from the Field | {{ site.name }}"
   description: "{{ excerpt }}"
-  ogImage: "{{ site.url }}/assets/og/{{ archetype | default('default') }}.svg"
+  ogImage: "{{ site.url }}/assets/og/{{ archetype | default('default') }}.png"
 ---
 
 <!-- Structured Data (JSON-LD Article / BlogPosting) -->
@@ -19,7 +19,7 @@ eleventyComputed:
   "headline": {{ title | dump | safe }},
   "description": {{ excerpt | default(title) | dump | safe }},
   "image": [
-    "{{ site.url }}/assets/og/{{ archetype | default('default') }}.svg"
+    "{{ site.url }}/assets/og/{{ archetype | default('default') }}.png"
   ],
   "datePublished": "{{ date | dateToRfc3339 }}",
   "dateModified": "{{ date | dateToRfc3339 }}",

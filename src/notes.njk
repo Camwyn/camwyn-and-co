@@ -5,6 +5,35 @@ description: "Dispatches, workbench notes, table stories, and collaborative expe
 permalink: "/notes/index.html"
 ---
 
+<!-- Structured Data (JSON-LD CollectionPage & Blog) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Notes from the Field — Camwyn & Co",
+  "description": "Dispatches, workbench notes, table stories, and collaborative experiments from Camwyn & Co.",
+  "url": "{{ site.url }}/notes/",
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.name | dump | safe }},
+    "url": "{{ site.url }}"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {% for note in collections.notes %}
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index }},
+        "url": "{{ site.url }}{{ note.url }}",
+        "name": {{ note.data.title | dump | safe }}
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+}
+</script>
+
 <section 
   class="u-py-section" 
   aria-labelledby="notes-index-heading"

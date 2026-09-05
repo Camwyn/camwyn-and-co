@@ -5,13 +5,33 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% for page in collections.all %}
-  {% if not page.data.draft and page.url %}
+  {% if not page.data.draft and page.url and page.url != "/404.html" and not (page.data.robots and "noindex" in page.data.robots) %}
   <url>
     <loc>{{ site.url }}{{ page.url | url }}</loc>
     <lastmod>{{ page.date | htmlDateString }}</lastmod>
+    {% if page.url == "/" %}
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    {% elif page.url in ["/our-story/", "/what-we-do/", "/notes/", "/the-next-thing/", "/compass/"] %}
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    {% elif page.url.startsWith("/notes/") %}
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    {% elif page.url.startsWith("/compass/") %}
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    {% elif page.url in ["/sitemap/", "/colophon/"] %}
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    {% elif page.url in ["/privacy/", "/terms/"] %}
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    {% else %}
     <changefreq>{{ page.data.changefreq | default("monthly") }}</changefreq>
+    <priority>{{ page.data.priority | default("0.5") }}</priority>
+    {% endif %}
   </url>
   {% endif %}
 {% endfor %}
 </urlset>
-

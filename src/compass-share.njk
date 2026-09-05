@@ -4,12 +4,36 @@ pagination:
   data: compassArchetypes
   size: 1
   alias: arch
+  addAllPagesToCollections: true
 permalink: "/compass/{{ arch.id }}/index.html"
 eleventyComputed:
   pageTitle: "I'm {{ arch.name }} — Camwyn & Co. Adventure Compass"
   description: "{{ arch.gift }} {{ arch.tagline }}"
-  ogImage: "{{ site.url }}/assets/og/{{ arch.id }}.svg"
+  ogImage: "{{ site.url }}/assets/og/{{ arch.id }}.png"
 ---
+
+<!-- Structured Data (JSON-LD ItemPage / Thing) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemPage",
+  "name": {{ ("I'm " ~ arch.name ~ " — Camwyn & Co. Adventure Compass") | dump | safe }},
+  "description": {{ (arch.gift ~ " " ~ arch.tagline) | dump | safe }},
+  "url": "{{ site.url }}/compass/{{ arch.id }}/",
+  "image": "{{ site.url }}/assets/og/{{ arch.id }}.png",
+  "mainEntity": {
+    "@type": "Thing",
+    "name": {{ arch.name | dump | safe }},
+    "description": {{ arch.description | dump | safe }},
+    "disambiguatingDescription": {{ arch.tagline | dump | safe }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.name | dump | safe }},
+    "url": "{{ site.url }}"
+  }
+}
+</script>
 
 <section class="u-py-section u-bg-warm-sand" style="min-height: 80vh; display: flex; align-items: center;" aria-labelledby="share-result-title">
   <div class="o-container o-container--narrow">

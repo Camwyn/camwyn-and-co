@@ -4,6 +4,37 @@ title: "Our Story — Camwyn & Co"
 description: "Some companies begin with a plan. Ours began with curiosity, family, and the belief that the best work still feels personal."
 ---
 
+<!-- Structured Data (JSON-LD AboutPage & Founders) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Our Story — Camwyn & Co",
+  "description": "Some companies begin with a plan. Ours began with curiosity, family, and the belief that the best work still feels personal.",
+  "url": "{{ site.url }}/our-story/",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": {{ site.name | dump | safe }},
+    "url": "{{ site.url }}",
+    "founder": [
+      {
+        "@type": "Person",
+        "name": "Stephen Page",
+        "alternateName": "Camwyn",
+        "jobTitle": "Technology, Systems & Operations",
+        "sameAs": "https://github.com/Camwyn"
+      },
+      {
+        "@type": "Person",
+        "name": "Ivy Page",
+        "alternateName": "Mema",
+        "jobTitle": "Strategy, Story & Creative Direction"
+      }
+    ]
+  }
+}
+</script>
+
 <!-- Hero Section -->
 <section class="u-py-section u-border-bottom" aria-labelledby="story-title">
   <div class="o-container o-container--wide">
