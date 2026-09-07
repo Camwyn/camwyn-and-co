@@ -3,130 +3,138 @@ layout: base.njk
 title: "The Next Thing — Start a Project with Camwyn & Co"
 description: "A permanent open door for worthwhile adventures. Tell us about your project, your natural archetype, and the complementary energy you need."
 permalink: "/the-next-thing/index.html"
+hideCta: true
 ---
 
-<section class="c-form-section" aria-labelledby="form-heading">
-  <div class="o-container c-form-container" x-data="{
-    myArchetype: $store.compass.result || '',
-    neededArchetype: 'open',
-    stage: 'sketch',
-    name: '',
-    email: '',
-    projectTitle: '',
-    spark: '',
-    support: '',
-    isSubmitting: false,
-    errorMessage: '',
-    submitted: false,
-    async submitForm() {
-      if (!this.name || !this.email || !this.spark) return;
-      this.isSubmitting = true;
-      this.errorMessage = '';
+<div x-data="{
+  myArchetype: $store.compass.result || '',
+  neededArchetype: 'open',
+  stage: 'sketch',
+  name: '',
+  email: '',
+  projectTitle: '',
+  spark: '',
+  support: '',
+  isSubmitting: false,
+  errorMessage: '',
+  submitted: false,
+  async submitForm() {
+    if (!this.name || !this.email || !this.spark) return;
+    this.isSubmitting = true;
+    this.errorMessage = '';
 
-      const payload = {
-        name: this.name,
-        email: this.email,
-        project_title: this.projectTitle || 'Untitled Adventure',
-        my_archetype: this.myArchetype ? (this.$store?.compass?.archetypes?.[this.myArchetype]?.name || this.myArchetype) : 'Still Exploring',
-        needed_archetype: this.neededArchetype === 'open' ? 'A Mix / Open Exploration' : (this.$store?.compass?.archetypes?.[this.neededArchetype]?.name || this.neededArchetype),
-        project_stage: this.stage,
-        spark: this.spark,
-        support_needed: this.support || 'N/A'
-      };
+    const payload = {
+      name: this.name,
+      email: this.email,
+      project_title: this.projectTitle || 'Untitled Adventure',
+      my_archetype: this.myArchetype ? (this.$store?.compass?.archetypes?.[this.myArchetype]?.name || this.myArchetype) : 'Still Exploring',
+      needed_archetype: this.neededArchetype === 'open' ? 'A Mix / Open Exploration' : (this.$store?.compass?.archetypes?.[this.neededArchetype]?.name || this.neededArchetype),
+      project_stage: this.stage,
+      spark: this.spark,
+      support_needed: this.support || 'N/A'
+    };
 
-      const endpoint = '{{ site.formspreeEndpoint | default('https://formspree.io/f/placeholder') }}';
+    const endpoint = '{{ site.formspreeEndpoint | default('https://formspree.io/f/placeholder') }}';
 
-      // Fallback for placeholder endpoint: allow instant preview success
-      if (!endpoint || endpoint.includes('placeholder')) {
+    // Fallback for placeholder endpoint: allow instant preview success
+    if (!endpoint || endpoint.includes('placeholder')) {
+      this.submitted = true;
+      this.isSubmitting = false;
+      this.$nextTick(() => {
+        document.getElementById('dispatch-received')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      return;
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
         this.submitted = true;
-        this.isSubmitting = false;
         this.$nextTick(() => {
           document.getElementById('dispatch-received')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
-        return;
-      }
-
-      try {
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
-
-        if (response.ok) {
-          this.submitted = true;
-          this.$nextTick(() => {
-            document.getElementById('dispatch-received')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          });
+      } else {
+        const data = await response.json().catch(() => ({}));
+        if (data.errors && data.errors.length) {
+          this.errorMessage = data.errors.map(e => e.message).join(', ');
         } else {
-          const data = await response.json().catch(() => ({}));
-          if (data.errors && data.errors.length) {
-            this.errorMessage = data.errors.map(e => e.message).join(', ');
-          } else {
-            this.errorMessage = 'There was a problem submitting your dispatch. Please try again or email {{ site.supportEmail }} directly.';
-          }
+          this.errorMessage = 'There was a problem submitting your dispatch. Please try again or email {{ site.supportEmail }} directly.';
         }
-      } catch (err) {
-        this.errorMessage = 'Network error sending your dispatch. Please check your connection or email {{ site.supportEmail }} directly.';
-      } finally {
-        this.isSubmitting = false;
       }
-    },
-    resetForm() {
-      this.name = '';
-      this.email = '';
-      this.projectTitle = '';
-      this.spark = '';
-      this.support = '';
-      this.stage = 'sketch';
-      this.submitted = false;
-      this.errorMessage = '';
-      this.$nextTick(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+    } catch (err) {
+      this.errorMessage = 'Network error sending your dispatch. Please check your connection or email {{ site.supportEmail }} directly.';
+    } finally {
+      this.isSubmitting = false;
     }
-  }">
-    <!-- Breadcrumb -->
-    <div style="margin-bottom: var(--space-lg);">
-      <a href="/" class="c-hero__anchor" style="font-size: 0.8125rem;">
-        ← Back to Camwyn &amp; Co
-      </a>
+  },
+  resetForm() {
+    this.name = '';
+    this.email = '';
+    this.projectTitle = '';
+    this.spark = '';
+    this.support = '';
+    this.stage = 'sketch';
+    this.submitted = false;
+    this.errorMessage = '';
+    this.$nextTick(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+}">
+  <!-- Header / Intro Section (Paper White) -->
+  <section class="c-form-hero" aria-labelledby="form-heading">
+    <div class="o-container c-form-container">
+      <!-- Breadcrumb -->
+      <div style="margin-bottom: var(--space-lg);">
+        <a href="/" class="c-hero__anchor" style="font-size: 0.8125rem;">
+          ← Back to Camwyn &amp; Co
+        </a>
+      </div>
+
+      <!-- Header -->
+      <header class="c-form-header" x-show="!submitted">
+        <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; letter-spacing: 0.1em; color: var(--color-muted-clay-text); margin-bottom: var(--space-sm);">
+          Experiments · Possibility · The Next Thing
+        </p>
+        <h1 id="form-heading" class="c-form-title">
+          Tell us about<br>
+          <span class="u-text-clay">the spark.</span>
+        </h1>
+        <p class="c-form-intro">
+          A permanent open door for the worthwhile adventures we haven't met yet. Whether it's a sketch in a notebook or a venture ready for its next chapter, tell us about what you're making.
+        </p>
+      </header>
+
+      <!-- Direct Email / Open Thread Prompt -->
+      <div class="c-form-alt-prompt" x-show="!submitted">
+        <p style="margin: 0;">
+          <span x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).openThreadPrefix">{{ cta.default.openThreadPrefix }}</span><a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a><span x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).openThreadSuffix">{{ cta.default.openThreadSuffix }}</span>
+        </p>
+      </div>
     </div>
+  </section>
 
-    <!-- Header -->
-    <header class="c-form-header" x-show="!submitted">
-      <p class="u-font-mono u-text-uppercase" style="font-size: 0.75rem; letter-spacing: 0.1em; color: var(--color-muted-clay-text); margin-bottom: var(--space-sm);">
-        Experiments · Possibility · The Next Thing
-      </p>
-      <h1 id="form-heading" class="c-form-title">
-        Tell us about<br>
-        <span class="u-text-clay">the spark.</span>
-      </h1>
-      <p class="c-form-intro">
-        A permanent open door for the worthwhile adventures we haven't met yet. Whether it's a sketch in a notebook or a venture ready for its next chapter, tell us about what you're making.
-      </p>
-    </header>
-
-    <!-- Direct Email / Open Thread Prompt -->
-    <div class="c-form-alt-prompt" x-show="!submitted">
-      <p style="margin: 0;">
-        <span x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).openThreadPrefix">{{ cta.default.openThreadPrefix }}</span><a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a><span x-text="($store.compass.cta[$store.compass.result] || $store.compass.cta.default).openThreadSuffix">{{ cta.default.openThreadSuffix }}</span>
-      </p>
-    </div>
-
-    <!-- Success Screen (Shown after submission) -->
-    <div 
-      id="dispatch-received"
-      class="c-form-success" 
-      x-show="submitted" 
-      style="display: none;" 
-      x-cloak
-      tabindex="-1"
-      aria-live="polite"
-    >
+  <!-- The Form Section (Warm Sand) -->
+  <section class="c-form-section u-bg-warm-sand" aria-label="Project dispatch form">
+    <div class="o-container c-form-container u-bg-warm-sand">
+      <!-- Success Screen (Shown after submission) -->
+      <div 
+        id="dispatch-received"
+        class="c-form-success" 
+        x-show="submitted" 
+        style="display: none;" 
+        x-cloak
+        tabindex="-1"
+        aria-live="polite"
+      >
       <p class="c-form-success__badge">Dispatch Received</p>
       <h2 class="c-form-success__title">Pull up a chair. We've got your note.</h2>
       <p class="c-form-success__message">
@@ -412,3 +420,5 @@ permalink: "/the-next-thing/index.html"
     </form>
   </div>
 </section>
+</div>
+

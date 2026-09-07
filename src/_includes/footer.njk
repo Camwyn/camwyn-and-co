@@ -1,3 +1,4 @@
+{% if not hideCta and page.url != '/the-next-thing/' and page.url != '/the-next-thing/index.html' %}
 <!-- CTA Section / Pull up a chair -->
 <section class="c-cta-section" id="say-hello" aria-labelledby="cta-heading">
   <div class="o-container o-container--wide">
@@ -22,6 +23,7 @@
     </div>
   </div>
 </section>
+{% endif %}
 
 <!-- Footer Colophon -->
 <footer class="c-footer">

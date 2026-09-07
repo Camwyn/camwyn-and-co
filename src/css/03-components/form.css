@@ -2,13 +2,20 @@
    03-COMPONENTS: Form & Project Inquiry Controls
    ========================================================================== */
 
+.c-form-hero {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+  background-color: var(--color-paper-white);
+  border-bottom: 1px solid var(--color-outline-variant);
+}
+
 .c-form-section {
   padding: var(--section-gap) 0;
   background-color: var(--color-paper-white);
 }
 
 .c-form-container {
-  max-width: 48rem;
+  max-width: 64rem;
   margin: 0 auto;
 }
 
@@ -140,7 +147,7 @@
 /* Archetype Selector Radio Grid */
 .c-archetype-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-sm);
   margin-top: 0.5rem;
 }
@@ -265,10 +272,10 @@
   margin-bottom: var(--space-xl);
 }
 
-@media (max-width: 600px) {
+@media (min-width: 601px) {
+
   .c-archetype-grid,
   .c-stage-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
-

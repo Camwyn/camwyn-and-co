@@ -17,8 +17,8 @@
 
 .c-project-row {
   display: grid;
-  grid-template-columns: 80px 1.25fr 1.25fr 2fr;
-  gap: var(--gutter);
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
   padding: var(--space-lg) 0;
   border-bottom: 1px solid var(--color-outline-on-dark);
   text-decoration: none;
@@ -92,8 +92,8 @@
 /* Detailed Article Rows (Used on What We Do page) */
 .c-project-article {
   display: grid;
-  grid-template-columns: 80px 1.5fr 2fr 1.5fr;
-  gap: var(--gutter);
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
   padding: var(--space-xl) 0;
   border-top: 1px solid var(--color-outline-on-dark);
   align-items: start;
@@ -117,25 +117,14 @@
   transform: scale(1.02);
 }
 
-@media (max-width: 900px) {
-  .c-project-row {
-    grid-template-columns: 1fr;
-    gap: var(--space-sm);
-  }
-  .c-project-article {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-}
-
 /* ==========================================================================
    Operating Ventures Grid & Engagement Layout (What We Do)
    ========================================================================== */
 
 .c-ventures-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
 }
 
 .c-venture-card {
@@ -173,7 +162,7 @@
   border-left: 2px solid var(--color-muted-clay);
   font-size: 0.8125rem;
   color: var(--color-on-surface);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  border-radius: var(--radius-none);
 }
 
 .c-venture-card__link {
@@ -188,8 +177,8 @@
 
 .c-engagement-layout {
   display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
   align-items: start;
 }
 
@@ -199,21 +188,36 @@
   gap: var(--space-lg);
 }
 
-@media (max-width: 1024px) {
+/* Tablet & Intermediate Desktop Enhancements */
+@media (min-width: 769px) {
   .c-ventures-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .c-ventures-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
   }
 
   .c-engagement-layout {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-xl);
+  }
+}
+
+/* Desktop Multi-column Project Rows */
+@media (min-width: 901px) {
+  .c-project-row {
+    grid-template-columns: 80px 1.25fr 1.25fr 2fr;
+    gap: var(--gutter);
+  }
+
+  .c-project-article {
+    grid-template-columns: 80px 1.5fr 2fr 1.5fr;
+    gap: var(--gutter);
+  }
+}
+
+/* Wide Desktop 3-column Ventures */
+@media (min-width: 1025px) {
+  .c-ventures-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

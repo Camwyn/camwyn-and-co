@@ -3,11 +3,11 @@
    ========================================================================== */
 
 .c-hero {
-  min-height: 80vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: var(--section-gap);
+  padding-top: var(--space-lg);
   padding-bottom: calc(var(--section-gap) / 2);
 }
 
@@ -40,7 +40,7 @@
   padding-top: var(--space-md);
   margin-top: var(--space-lg);
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--gutter);
   align-items: end;
 }
@@ -90,13 +90,14 @@
   outline-offset: 2px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   .c-hero {
-    min-height: auto;
-    padding-top: var(--space-lg);
+    min-height: 80vh;
+    padding-top: var(--section-gap);
   }
+
   .c-hero__footer {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr 1fr;
   }
 }
 

@@ -10,7 +10,7 @@
 
 .c-cta-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--grid-margin);
   align-items: center;
 }
@@ -25,14 +25,13 @@
 }
 
 .c-footer {
-  padding: var(--space-xl) var(--grid-margin);
+  padding: var(--space-lg) var(--grid-margin);
   border-top: 1px solid var(--color-outline-variant);
   background-color: var(--color-paper-white);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-md);
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-lg);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.05em;
@@ -42,15 +41,18 @@
 
 .c-footer__colophon {
   display: flex;
-  gap: var(--space-md);
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
 }
 
 .c-footer__links {
-  display: flex;
-  gap: var(--space-md);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm) var(--space-md);
+  width: 100%;
+  border-top: 1px solid var(--color-outline-variant);
+  padding-top: var(--space-md);
 }
 
 .c-footer__link {
@@ -71,31 +73,31 @@
   outline-offset: 2px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   .c-cta-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .c-footer {
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-lg);
-    padding: var(--space-lg) var(--grid-margin);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-xl) var(--grid-margin);
   }
 
   .c-footer__colophon {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
+    flex-direction: row;
+    gap: var(--space-md);
+    align-items: center;
   }
 
   .c-footer__links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm) var(--space-md);
-    width: 100%;
-    border-top: 1px solid var(--color-outline-variant);
-    padding-top: var(--space-md);
+    display: flex;
+    gap: var(--space-md);
+    width: auto;
+    border-top: none;
+    padding-top: 0;
   }
 }
 

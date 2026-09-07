@@ -7,7 +7,7 @@
   width: 100%;
   min-width: 0;
   margin: 0 auto;
-  padding: var(--section-gap) var(--grid-margin);
+  padding: var(--space-xl) var(--space-md);
   box-sizing: border-box;
 }
 
@@ -246,81 +246,58 @@
   line-height: 1.4;
 }
 
-@media (max-width: 768px) {
-  .c-article {
-    padding: var(--space-xl) var(--space-md);
-  }
-
-  .c-article__related-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ==========================================================================
-   Partnering Section (Our Story)
+   Partnering Section (Our Story - Mobile-First Base)
    ========================================================================== */
 
 .c-partnering-layout {
   display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
   align-items: center;
 }
 
 .c-partnering-layout__content {
-  padding-left: var(--space-lg);
-  border-left: 1px solid var(--color-outline-variant);
-}
-
-@media (max-width: 768px) {
-  .c-partnering-layout {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .c-partnering-layout__content {
-    padding-left: 0;
-    border-left: none;
-    border-top: 1px solid var(--color-outline-variant);
-    padding-top: var(--space-md);
-  }
+  padding-left: 0;
+  border-left: none;
+  border-top: 1px solid var(--color-outline-variant);
+  padding-top: var(--space-md);
 }
 
 /* ==========================================================================
-   Colophon & Specimen Cards
+   Colophon & Specimen Cards (Mobile-First Base)
    ========================================================================== */
 
 .c-colophon-header {
   display: grid;
-  grid-template-columns: 8fr 4fr;
-  gap: var(--gutter);
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
   align-items: end;
   margin-bottom: var(--space-xxl);
 }
 
 .c-colophon-section-header {
   display: grid;
-  grid-template-columns: 4fr 8fr;
-  gap: var(--gutter);
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
   margin-bottom: var(--space-lg);
 }
 
 .c-legal-layout {
   display: grid;
-  grid-template-columns: 4fr 8fr;
-  gap: var(--gutter);
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
   align-items: start;
 }
 
-
 .c-specimen-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--gutter);
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
 }
 
 .c-specimen-card {
-  padding: var(--space-lg);
+  padding: var(--space-md);
   border: 1px solid var(--color-outline-variant);
   background: var(--color-surface);
   box-sizing: border-box;
@@ -332,22 +309,22 @@
 
 .c-icon-showcase {
   margin-top: var(--space-md);
-  padding: var(--space-lg);
+  padding: var(--space-md);
   border: 1px solid var(--color-outline-variant);
   background: var(--color-surface-container-low);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-lg);
   box-sizing: border-box;
 }
 
 .c-icon-showcase__cluster {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-top: var(--space-sm);
 }
 
 .c-palette-cluster {
@@ -357,43 +334,77 @@
   margin-top: var(--space-lg);
 }
 
-@media (max-width: 1024px) {
-  .c-specimen-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* Tablet & Phablet Scaled Cluster */
+@media (min-width: 481px) {
+  .c-icon-showcase__cluster {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 768px) {
-  .c-colophon-header,
-  .c-colophon-section-header,
-  .c-legal-layout,
+/* Tablet & Desktop Editorial Enhancements */
+@media (min-width: 769px) {
+  .c-article {
+    padding: var(--section-gap) var(--grid-margin);
+  }
+
+  .c-partnering-layout {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-xl);
+  }
+
+  .c-partnering-layout__content {
+    padding-left: var(--space-lg);
+    border-left: 1px solid var(--color-outline-variant);
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .c-colophon-header {
+    grid-template-columns: 8fr 4fr;
+    gap: var(--gutter);
+  }
+
+  .c-colophon-section-header {
+    grid-template-columns: 4fr 8fr;
+    gap: var(--gutter);
+  }
+
+  .c-legal-layout {
+    grid-template-columns: 4fr 8fr;
+    gap: var(--gutter);
+  }
+
   .c-specimen-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gutter);
   }
 
   .c-specimen-card {
-    padding: var(--space-md);
+    padding: var(--space-lg);
   }
 
   .c-icon-showcase {
-    padding: var(--space-md);
-    flex-direction: column;
-    align-items: flex-start;
+    padding: var(--space-lg);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .c-icon-showcase__cluster {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    width: 100%;
-    margin-top: var(--space-sm);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+    width: auto;
+    margin-top: 0;
   }
 }
 
-@media (max-width: 480px) {
-  .c-icon-showcase__cluster {
-    grid-template-columns: repeat(2, 1fr);
+/* Wide Desktop 3-column Specimen Grid */
+@media (min-width: 1025px) {
+  .c-specimen-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

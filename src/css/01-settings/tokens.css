@@ -48,19 +48,19 @@
   --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
 
   /* ==========================================================================
-     Spacing & Layout
+     Spacing & Layout (Mobile-First Base)
      ========================================================================== */
-  --section-gap: 8rem;
-  --grid-margin: 4rem;
-  --gutter: 1.5rem;
+  --section-gap: 4rem;
+  --grid-margin: 1.5rem;
+  --gutter: 1rem;
   
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1.5rem;
-  --space-lg: 3rem;
-  --space-xl: 4rem;
-  --space-xxl: 6rem;
-  --space-xxxl: 8rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
+  --space-xxxl: 4rem;
 
   --sidebar-width: 16rem; /* 256px */
 
@@ -76,7 +76,8 @@
   --radius-none: 0px;
 }
 
-@media (max-width: 1024px) {
+/* Tablet / Intermediate Desktop Scale */
+@media (min-width: 769px) {
   :root {
     --section-gap: 5rem;
     --grid-margin: 2rem;
@@ -84,16 +85,19 @@
     --space-lg: 2rem;
     --space-xl: 3rem;
     --space-xxl: 4rem;
+    --space-xxxl: 6rem;
   }
 }
 
-@media (max-width: 768px) {
+/* Wide Desktop Scale */
+@media (min-width: 1025px) {
   :root {
-    --section-gap: 4rem;
-    --grid-margin: 1.5rem;
-    --gutter: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    --space-xxl: 3rem;
+    --section-gap: 8rem;
+    --grid-margin: 4rem;
+    --gutter: 1.5rem;
+    --space-lg: 3rem;
+    --space-xl: 4rem;
+    --space-xxl: 6rem;
+    --space-xxxl: 8rem;
   }
 }

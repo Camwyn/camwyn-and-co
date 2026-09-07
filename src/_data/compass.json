@@ -76,25 +76,6 @@
         "ctaUrl": "/the-next-thing/"
       }
     },
-    "storykeeper": {
-      "id": "storykeeper",
-      "name": "The Storykeeper",
-      "icon": "key",
-      "gift": "You bring meaning to good company.",
-      "tagline": "Recording, remembering, and passing on good ideas.",
-      "description": "You find the meaning hiding in ordinary moments. You help people remember what matters and why it mattered.",
-      "lifePrompt": "Ask someone you love for a story you have never heard.",
-      "fieldPrompt": "Explore our chronicles and recorded stories.",
-      "dispatchTag": "Chronicle",
-      "partnership": "When you join the workshop as a <strong class='u-text-clay'>Storykeeper</strong>, we archive the human origin behind your work, giving the next generation a foundation rather than an empty room.",
-      "notFound": {
-        "eyebrow": "An unrecorded entry",
-        "title": "This dispatch has slipped through the chronicle.",
-        "body": "The page you are looking for was either moved or never transcribed into the records. Let us pull up an entry <span class='u-text-clay'>from the recorded archives instead.</span>",
-        "ctaText": "Browse the archives\u00A0↗",
-        "ctaUrl": "/notes/"
-      }
-    },
     "architect": {
       "id": "architect",
       "name": "The Architect",
@@ -111,6 +92,25 @@
         "title": "This framework hasn't been mapped yet.",
         "body": "You're looking for a structure that hasn't been drafted. Let us redirect you <span class='u-text-clay'>to our active blueprints and architecture notes.</span>",
         "ctaText": "Explore architecture notes\u00A0↗",
+        "ctaUrl": "/notes/"
+      }
+    },
+    "storykeeper": {
+      "id": "storykeeper",
+      "name": "The Storykeeper",
+      "icon": "key",
+      "gift": "You bring meaning to good company.",
+      "tagline": "Recording, remembering, and passing on good ideas.",
+      "description": "You find the meaning hiding in ordinary moments. You help people remember what matters and why it mattered.",
+      "lifePrompt": "Ask someone you love for a story you have never heard.",
+      "fieldPrompt": "Explore our chronicles and recorded stories.",
+      "dispatchTag": "Chronicle",
+      "partnership": "When you join the workshop as a <strong class='u-text-clay'>Storykeeper</strong>, we archive the human origin behind your work, giving the next generation a foundation rather than an empty room.",
+      "notFound": {
+        "eyebrow": "An unrecorded entry",
+        "title": "This dispatch has slipped through the chronicle.",
+        "body": "The page you are looking for was either moved or never transcribed into the records. Let us pull up an entry <span class='u-text-clay'>from the recorded archives instead.</span>",
+        "ctaText": "Browse the archives\u00A0↗",
         "ctaUrl": "/notes/"
       }
     }
