@@ -16,7 +16,7 @@
             :href="$store.compass.result ? ('/compass/' + $store.compass.result + '/') : '{{ item.url }}'" 
             href="{{ item.url }}" 
             class="c-nav-link{% if page.url == item.url %} is-active{% endif %}"
-            :class="{ 'is-active': $store.compass.result && page.url === ('/compass/' + $store.compass.result + '/') }"
+            :class="{ 'is-active': Boolean($store.compass.result && '{{ page.url }}' === ('/compass/' + $store.compass.result + '/')) }"
             :title="$store.compass.result ? ('View your ' + ($store.compass.archetypes[$store.compass.result]?.name || 'Compass') + ' profile') : 'Find your creative archetype'"
           >
             <img 
