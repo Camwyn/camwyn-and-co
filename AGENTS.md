@@ -47,6 +47,10 @@ This document defines the operational rules, execution environment, and architec
    * Border radius is strictly `0px` across all buttons, cards, containers, inputs, and image frames to maintain the architectural "printed book / atelier workshop" aesthetic.
 5. **HTML-First SSR/SSG Parity:**
    * Dynamic components (Adventure Compass, Notes from the Field, filter pills) MUST render complete, valid default HTML at build time so the site is 100% crawlable and functional before client-side JS executes.
+6. **Mandatory Section Header IDs for Deep Linking:**
+   * All major section headers (`<h2>`, `<h3>`) in Nunjucks templates (`src/*.njk`), specifications, and legal pages MUST include human-readable, kebab-case `id` attributes (e.g., `<h2 id="formspree">...</h2>`).
+   * Markdown files automatically receive slugified heading IDs via our Markdown-it pipeline in `.eleventy.js`.
+   * This ensures persistent deep-linking and direct cross-referencing between pages (such as Colophon to Privacy).
 
 ---
 

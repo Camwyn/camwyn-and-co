@@ -28,7 +28,7 @@ permalink: "/colophon/index.html"
       <div class="c-colophon-section-header">
         <div>
           <p class="c-hero__eyebrow">Foundation &amp; Runtime</p>
-          <h2 class="u-font-serif" style="font-size: 2rem; font-weight: 400; color: var(--color-primary);">
+          <h2 id="engineering-stack" class="u-font-serif" style="font-size: 2rem; font-weight: 400; color: var(--color-primary);">
             The Engineering Stack
           </h2>
         </div>
@@ -78,7 +78,7 @@ permalink: "/colophon/index.html"
       <div class="c-colophon-section-header">
         <div>
           <p class="c-hero__eyebrow">Typesetting &amp; Voice</p>
-          <h2 class="u-font-serif" style="font-size: 2rem; font-weight: 400; color: var(--color-primary);">
+          <h2 id="typography-scale" class="u-font-serif" style="font-size: 2rem; font-weight: 400; color: var(--color-primary);">
             Typography Scale
           </h2>
         </div>
@@ -151,7 +151,7 @@ permalink: "/colophon/index.html"
       <div class="c-colophon-section-header">
         <div>
           <p class="c-hero__eyebrow">Ethos &amp; Materials</p>
-          <h2 class="u-font-serif" style="font-size: 2rem; font-weight: 400; color: var(--color-primary);">
+          <h2 id="atelier-palette" class="u-font-serif" style="font-size: 2rem; font-weight: 400; color: var(--color-primary);">
             Generous Minimalism
           </h2>
         </div>
@@ -182,11 +182,11 @@ permalink: "/colophon/index.html"
     </div>
 
     <!-- Section 4: Accessibility & Environmental Responsibility -->
-    <div style="padding-top: var(--space-xl); border-top: 1px solid var(--color-outline-variant);">
+    <div style="margin-bottom: var(--space-xxl); padding-top: var(--space-xl); border-top: 1px solid var(--color-outline-variant);">
       <div class="c-colophon-section-header">
         <div>
           <p class="c-hero__eyebrow">Standards &amp; Integrity</p>
-          <h2 class="u-font-serif" style="font-size: 2rem; font-weight: 400; color: var(--color-primary);">
+          <h2 id="accessibility-respect" class="u-font-serif" style="font-size: 2rem; font-weight: 400; color: var(--color-primary);">
             Accessibility &amp; Respect
           </h2>
         </div>
@@ -194,9 +194,42 @@ permalink: "/colophon/index.html"
           <ul style="font-size: 1rem; line-height: 1.8; color: var(--color-on-surface-variant); padding-left: 1.25rem;">
             <li><strong>WCAG 2.1 AA/AAA Compliant:</strong> Every color pair, interactive element, and typography scale is mathematically checked against contrast ratios up to 18:1.</li>
             <li><strong>Zero Tracking &amp; Cookies:</strong> No behavioral trackers, advertising pixels, or telemetry beacons. Your reading experience is completely private.</li>
+            <li><strong>Minimal Data Conduits:</strong> We run zero analytics, tracking beacons, or marketing scripts. When you submit a project dispatch via <em>The Next Thing</em>, messages route cleanly through a single external form relay (Formspree) without databases or tracking cookies—detailed fully in our <a href="/privacy/#formspree" class="u-text-clay-accessible">Privacy Policy&nbsp;&rarr;</a>.</li>
             <li><strong>Syndication Freedom:</strong> Full Atom/RSS syndication available at <a href="/feed.xml" class="u-text-clay-accessible">/feed.xml</a> for open web subscribers.</li>
             <li><strong>Discoverability &amp; Sitemaps:</strong> Human-readable navigation directory at <a href="/sitemap/" class="u-text-clay-accessible">/sitemap/</a> and crawler index at <a href="/sitemap.xml" class="u-text-clay-accessible">/sitemap.xml</a>.</li>
           </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: The Public Workbench (Repository & Stewardship) -->
+    <div style="padding-top: var(--space-xl); border-top: 1px solid var(--color-outline-variant);">
+      <div class="c-colophon-section-header">
+        <div>
+          <p class="c-hero__eyebrow">Open Craft &amp; Transparency</p>
+          <h2 id="public-workbench" class="u-font-serif" style="font-size: 2rem; font-weight: 400; color: var(--color-primary);">
+            The Public Workbench
+          </h2>
+        </div>
+        <div>
+          <p style="font-size: 1.125rem; line-height: 1.7; color: var(--color-on-surface-variant); margin-bottom: var(--space-md);">
+            We maintain the complete source code for this site as an open repository. If we believe that smart can be warm and that software should be durable, accessible, and unburdened by bloat, the most hospitable proof is to leave the workshop door unlatched.
+          </p>
+          <p style="font-size: 1rem; line-height: 1.7; color: var(--color-on-surface-variant); margin-bottom: var(--space-md);">
+            You can inspect our zero-framework build pipeline, automated accessibility harnesses, Architectural Decision Records (ADRs), and Pure OCSS design system directly on GitHub:
+          </p>
+          <div style="margin-bottom: var(--space-lg);">
+            <a href="https://github.com/Camwyn/camwyn-and-co" target="_blank" rel="noopener noreferrer" class="c-btn c-btn--secondary">
+              <span>Explore the Repository on GitHub</span>
+              <span aria-hidden="true">&nbsp;&rarr;</span>
+            </a>
+          </div>
+          <div class="c-specimen-card c-specimen-card--alt">
+            <div class="u-font-mono u-text-clay-accessible" style="font-size: 0.75rem; text-transform: uppercase; margin-bottom: var(--space-xs);">Dual-Licensing Model</div>
+            <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--color-on-surface-variant); margin-bottom: 0;">
+              The software scaffolding—Eleventy templates, Pure OCSS stylesheets, Alpine.js stores, test runners, and build configurations—is open source under the <strong>MIT License</strong>. Our personal brand identity, Field Notes essays, family recipes, original photography, and the 6 Archetypes creative matrix remain strictly <strong>All Rights Reserved</strong>. Read the full terms in <a href="https://github.com/Camwyn/camwyn-and-co/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer" class="u-text-clay-accessible" style="text-decoration: underline;">LICENSE.md&nbsp;↗</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -113,3 +113,5 @@ When autonomous agents generate copy (such as Field Note drafts, system dispatch
 3. **Pure Object-Oriented CSS (OCSS):** Token-driven styling in `src/css/` utilizing native CSS Custom Properties. Strictly zero Tailwind or PostCSS build steps in production.
 4. **Strict 0px Border Radius:** All buttons, cards, containers, inputs, and image frames strictly maintain `border-radius: 0px` to preserve the architectural, printed-book aesthetic.
 5. **Lightweight Reactivity:** Client-side state is strictly limited to Alpine.js (<20KB gzipped) and persisted in `localStorage` via `@alpinejs/persist`.
+6. **Section Header Deep Linking:** All major section headings in templates and Markdown documents feature semantic, kebab-case `id` attributes to enable precise cross-referencing between the Colophon, Privacy statement, Field Notes, and external links.
+

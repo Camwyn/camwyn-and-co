@@ -113,6 +113,30 @@ module.exports = function(eleventyConfig) {
     return defaultRender(tokens, idx, options, env, self);
   };
 
+  // Add slugified IDs to Markdown headings for section deep-linking
+  const defaultHeadingRender = markdownLib.renderer.rules.heading_open || function(tokens, idx, options, env, self) {
+    return self.renderToken(tokens, idx, options);
+  };
+
+  markdownLib.renderer.rules.heading_open = function (tokens, idx, options, env, self) {
+    const nextToken = tokens[idx + 1];
+    if (nextToken && nextToken.children) {
+      const text = nextToken.children
+        .filter(t => t.type === 'text' || t.type === 'code_inline')
+        .map(t => t.content)
+        .join('');
+      const slug = text
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-');
+      if (slug) {
+        tokens[idx].attrSet('id', slug);
+      }
+    }
+    return defaultHeadingRender(tokens, idx, options, env, self);
+  };
+
   eleventyConfig.setLibrary("md", markdownLib);
 
   return {
