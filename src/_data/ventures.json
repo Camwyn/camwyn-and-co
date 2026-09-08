@@ -17,6 +17,22 @@
   },
   {
     "num": "02",
+    "category": "Software & Tools",
+    "title": "ManyHats Ledger",
+    "description": "An AI-powered multi-schedule bookkeeping ledger built for founders, freelancers, and operators who wear many hats.",
+    "link": "https://manyhats.app",
+    "linkLabel": "Explore the ledger\u00A0↗",
+    "resonance": {
+      "gatherer": "Organizing multiple community initiatives, side projects, and collaborative ventures into clean, segregated financial buckets.",
+      "craftsman": "Precision multi-schedule tax accounting (Schedule C, E, F) and clean exports crafted with zero bloated enterprise fluff.",
+      "explorer": "Navigating the messy frontiers of solo business ownership without getting bogged down in legacy accounting software.",
+      "catalyst": "Accelerating from shoeboxes of receipts to total financial clarity with instant AI categorization and OCR extraction.",
+      "storykeeper": "Preserving a permanent visual vault of every receipt and financial milestone along your venture-building journey.",
+      "architect": "Designing clean entity boundaries and custom tax schedule operational structures for multi-venture setups."
+    }
+  },
+  {
+    "num": "03",
     "category": "Creative & Brand",
     "title": "Creative Work",
     "description": "Poetic Entanglement dispatches, brand architecture, narrative strategy, and editorial direction for purposeful ideas.",
@@ -32,7 +48,7 @@
     }
   },
   {
-    "num": "03",
+    "num": "04",
     "category": "Experiments & Play",
     "title": "The Next Thing",
     "description": "A permanent open door for the worthwhile adventures we haven't met yet. The point is to keep making room.",
