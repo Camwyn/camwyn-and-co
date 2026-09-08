@@ -94,6 +94,35 @@ function testJsonLdSchemas() {
   assert(schemasFound >= 13, `Discovered and verified ${schemasFound} JSON-LD schemas across site`);
 }
 
+function getPublishedNoteFiles() {
+  const noteFiles = fs.readdirSync(NOTES_DIR).filter(f => f.endsWith('.md'));
+  const now = new Date();
+  const nowDateStr = now.toISOString().split('T')[0];
+
+  return noteFiles.filter(file => {
+    const content = fs.readFileSync(path.join(NOTES_DIR, file), 'utf8');
+    const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    if (!match) return true;
+    const yaml = match[1];
+    
+    if (/draft:\s*true/i.test(yaml)) return false;
+    
+    const dateMatch = yaml.match(/date:\s*([^\r\n]+)/);
+    if (dateMatch) {
+      const rawDate = dateMatch[1].trim().replace(/^['"]|['"]$/g, '');
+      const postDate = new Date(rawDate);
+      if (!isNaN(postDate.getTime())) {
+        const postDateStr = postDate.toISOString().split('T')[0];
+        if (postDateStr > nowDateStr) return false;
+        if (postDateStr === nowDateStr && postDate.getTime() > now.getTime() && (postDate.getUTCHours() !== 0 || postDate.getUTCMinutes() !== 0)) {
+          return false;
+        }
+      }
+    }
+    return true;
+  });
+}
+
 // ============================================================================
 // 2. Static Search Index Completeness & Integrity
 // ============================================================================
@@ -117,8 +146,8 @@ function testSearchIndex() {
     return;
   }
 
-  const noteFiles = fs.readdirSync(NOTES_DIR).filter(f => f.endsWith('.md'));
-  assert(items.length === noteFiles.length, `search-index.json indexed all ${noteFiles.length} dispatches (found: ${items.length})`);
+  const publishedNotes = getPublishedNoteFiles();
+  assert(items.length === publishedNotes.length, `search-index.json indexed all ${publishedNotes.length} published dispatches (found: ${items.length})`);
 
   items.forEach(item => {
     const valid = item.url && item.title && item.archetype && item.archetypeTag && item.date && item.content && item.content.length > 50;

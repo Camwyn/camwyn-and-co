@@ -69,13 +69,41 @@ module.exports = function(eleventyConfig) {
       .trim();
   });
 
+  const isFutureDate = (dateVal) => {
+    if (!dateVal) return false;
+    const postDate = new Date(dateVal);
+    if (isNaN(postDate.getTime())) return false;
+    const now = new Date();
+    const postDateStr = postDate.toISOString().split('T')[0];
+    const nowDateStr = now.toISOString().split('T')[0];
+    if (postDateStr > nowDateStr) return true;
+    if (postDateStr === nowDateStr) {
+      return postDate.getTime() > now.getTime() && (postDate.getUTCHours() !== 0 || postDate.getUTCMinutes() !== 0);
+    }
+    return false;
+  };
+
+  const isPublishedNote = (item) => {
+    if (process.env.SHOW_DRAFTS === 'true') return true;
+    if (item.data && item.data.draft === true) return false;
+    const noteDate = item.data?.date || item.date;
+    if (noteDate && isFutureDate(noteDate)) return false;
+    return true;
+  };
+
   // Collections
   eleventyConfig.addCollection("notes", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/notes/*.md").sort((a, b) => b.date - a.date);
+    return collectionApi
+      .getFilteredByGlob("src/notes/*.md")
+      .filter(isPublishedNote)
+      .sort((a, b) => b.date - a.date);
   });
 
   eleventyConfig.addCollection("latestNotesByArchetype", function(collectionApi) {
-    const allNotes = collectionApi.getFilteredByGlob("src/notes/*.md").sort((a, b) => b.date - a.date);
+    const allNotes = collectionApi
+      .getFilteredByGlob("src/notes/*.md")
+      .filter(isPublishedNote)
+      .sort((a, b) => b.date - a.date);
     const archetypes = Object.keys(compassData.archetypes || {});
     const latest = [];
 

@@ -11,6 +11,8 @@ on:
       - 'package-lock.json'
       - 'scripts/**'
       - '.github/workflows/deploy.yml'
+  schedule:
+    - cron: '0 6 * * *' # Daily at 06:00 UTC to automatically publish scheduled drafts
   workflow_dispatch:
 
 concurrency:
