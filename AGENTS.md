@@ -89,3 +89,16 @@ All agent-generated prose, dispatches, UI copy, and documentation must adhere to
 * **Ambition can have soul:** Grounded in human memory, long-term purpose, and relationships.
 * **Serious work can still be fun:** Respectful of engineering discipline with room for curiosity.
 * 🚫 **No frantic urgency, corporate buzzwords, or artificial conversion funnels.**
+
+---
+
+## 7. Documentation Boundary & Knowledge Management (Repo vs. Obsidian)
+
+To keep the codebase lean while maintaining complete second-brain knowledge:
+
+* **In the Git Repository (AND in Obsidian):**
+  * **Code notes, technical specifications, and Architectural Decision Records (ADRs)** belong in the repo (`docs/adr/`, codebase comments, architecture docs) **AND** must always be synced to Obsidian.
+* **Exclusively in Obsidian (The Second/Shared Brain):**
+  * **Higher-level strategy, brand positioning, post scheduling/distribution strategies, marketing plans, and venture concepts** belong **ONLY in Obsidian** (`Areas/00 Camwyn & Co/`, `Areas/04 Poetic Entanglement/`, etc.).
+  * Do not clutter the code repository with high-level strategic or editorial planning documents.
+
