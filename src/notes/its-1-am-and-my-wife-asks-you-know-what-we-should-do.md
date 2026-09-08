@@ -22,7 +22,7 @@ At 55, you stop building things to impress people who will never sit at your kit
 
 Sure, who doesn’t want to build a magnificent edifice that dominates the city skyline? I’ve felt that pull. I’ve wanted that. But not anymore. I look for legacy in quality, not scale. I want to build things that last—things people reach for because they’re actually a pleasure to use. The goal is taking a task from a dreaded *“Ugh, I have to do this...”* (heavy sigh) to *“Hang on a second, let me knock this out real quick”* (done).
 
-The farm is my first legacy: building something I can hand down to future generations, and stewarding heritage breeds so they endure for generations, too. 
+The farm is our first legacy: building something we can hand down to future generations, and stewarding heritage breeds so they endure for generations, too. 
 
 ManyHats is that same impulse in software—building good, honest tools that feel right, like reaching for a particular hammer because you love the way it fits your hand. From my side of the workbench, that’s what Camwyn & Co. is all about.
 
