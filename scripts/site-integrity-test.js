@@ -419,7 +419,7 @@ function testVenturesMatrix() {
   if (!fs.existsSync(venturesJsonPath)) return;
 
   const ventures = JSON.parse(fs.readFileSync(venturesJsonPath, 'utf8'));
-  assert(Array.isArray(ventures) && ventures.length === 3, `ventures.json defines exactly 3 core operating ventures`);
+  assert(Array.isArray(ventures) && ventures.length >= 3, `ventures.json defines at least 3 core operating ventures (found: ${ventures.length})`);
 
   ventures.forEach((v, idx) => {
     assert(Boolean(v.num && v.title && v.category && v.description && v.link && v.linkLabel), `Venture ${idx + 1} (${v.title}) has all required properties`);

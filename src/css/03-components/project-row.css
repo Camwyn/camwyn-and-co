@@ -40,6 +40,7 @@
   font-family: var(--font-mono);
   font-size: 0.875rem;
   color: var(--color-inverse-primary);
+  padding-top: var(--space-sm);
 }
 
 .c-project-row__category {
@@ -48,6 +49,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-inverse-primary);
+  padding-top: var(--space-sm);
 }
 
 .c-project-row__title {
