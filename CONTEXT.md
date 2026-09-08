@@ -24,10 +24,11 @@ This document serves as the authoritative domain model, vocabulary, and architec
 The parent entity that stewards creative ventures, hospitality initiatives, and digital/physical experiments.
 
 ### The Operating Ventures
-The three core operating expressions of the House:
+The four core operating expressions of the House:
 1. **Mema's Inclination (`/what-we-do/` & `https://memas-inclination.com`):** Hospitality, physical land stewardship, heritage livestock, seasonal tables, and family gatherings. The heart of family operations.
-2. **Creative Work (`/what-we-do/` & `https://poeticentanglement.com`):** Brand architecture, narrative strategy, editorial direction, typography, and publication for purposeful ventures.
-3. **The Next Thing (`/the-next-thing/`):** A permanent open door for emerging collaborations, experimental sparks, and unmapped adventures. Features a guided project intake form.
+2. **ManyHats Ledger (`/what-we-do/` & `https://manyhats.app`):** AI-powered multi-schedule bookkeeping and tax-ready financial ledger built for founders, freelancers, and operators who wear many hats.
+3. **Creative Work (`/what-we-do/` & `https://poeticentanglement.com`):** Brand architecture, narrative strategy, editorial direction, typography, and publication for purposeful ventures.
+4. **The Next Thing (`/the-next-thing/`):** A permanent open door for emerging collaborations, experimental sparks, and unmapped adventures. Features a guided project intake form.
 
 ### The Adventure Compass (`/compass/` & Homepage Widget)
 An interactive 5-question discovery widget that helps visitors discover their personal creative archetype and tailors site dispatches, 404 guidance, navigation permalinks, and venture resonance to their perspective.
