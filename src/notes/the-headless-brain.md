@@ -21,21 +21,35 @@ We didn't need another app to look at. **We needed a headless brain.**
 
 ---
 
-### Standing on the Shoulders of Giants
+### The Discovery: Courtney, Tiago, and Two Very Different Brains
 
-The conceptual breakthrough didn't happen in a vacuum. It was built on two foundational ideas:
+The conceptual breakthrough didn't happen in a vacuum. It started with my friend **[Courtney Robertson](https://courtneyr.dev/2026/04/15/llm-wiki-ai-second-brain-obsidian/)**, who wrote insightfully about cutting through brain fog by using LLMs as an autonomous synthesis layer over an Obsidian wiki. 
 
-First, **[Tiago Forte's P.A.R.A. Method](https://fortelabs.com/blog/para/)** (*Building a Second Brain*). Tiago gave the world a brilliant, pragmatic taxonomy for organizing digital life by *actionability* rather than academic subjects:
+Courtney's article introduced me to **[Tiago Forte's P.A.R.A. Method](https://fortelabs.com/blog/para/)** (*Building a Second Brain*). The moment I understood PARA, I fell in love with it. Tiago gave the world a brilliant, pragmatic taxonomy for organizing digital life by *actionability* rather than academic subjects:
 - **Projects:** Active initiatives with fixed finish lines.
 - **Areas:** Long-term domains of responsibility with continuous standards (brand identity, farm operations, finances).
 - **Resources:** Reference libraries and playbooks.
 - **Archives:** Cold storage for completed milestones.
 
-Second, a spark from my friend **[Courtney Robertson](https://courtneyr.dev/2026/04/15/llm-wiki-ai-second-brain-obsidian/)**, who wrote insightfully about cutting through brain fog by using LLMs as an autonomous synthesis layer over an Obsidian wiki. Courtney pointed the way toward treating your notes not as a trophy case you curate by hand, but as an active knowledge engine that your AI assistants organize for you.
+For my systems-architect brain, PARA was poetry. It made complete structural sense.
 
-We loved the PARA structure and Courtney's LLM synthesis model. But we wanted to take it one step further into the physical workshop:
+### The Real Problem: Don't Double the Noise
 
-*What if you never had to open Obsidian at all?*
+Then came the real-world collision with human nature.
+
+Ivy is non-technical, but more importantly, her brain is already a living, intuitive mind-map. She naturally holds narrative arcs, emotional resonance, and brand connections in her head without needing a screen to tell her where they connect. 
+
+When she looks at software like Obsidian—particularly the sprawling visual graph views, complex plugins, and nested folder trees—it doesn't bring clarity. It just doubles the noise. To her, it felt like putting an unnecessary layer of software bureaucracy over a creative process that already worked effortlessly in her mind.
+
+She didn't want to learn Obsidian. In fact, she didn't want to adopt *any* new software. Her own internal mental model worked just fine, thank you very much.
+
+And she was completely right.
+
+We wanted her to have full access to the collective "brain" of our studio—to query our brand guidelines, check project statuses, and record dispatches. But forcing her to adopt an app that conflicted with how her mind naturally operates would have been a catastrophic failure of system design.
+
+So we flipped the question on its head:
+
+*What if we built a Second Brain so seamless that she never had to open Obsidian at all?*
 
 ---
 
