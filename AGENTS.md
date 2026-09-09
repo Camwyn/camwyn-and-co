@@ -100,5 +100,6 @@ To keep the codebase lean while maintaining complete second-brain knowledge:
   * **Code notes, technical specifications, and Architectural Decision Records (ADRs)** belong in the repo (`docs/adr/`, codebase comments, architecture docs) **AND** must always be synced to Obsidian.
 * **Exclusively in Obsidian (The Second/Shared Brain):**
   * **Higher-level strategy, brand positioning, post scheduling/distribution strategies, marketing plans, and venture concepts** belong **ONLY in Obsidian** (`Areas/00 Camwyn & Co/`, `Areas/04 Poetic Entanglement/`, etc.).
+  * **Pre-release dispatch drafts & embargoed content** should remain in Obsidian until their scheduled launch date, rather than committing unreleased draft prose to the public repository.
   * Do not clutter the code repository with high-level strategic or editorial planning documents.
 
