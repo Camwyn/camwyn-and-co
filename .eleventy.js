@@ -8,9 +8,10 @@ module.exports = function(eleventyConfig) {
     showAllHosts: true,
   });
 
-  // Passthrough copy for CSS and wp-content
+  // Passthrough copy for CSS, wp-content, and web server configuration
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/wp-content");
+  eleventyConfig.addPassthroughCopy({ "src/.htaccess": ".htaccess" });
 
   // Selective tree-shaking & monitoring for icons and assets
   eleventyConfig.on('eleventy.after', async () => {

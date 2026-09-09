@@ -1,0 +1,54 @@
+# ==============================================================================
+# Camwyn & Co. — Production Web Server Configuration (.htaccess)
+# ==============================================================================
+
+# Enable Rewrite Engine
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1. Canonical HTTPS & Apex Domain Enforcement (F1 & Minor 11)
+  # Redirect any plain http:// or www.camwyn.com to https://camwyn.com
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://camwyn.com%{REQUEST_URI} [R=301,L]
+
+  # Redirect /index.html directly to root directory /
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+  RewriteRule ^index\.html$ https://camwyn.com/ [R=301,L]
+</IfModule>
+
+# 2. Custom 404 Error Document (F2)
+ErrorDocument 404 /404.html
+
+# 3. Character Encoding & MIME Types (Minor 14)
+AddDefaultCharset UTF-8
+
+<Files "feed.xml">
+  ForceType application/atom+xml
+</Files>
+
+# 4. Security & Privacy Headers (F5)
+<IfModule mod_headers.c>
+  # HTTP Strict Transport Security (1 year + subdomains)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Prevent MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Clickjacking mitigation
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Referrer policy: send origin only when crossing origins
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Permissions policy: restrict unneeded browser hardware capabilities
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # Content Security Policy (Report-Only initially for Alpine.js eval compatibility)
+  Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; form-action 'self' https://formspree.io; frame-ancestors 'self'"
+
+  # 5. Static Asset Caching (F5)
+  <FilesMatch "\.(css|js|svg|jpg|jpeg|png|webp|woff2|ico)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
