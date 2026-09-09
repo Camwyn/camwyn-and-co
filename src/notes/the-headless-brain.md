@@ -116,6 +116,8 @@ What makes this headless architecture so powerful is that it doesn't just work f
 
 On my side of the workbench, our IDE agents (running in Google Antigravity, Claude Code, and Cursor) connect to the exact same vault using custom agent skills. While Ivy is using ChatGPT to brainstorm dispatches or review brand voice, my coding agents are autonomously reading Architectural Decision Records (ADRs), keeping sprint worklogs updated, and re-indexing master Maps of Content (MOCs) directly from our active Git codebases.
 
+Crucially, because the coding agents read `AI CONTEXT.md` and our brand directives, they don't just write functional code in a vacuum—they actively enforce our design tokens, respect our architectural constraints (like strict 0px border radius), and craft UI microcopy, button labels, and error states that speak in the exact same grounded, hospitable brand voice that Ivy curates.
+
 Two completely different people, working in two completely different environments, interacting with the exact same shared memory—with zero manual data entry or software friction on either side.
 
 ---
