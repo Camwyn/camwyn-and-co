@@ -110,6 +110,16 @@ When an AI worker is anchored to an authoritative constitution and has hands int
 
 ---
 
+### From Conversational Writers to Autonomous Coding Agents
+
+What makes this headless architecture so powerful is that it doesn't just work for conversational desktop chats—it scales all the way up to autonomous engineering.
+
+On my side of the workbench, our IDE agents (running in Google Antigravity, Claude Code, and Cursor) connect to the exact same vault using custom agent skills. While Ivy is using ChatGPT to brainstorm dispatches or review brand voice, my coding agents are autonomously reading Architectural Decision Records (ADRs), keeping sprint worklogs updated, and re-indexing master Maps of Content (MOCs) directly from our active Git codebases.
+
+Two completely different people, working in two completely different environments, interacting with the exact same shared memory—with zero manual data entry or software friction on either side.
+
+---
+
 ### Building the Jig (And Giving It Away)
 
 In a woodshop, when an off-the-shelf tool doesn’t make the cut, you don’t buy a factory. You make a jig. 
