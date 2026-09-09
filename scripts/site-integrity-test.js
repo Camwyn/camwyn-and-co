@@ -259,7 +259,11 @@ function testXmlAndSeo() {
 
     // Canonical link
     const canonical = doc.querySelector('link[rel="canonical"]')?.getAttribute('href');
-    assert(Boolean(canonical && canonical.startsWith('https://camwyn.com')), `${relPath} -> Has valid canonical URL (${canonical})`);
+    if (relPath.includes('404')) {
+      assert(!canonical, `${relPath} -> 404 error page correctly omits canonical URL`);
+    } else {
+      assert(Boolean(canonical && canonical.startsWith('https://camwyn.com')), `${relPath} -> Has valid canonical URL (${canonical})`);
+    }
 
     // Robots directive
     const robotsMeta = doc.querySelector('meta[name="robots"]')?.getAttribute('content');

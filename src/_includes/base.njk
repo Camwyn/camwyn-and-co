@@ -29,7 +29,9 @@
   <meta name="twitter:image:alt" content="{{ pageTitle | default(title | default(site.name ~ " — " ~ site.tagline)) }}">
 
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  {% if not noCanonical %}
   <link rel="canonical" href="{{ site.url ~ page.url }}">
+  {% endif %}
   <link rel="alternate" type="application/atom+xml" title="{{ site.name }} Field Notes" href="{{ site.url }}/feed.xml">
   <link rel="sitemap" type="application/xml" title="{{ site.name }} Sitemap" href="{{ site.url }}/sitemap.xml">
   

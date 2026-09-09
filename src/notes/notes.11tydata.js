@@ -24,6 +24,7 @@ module.exports = {
   layout: "note.njk",
   tags: ["note"],
   eleventyComputed: {
+    pageTitle: (data) => `${data.title} — Notes from the Field | ${data.site.name}`,
     permalink: (data) => {
       if (isDraftOrScheduled(data)) {
         return false;
