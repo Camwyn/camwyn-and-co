@@ -92,6 +92,19 @@ permalink: "/notes/index.html"
       });
       this.matchingUrls = matched;
     },
+    notes: [
+      {% for note in collections.notes %}
+      { url: '{{ note.url }}', archetype: '{{ note.data.archetype }}' }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ],
+    get visibleCount() {
+      return this.notes.filter(n => this.matches(n.url, n.archetype, null)).length;
+    },
+    resetFilters() {
+      this.activeFilter = 'all';
+      this.searchQuery = '';
+      this.matchingUrls = null;
+    },
     matches(url, archetype, el) {
       const matchesArchetype = this.activeFilter === 'all' || this.activeFilter === archetype;
       if (!matchesArchetype) return false;
@@ -129,12 +142,16 @@ permalink: "/notes/index.html"
 
     <!-- Controls Toolbar -->
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: var(--space-xl);">
+      <!-- Accessible Live Announcement for Screen Readers -->
+      <div class="u-sr-only" aria-live="polite" x-text="'Showing ' + visibleCount + ' of ' + notes.length + ' notes'"></div>
+
       <!-- Archetype Filter Pills -->
       <div class="o-cluster" style="gap: 0.5rem;" role="group" aria-label="Filter notes by archetype">
         <button 
           type="button" 
           class="c-btn"
           :class="activeFilter === 'all' ? 'c-btn--primary' : 'c-btn--secondary'"
+          :aria-pressed="activeFilter === 'all' ? 'true' : 'false'"
           @click="activeFilter = 'all'"
           style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; min-height: 38px;"
         >
@@ -145,6 +162,7 @@ permalink: "/notes/index.html"
           type="button" 
           class="c-btn"
           :class="activeFilter === '{{ id }}' ? 'c-btn--primary' : 'c-btn--secondary'"
+          :aria-pressed="activeFilter === '{{ id }}' ? 'true' : 'false'"
           @click="activeFilter = '{{ id }}'"
           style="padding: 0.375rem 0.875rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; min-height: 38px;"
         >
@@ -218,6 +236,28 @@ permalink: "/notes/index.html"
           </a>
         </article>
       {% endfor %}
+    </div>
+
+    <!-- Empty State when 0 notes match filter/search -->
+    <div 
+      x-show="visibleCount === 0" 
+      x-cloak
+      style="padding: var(--space-xl) var(--space-lg); border: 1px dashed var(--color-outline-variant); text-align: center; margin-top: var(--space-lg); background: var(--color-surface);"
+    >
+      <p class="u-font-serif" style="font-size: 1.25rem; color: var(--color-primary); margin-bottom: var(--space-sm);">
+        No notes found matching your criteria.
+      </p>
+      <p style="color: var(--color-on-surface-variant); font-size: 0.9375rem; margin-bottom: var(--space-md); max-width: 45ch; margin-left: auto; margin-right: auto;">
+        Try adjusting your search keywords or clearing your active archetype filter.
+      </p>
+      <button 
+        type="button" 
+        class="c-btn c-btn--primary" 
+        @click="resetFilters()"
+        style="padding: 0.5rem 1.25rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;"
+      >
+        Show All Notes
+      </button>
     </div>
   </div>
 </section>

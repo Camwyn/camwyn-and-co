@@ -226,18 +226,16 @@
 
       <div class="c-chemistry-grid">
         {% for key, pair in chemistry.pairings %}
-          <div 
+          <button 
+            type="button"
             class="c-chemistry-card"
             :class="{
               'is-active': getCanonicalKey(archetypeA, archetypeB) === '{{ key }}',
               'c-chemistry-card--user-promoted': userArchetype && ('{{ pair.archetypeA }}' === userArchetype || '{{ pair.archetypeB }}' === userArchetype)
             }"
+            :aria-pressed="getCanonicalKey(archetypeA, archetypeB) === '{{ key }}' ? 'true' : 'false'"
             x-show="matchesFilter('{{ pair.archetypeA }}', '{{ pair.archetypeB }}', {{ 'true' if pair.isDouble else 'false' }})"
-            @click="selectDuo('{{ pair.archetypeA }}', '{{ pair.archetypeB }}'); document.getElementById('workshop-table').scrollIntoView({ behavior: 'smooth', block: 'start' });"
-            role="button"
-            tabindex="0"
-            @keydown.enter="selectDuo('{{ pair.archetypeA }}', '{{ pair.archetypeB }}'); document.getElementById('workshop-table').scrollIntoView({ behavior: 'smooth', block: 'start' });"
-            @keydown.space.prevent="selectDuo('{{ pair.archetypeA }}', '{{ pair.archetypeB }}'); document.getElementById('workshop-table').scrollIntoView({ behavior: 'smooth', block: 'start' });"
+            @click="selectDuo('{{ pair.archetypeA }}', '{{ pair.archetypeB }}'); document.getElementById('workshop-table').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });"
             aria-label="Explore chemistry for {{ pair.title }}"
           >
             <div>
@@ -252,14 +250,14 @@
                 <img src="/assets/{{ compass.archetypes[pair.archetypeB].icon }}.svg" alt="" aria-hidden="true" width="16" height="16" />
                 <span class="u-font-mono" style="font-size: 0.75rem;">{{ compass.archetypes[pair.archetypeB].name }}</span>
               </div>
-              <h4 class="c-chemistry-card__title">{{ pair.title }}</h4>
+              <div class="c-chemistry-card__title">{{ pair.title }}</div>
               <p class="c-chemistry-card__tagline">{{ pair.tagline }}</p>
             </div>
             <div class="c-chemistry-card__footer">
               <span>{{ 'Double Synergy' if pair.isDouble else 'Reciprocal Duo' }}</span>
               <span>Inspect Specimen →</span>
             </div>
-          </div>
+          </button>
         {% endfor %}
       </div>
     </div>
