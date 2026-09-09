@@ -1,7 +1,7 @@
 ---
 title: "The Headless Brain: Why We Stopped Opening Obsidian and Handed It to Our AI Workers"
-date: 2026-09-08
-draft: false
+date: 2026-09-15
+draft: true
 archetype: "craftsman"
 excerpt: "Most 'Second Brain' systems fail because the maintenance overhead exceeds the value. Here is how we turned our Obsidian vault into an invisible, headless memory engine for our AI workers—and why we open-sourced the starter kit."
 author: "Stephen Page"

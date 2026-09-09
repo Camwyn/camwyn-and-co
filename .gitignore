@@ -23,6 +23,7 @@ digital_identity_mocks/**/code.html
 *.sql.gz
 *.tar.gz
 *.zip
+*.ics
 
 # Local Development & Container Configs
 .lando.yml
