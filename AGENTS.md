@@ -8,6 +8,7 @@ This document defines the operational rules, execution environment, and architec
 
 * **Atomic Commits:** Agents have a **free hand** to make frequent, small, atomic git commits as logical milestones or refactoring steps are completed.
 * **Commit Message Format:** Use structured Conventional Commits (e.g., `feat(compass): ...`, `fix(a11y): ...`, `docs(adr): ...`, `refactor(ocss): ...`).
+* **Anti-Slop Standard:** All commit messages, PR descriptions, and issue notes must strictly follow `rules/git-writing.md` (calm human voice, concrete deltas, zero synthetic cheerleading, no bold-first bullet spam).
 * 🚨 **STRICT PUSH RESTRICTION:** **Agents must NEVER execute `git push` under any circumstances.** Pushing to remote repositories and triggering CI/CD deployment pipelines is strictly reserved for the human developer.
 * **Host Execution for Git:** Always execute git commands (`git status`, `git add`, `git commit`, `git diff`) on the Windows host shell, not inside the Lando container.
 
@@ -51,6 +52,9 @@ This document defines the operational rules, execution environment, and architec
    * All major section headers (`<h2>`, `<h3>`) in Nunjucks templates (`src/*.njk`), specifications, and legal pages MUST include human-readable, kebab-case `id` attributes (e.g., `<h2 id="formspree">...</h2>`).
    * Markdown files automatically receive slugified heading IDs via our Markdown-it pipeline in `.eleventy.js`.
    * This ensures persistent deep-linking and direct cross-referencing between pages (such as Colophon to Privacy).
+7. **Native CSS First & Runtime State (`prop-for-that`):**
+   * Before adding JavaScript for visual reactivity, verify if modern CSS supports it natively (`animation-timeline: view()`, `@container`, `:has()`, `:user-valid`, `light-dark()`).
+   * When UI elements must react to runtime states CSS cannot read (pointer position/tilt, offline/online status, live character count/fill percentage), use `prop-for-that` data attributes to export `--live-*` custom properties rather than attaching custom `addEventListener` loops or interpolating inline Alpine `:style="..."` strings.
 
 ---
 
