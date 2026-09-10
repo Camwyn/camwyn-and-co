@@ -1,7 +1,7 @@
 ---
 title: "Building the Jig: Why We Incubate Our Own Tools"
 date: 2026-09-10
-draft: true
+draft: false
 archetype: "craftsman"
 excerpt: "In a woodshop, when an off-the-shelf tool doesn’t make the cut, you don’t buy a factory. You make a jig. That’s how we build software at Camwyn & Co."
 author: "Stephen Page"
