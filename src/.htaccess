@@ -44,8 +44,8 @@ AddDefaultCharset UTF-8
   # Permissions policy: restrict unneeded browser hardware capabilities
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 
-  # Content Security Policy (Report-Only initially for Alpine.js eval compatibility)
-  Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; form-action 'self' https://formspree.io; frame-ancestors 'self'"
+  # Content Security Policy (Enforcing)
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'self'"
 
   # 5. Static Asset Caching (F5)
   <FilesMatch "\.(css|js|svg|jpg|jpeg|png|webp|woff2|ico)$">
