@@ -84,6 +84,18 @@ lando test:integrity
 lando test:a11y
 ```
 
+### Pre-Launch UX & Information Architecture Gate (`website-audit`)
+Whenever modifying navigation flows, introducing or altering user journeys (e.g., Adventure Compass questions, "The Next Thing" project intake form, or section reorganizations), or preparing a milestone release:
+
+* Run the `website-audit` skill against the local development site or staging URL:
+  ```text
+  /website-audit https://camwyn-and-co.lndo.site standard
+  ```
+* **Gate Requirements:**
+  1. **Zero Critical or Serious findings:** No broken interaction paths, dead ends, or trapped keyboard focus.
+  2. **Journey Completeness:** Form states, success confirmations, and error feedback must provide clear human guidance.
+  3. **Cognitive Load:** Information hierarchy must remain uncluttered and legible at both mobile and desktop viewports.
+
 ---
 
 ## 6. Voice and Tone Governance for Generated Content
