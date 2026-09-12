@@ -1,3 +1,8 @@
+---
+mirror:
+  vault: "Areas/00 Camwyn & Co/AI CONTEXT.md"
+---
+
 # Camwyn & Co — Domain Context & Ubiquitous Language Glossary
 
 This document serves as the authoritative domain model, vocabulary, and architectural context for **Camwyn & Co.** under the Pocock AI workflow. It defines the ubiquitous language shared across templates, data matrices, and agent-generated content.

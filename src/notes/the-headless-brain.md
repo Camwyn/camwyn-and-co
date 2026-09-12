@@ -5,6 +5,8 @@ draft: true
 archetype: "craftsman"
 excerpt: "Most 'Second Brain' systems fail because the maintenance overhead exceeds the value. Here is how we turned our Obsidian vault into an invisible, headless memory engine for our AI workers—and why we open-sourced the starter kit."
 author: "Stephen Page"
+mirror:
+  vault: "Areas/00 Camwyn & Co/Dispatches/The Headless Brain - Why We Stopped Opening Obsidian.md"
 ---
 
 Most Personal Knowledge Management (PKM) systems fail for the exact same reason home gyms collect dust: **the maintenance overhead exceeds the daily value.**
@@ -91,6 +93,8 @@ Here is what happens in practice:
 > *(ChatGPT reads our brand voice rules, writes the essay, and calls `obsidian_create_note` to create the `.md` file on her disk).*
 
 Two seconds later, that new dispatch syncs to my machine. Neither of us had to touch a file tree or fiddle with YAML.
+
+> **Prerequisite:** Connecting custom MCP servers in ChatGPT Desktop requires **ChatGPT Plus, Pro, Business, Enterprise, or Edu** — it's not available on the Free plan. (Separately: ChatGPT's own upload-based Skills feature is Business/Enterprise/Edu-only, but this setup doesn't use it — the `AI CONTEXT.md` grounding here comes from a pasted custom-instructions block, available on any paid plan.)
 
 ---
 
