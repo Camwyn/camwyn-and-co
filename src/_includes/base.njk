@@ -57,6 +57,21 @@
   <link rel="stylesheet" href="/css/04-utilities/spacing.css">
   <link rel="stylesheet" href="/css/04-utilities/print.css" media="print">
 
+  <!-- Google Analytics -->
+  {% if site.googleAnalyticsId %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.googleAnalyticsId }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.googleAnalyticsId }}', {
+      anonymize_ip: true,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
+  </script>
+  {% endif %}
+
   <!-- Utilities & Alpine Store Init -->
   <script>
     window.copyToClipboard = function(text) {
