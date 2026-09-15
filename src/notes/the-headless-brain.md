@@ -21,9 +21,13 @@ We desperately needed a shared, single source of truth across our ventures. But 
 
 We didn't need another app to look at. **We needed a headless brain.**
 
-> **Doing this setup yourself, with no one else to share it with?** A few sections below assume two people. If you're the one who'll actually run the setup steps (Step 2's script, Step 3's config editing), you can skip "From Conversational Writers to Autonomous Coding Agents" (that's about keeping two people's parallel workflows in sync) and skip "One More Board on the Bench" and Part Two entirely (the hosted, multi-user build only solves a sharing problem you don't have). On one device? Skip the sync step too (Step 1 under "The Realization").
->
-> "The Real Problem: Don't Double the Noise" is still worth reading solo — it's not about sharing, it's about what your own mind needs from a tool. And if you're the non-technical reader hoping to skip the terminal entirely: be honest that Steps 2 and 3 below still require running a script and editing a config file. That's the real bar, not whether you're sharing a vault. If that's not something you want to do yourself, you're exactly the case "The Real Problem" describes — the fix isn't a simpler guide, it's having someone technical set this up for you once. Everything after that, in "How to Use It Daily," works the same for you as it does for Ivy.
+<div class="c-callout">
+
+**Doing this setup yourself, with no one else to share it with?** A few sections below assume two people. If you're the one who'll actually run the setup steps (Step 2's script, Step 3's config editing), you can skip "From Conversational Writers to Autonomous Coding Agents" (that's about keeping two people's parallel workflows in sync) and skip "One More Board on the Bench" and Part Two entirely (the hosted, multi-user build only solves a sharing problem you don't have). On one device? Skip the sync step too (Step 1 under "The Realization").
+
+"The Real Problem: Don't Double the Noise" is still worth reading solo — it's not about sharing, it's about what your own mind needs from a tool. And if you're the non-technical reader hoping to skip the terminal entirely: I'll be honest that Steps 2 and 3 below still require running a script and editing a config file. That's the real bar, not whether you're sharing a vault. If that's not something you want to do yourself, you're exactly the case "The Real Problem" describes — the fix isn't a simpler guide, it's having someone technical set this up for you once. Everything after that, in "How to Use It Daily," works the same for you as it does for Ivy.
+
+</div>
 
 ---
 

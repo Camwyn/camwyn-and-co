@@ -139,6 +139,28 @@
   margin-bottom: 0;
 }
 
+/* Note callout: a scoped aside (reader guidance, caveats), distinct from the
+   pull-quote blockquote above — smaller and sans-serif since it's read as
+   reference, not quoted as a centerpiece. */
+.c-article__body .c-callout {
+  border-left: 3px solid var(--color-muted-clay);
+  padding: var(--space-sm) var(--space-md);
+  margin: 2rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-primary);
+  background-color: var(--color-surface-container-low);
+}
+
+.c-article__body .c-callout p {
+  margin-bottom: 0.75rem;
+}
+
+.c-article__body .c-callout p:last-child {
+  margin-bottom: 0;
+}
+
 .c-article__body ul,
 .c-article__body ol {
   padding-left: 1.5rem;
