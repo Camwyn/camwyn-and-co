@@ -72,20 +72,20 @@ No proprietary database binary. No cloud lock-in. No SaaS subscription holding y
 Because the vault is just a folder of text files, we realized we could bypass the user interface entirely using the **[Model Context Protocol (MCP)](https://modelcontextprotocol.io)** and Steven Stavrakis's brilliant [`obsidian-mcp`](https://github.com/StevenStavrakis/obsidian-mcp) server.
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    Ivy's Computer                           │
-│                                                             │
-│   ┌─────────────────────┐          ┌────────────────────┐   │
-│   │   ChatGPT Desktop   │ ◄──────► │    obsidian-mcp    │   │
-│   │    (What Ivy sees)  │   MCP    │  (Headless Server) │   │
-│   └─────────────────────┘          └─────────┬──────────┘   │
-│                                              │ Reads/Writes │
-│                                              ▼              │
-│                                    ┌────────────────────┐   │
-│                                    │ Synced Vault Files │   │
-│                                    │  (No App Running!) │   │
-│                                    └────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|                    Ivy's Computer                           |
+|                                                             |
+|   +---------------------+          +--------------------+   |
+|   |   ChatGPT Desktop   | <------> |    obsidian-mcp    |   |
+|   |    (What Ivy sees)  |   MCP    |  (Headless Server) |   |
+|   +---------------------+          +---------+----------+   |
+|                                              | Reads/Writes |
+|                                              v              |
+|                                    +--------------------+   |
+|                                    | Synced Vault Files |   |
+|                                    |  (No App Running!) |   |
+|                                    +--------------------+   |
++-------------------------------------------------------------+
 ```
 
 Here is what happens in practice:
