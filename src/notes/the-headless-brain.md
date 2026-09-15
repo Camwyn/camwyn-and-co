@@ -1,7 +1,7 @@
 ---
 title: "The Headless Brain: Why We Stopped Opening Obsidian and Handed It to Our AI Workers"
 date: 2026-09-15
-draft: true
+draft: false
 archetype: "craftsman"
 excerpt: "Most 'Second Brain' systems fail because the maintenance overhead exceeds the value. Here is how we turned our Obsidian vault into an invisible, headless memory engine for our AI workers—and why we open-sourced the starter kit."
 author: "Stephen Page"
@@ -15,11 +15,15 @@ You spend three weeks down an internet rabbit hole designing the "perfect" note-
 
 So you stop opening it. The notes freeze in time. The junk drawer wins.
 
-For years, I struggled with this exact gravity. I think in systems, data flows, and code. My wife and creative partner, Ivy, thinks in story, human resonance, and narrative connection. Together, we operate **Camwyn & Co.** as an independent house of projects—incubating software like [ManyHats Ledger](https://manyhats.app), stewarding heritage livestock at Mema’s Inclination, and running literary advisory work at Poetic Entanglement.
+For years, I struggled with this exact gravity. I think in systems, data flows, and code. My wife and creative partner, Ivy, thinks in story, human resonance, and narrative connection. Together, we operate **Camwyn & Co.** as an independent house of projects—incubating software like [ManyHats Ledger](https://manyhats.app), stewarding heritage livestock at Mema's Inclination, and running literary advisory work at Poetic Entanglement.
 
 We desperately needed a shared, single source of truth across our ventures. But I knew that if that system required Ivy (or anyone else on our team) to manually wrangle Markdown formatting, manage Git merge conflicts, or memorize folder taxonomies, it would die on the vine within a month.
 
 We didn't need another app to look at. **We needed a headless brain.**
+
+> **Doing this setup yourself, with no one else to share it with?** A few sections below assume two people. If you're the one who'll actually run the setup steps (Step 2's script, Step 3's config editing), you can skip "From Conversational Writers to Autonomous Coding Agents" (that's about keeping two people's parallel workflows in sync) and skip "One More Board on the Bench" and Part Two entirely (the hosted, multi-user build only solves a sharing problem you don't have). On one device? Skip the sync step too (Step 1 under "The Realization").
+>
+> "The Real Problem: Don't Double the Noise" is still worth reading solo — it's not about sharing, it's about what your own mind needs from a tool. And if you're the non-technical reader hoping to skip the terminal entirely: be honest that Steps 2 and 3 below still require running a script and editing a config file. That's the real bar, not whether you're sharing a vault. If that's not something you want to do yourself, you're exactly the case "The Real Problem" describes — the fix isn't a simpler guide, it's having someone technical set this up for you once. Everything after that, in "How to Use It Daily," works the same for you as it does for Ivy.
 
 ---
 
@@ -57,7 +61,7 @@ So we flipped the question on its head:
 
 ### The Realization: The Filesystem Is the Database
 
-Obsidian’s greatest architectural genius is not its desktop interface. It’s the fact that an Obsidian vault is just a clean, local directory of plain Markdown (`.md`) files sitting on your physical hard drive. 
+Obsidian's greatest architectural genius is not its desktop interface. It's the fact that an Obsidian vault is just a clean, local directory of plain Markdown (`.md`) files sitting on your physical hard drive. 
 
 No proprietary database binary. No cloud lock-in. No SaaS subscription holding your life's work hostage.
 
@@ -84,7 +88,7 @@ Here is what happens in practice:
 
 1. **Invisible Sync:** We keep our master vault synchronized across machines in the background using End-to-End Encrypted (E2EE) Obsidian Sync.
 2. **Headless MCP Connection:** We hooked `obsidian-mcp` into our AI desktop clients (Ivy uses **ChatGPT Desktop** on Windows; I use **Claude Desktop** and **Antigravity IDE**).
-3. **The Zero-Friction Experience:** Obsidian does not need to be open on Ivy’s computer. She simply opens ChatGPT, which she already uses every day, and talks to it naturally:
+3. **The Zero-Friction Experience:** Obsidian does not need to be open on Ivy's computer. She simply opens ChatGPT, which she already uses every day, and talks to it naturally:
 
 > *"Can you search our Camwyn vault and give me the brand colors and approved taglines for ManyHats?"*  
 > *(ChatGPT silently queries the vault via MCP tools and responds with the exact hex codes).*
@@ -128,7 +132,7 @@ Two completely different people, working in two completely different environment
 
 ### Building the Jig (And Giving It Away)
 
-In a woodshop, when an off-the-shelf tool doesn’t make the cut, you don’t buy a factory. You make a jig. 
+In a woodshop, when an off-the-shelf tool doesn't make the cut, you don't buy a factory. You make a jig. 
 
 Once we got this headless brain running smoothly between our own desks, we realized how many solo builders, creative studios, and multi-disciplinary teams are suffocating under the weight of disorganized notes and rigid productivity apps.
 
@@ -143,6 +147,14 @@ The repository includes:
 - **1-Click Setup Scripts:** Automated PowerShell and Bash installers for Windows and macOS.
 
 You can click **"Use this template"** on GitHub, run the 10-second setup script, paste your vault path into your AI assistant, and start having real conversations with your knowledge base in under five minutes.
+
+---
+
+### One More Board on the Bench
+
+Everything above is Phase 1 — the version any solo builder or small team can stand up in an afternoon, with a synced vault and a paid Obsidian Sync subscription, no server to rent and no infrastructure to babysit. It's still exactly what we'd tell someone to start with.
+
+Since writing this, our own setup outgrew it. Two people, two vaults, and the question of what happens when someone's laptop is closed pushed us toward something bigger: a shared, hosted vault that Ivy and I both reach the same way, from anywhere, with no local server tied to either of our machines. Building that — and everything that broke on the way there — is Part Two.
 
 ---
 

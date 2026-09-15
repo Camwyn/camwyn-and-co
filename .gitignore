@@ -41,3 +41,4 @@ digital_identity_mocks/**/code.html
 id_*
 secrets.json
 credentials.json
+.agents/pending-sync.json
