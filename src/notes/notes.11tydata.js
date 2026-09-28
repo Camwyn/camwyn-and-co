@@ -25,6 +25,9 @@ module.exports = {
   tags: ["note"],
   eleventyComputed: {
     pageTitle: (data) => `${data.title} — Notes from the Field | ${data.site.name}`,
+    // A function, not a "{{ excerpt }}" string: string computed data is rendered (and
+    // escaped) by Nunjucks, then base.njk escapes it again.
+    description: (data) => data.excerpt,
     permalink: (data) => {
       if (isDraftOrScheduled(data)) {
         return false;
