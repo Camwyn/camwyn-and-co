@@ -283,6 +283,16 @@ function testXmlAndSeo() {
     assert(Boolean(ogTitle && ogDesc), `${relPath} -> Has complete og:title and og:description`);
     assert(Boolean(twitterCard === 'summary_large_image'), `${relPath} -> Has twitter:card="summary_large_image"`);
 
+    // JSDOM decodes attributes once; a leftover entity means the source was escaped twice
+    // and unfurlers will show it literally (e.g. "&#39;" in a LinkedIn card).
+    const twitterTitle = doc.querySelector('meta[name="twitter:title"]')?.getAttribute('content');
+    const twitterDesc = doc.querySelector('meta[name="twitter:description"]')?.getAttribute('content');
+    const leftoverEntity = /&(#\d+|#x[0-9a-f]+|[a-z]+);/i;
+    [['<title>', title], ['description', desc], ['og:title', ogTitle], ['og:description', ogDesc],
+     ['twitter:title', twitterTitle], ['twitter:description', twitterDesc]].forEach(([name, value]) => {
+      if (value) assert(!leftoverEntity.test(value), `${relPath} -> ${name} is not double-escaped ("${value.slice(0, 60)}")`);
+    });
+
     // Ensure OG/Twitter images use PNG (not SVG) for social crawler compatibility
     if (ogImage) {
       assert(ogImage.endsWith('.png'), `${relPath} -> og:image uses raster PNG format (${ogImage})`);
