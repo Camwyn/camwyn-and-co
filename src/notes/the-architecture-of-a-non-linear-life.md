@@ -70,7 +70,7 @@ I am moving away from the keyboard and toward the broader mission. I am looking 
 
 I don’t just manage tickets. **I manage the mission.**
 
-### [View and Download My Professional Resume](/our-story/)
+### [View and Download My Professional Resume](/wp-content/uploads/2026/06/Stephen-Page-Resume.pdf)
 
 _I am currently documenting my recent transition out of the enterprise software ecosystem through a 3-part essay series on career design, engineering archaeology, and human-first leadership. Read the series below:_
 
