@@ -28,7 +28,9 @@ function decodeEntities(str) {
     .replace(/&rdquo;/g, '”')
     .replace(/&ldquo;/g, '“')
     .replace(/&mdash;/g, '—')
-    .replace(/&ndash;/g, '–');
+    .replace(/&ndash;/g, '–')
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)));
 }
 
 function stripHtml(html) {

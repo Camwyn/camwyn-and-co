@@ -2,7 +2,7 @@
 title: "So What the Hell Is Camwyn & Co., Actually?"
 date: 2026-09-10
 archetype: "storykeeper"
-excerpt: "At 47, we&#8217;re starting a company. I&#8217;m documenting the ideas, money, mistakes, marriage and messy truth of building something from scratch."
+excerpt: "At 47, we’re starting a company. I’m documenting the ideas, money, mistakes, marriage and messy truth of building something from scratch."
 author: "Ivy Page"
 canonicalUrl: "https://ivypage.substack.com/p/so-what-the-hell-is-camwyn-and-co"
 ---
